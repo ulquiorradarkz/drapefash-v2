@@ -1,0 +1,267 @@
+{
+  "meta": {
+    "home_title": "Drape | Cyber Y2K streetwear, curated",
+    "home_desc": "Drape curates cyber Y2K streetwear from independent stores: chrome puffers, cargos, platform boots and more. Browse here, buy direct from the retailer.",
+    "shop_title": "Shop all pieces | Drape",
+    "shop_desc": "Filter curated Y2K streetwear by category, price and store. Every piece links to the store that sells it.",
+    "about_title": "About | Drape",
+    "about_desc": "Who curates Drape, how the site works and how it is paid for.",
+    "disclosure_title": "Affiliate disclosure | Drape",
+    "disclosure_desc": "How Drape earns commission through affiliate links, and why it never changes your price.",
+    "privacy_title": "Privacy | Drape",
+    "privacy_desc": "What Drape stores about you (almost nothing) and how retailer sites handle your data.",
+    "product_title": "{name}, {store} | Drape",
+    "notfound_title": "Page not found | Drape",
+    "notfound_desc": "This page does not exist on Drape."
+  },
+  "nav": {
+    "skip": "Skip to content",
+    "main": "Main",
+    "home": "Home",
+    "shop": "Shop",
+    "about": "About",
+    "disclosure": "Affiliate disclosure",
+    "privacy": "Privacy",
+    "language": "Language",
+    "logo": "Drape home",
+    "admin": "Dashboard"
+  },
+  "home": {
+    "eyebrow": "The AW26 edit",
+    "title": "Chrome-plated streetwear, picked by hand.",
+    "sub": "Drape hunts down cyber Y2K pieces across independent stores. Browse them here, then buy straight from the shop that sells them.",
+    "cta_shop": "Shop the edit",
+    "cta_how": "How Drape works",
+    "featured_title": "Featured drops",
+    "featured_sub": "Eight pieces we keep coming back to this week.",
+    "featured_list": "Featured pieces",
+    "prev": "Previous pieces",
+    "next": "Next pieces",
+    "categories_title": "Shop by category",
+    "categories_sub": "Start with what you're missing.",
+    "view_all": "View all pieces",
+    "how_title": "How Drape works",
+    "steps": [
+      {
+        "t": "We curate",
+        "p": "Our editors pick pieces from independent labels and online stores."
+      },
+      {
+        "t": "You click through",
+        "p": "Each product links to the retailer's own page with our affiliate code."
+      },
+      {
+        "t": "The store ships",
+        "p": "You pay the retailer directly. Prices, sizing and returns are theirs."
+      }
+    ],
+    "stores_title": "We pick from stores you know",
+    "stores_sub": "Every piece comes from AliExpress, SHEIN or Bulchic. You buy on their site, at their price."
+  },
+  "cat": {
+    "all": "All categories",
+    "tops": "Tops & Tees",
+    "bottoms": "Pants & Skirts",
+    "outerwear": "Jackets & Coats",
+    "footwear": "Shoes",
+    "accessories": "Bags & Extras"
+  },
+  "shop": {
+    "title": "Shop all",
+    "sub": "Every piece links out to the store that sells it. Prices are set by each retailer.",
+    "filters": "Filters",
+    "search": "Search",
+    "search_placeholder": "Name or store",
+    "category": "Category",
+    "price": "Max price",
+    "price_value": "Up to {price}",
+    "sort": "Sort by",
+    "sort_featured": "Featured first",
+    "sort_low": "Price: low to high",
+    "sort_high": "Price: high to low",
+    "reset": "Clear filters",
+    "results": {
+      "one": "{n} piece",
+      "other": "{n} pieces"
+    },
+    "empty_title": "Nothing matches those filters",
+    "empty_text": "Raise the max price or clear a filter to see more pieces.",
+    "noscript": "Filtering needs JavaScript. All pieces are listed below.",
+    "store": "Store"
+  },
+  "product": {
+    "shop_at": "Shop on {store}",
+    "shop_now": "Shop",
+    "new_tab": "opens the retailer's site in a new tab",
+    "breadcrumb": "Breadcrumb",
+    "disclosure": "Affiliate link. If you buy through this button, Drape may earn a commission from {store} at no extra cost to you. The retailer sets the price and handles delivery and returns.",
+    "disclosure_link": "Read the full disclosure",
+    "price_note": "Guide price from the retailer. Check their site for the current price.",
+    "details": "Details",
+    "category": "Category",
+    "ref": "Reference",
+    "related": "More in {category}",
+    "back": "Back to shop",
+    "img_alt": "{name} from {store}",
+    "featured": "Featured",
+    "store": "Store"
+  },
+  "footer": {
+    "tagline": "Cyber Y2K streetwear, curated from stores we trust.",
+    "disclosure_title": "Affiliate disclosure",
+    "disclosure": "Drape is reader-supported. When you buy through links on this site we may earn a commission. It never changes the price you pay.",
+    "disclosure_link": "How it works",
+    "explore": "Explore",
+    "legal": "Legal",
+    "language": "Language",
+    "copyright": "© {year} Drape. Prices and availability are set by retailers."
+  },
+  "error": {
+    "nf_title": "This page drifted into the void",
+    "nf_text": "The link may be out of date, or the page has moved. The shop is still here.",
+    "nf_cta": "Go to the shop",
+    "img": "Image unavailable"
+  },
+  "root": {
+    "choose": "Choose your language"
+  },
+  "pages": {
+    "about": {
+      "title": "About Drape",
+      "lead": "Drape is an independent edit of cyber Y2K streetwear: chrome, mesh, platforms and everything that glows.",
+      "sections": [
+        {
+          "h": "What we do",
+          "p": "We search AliExpress, SHEIN and Bulchic for pieces that fit the look, then collect them here with honest notes. We don't make clothes and we don't hold stock."
+        },
+        {
+          "h": "How you buy",
+          "p": "When you choose a piece, we send you to the retailer that sells it. You check out on their site, and they handle payment, shipping, sizing and returns."
+        },
+        {
+          "h": "How we're paid",
+          "p": "Some links earn us a small commission when you buy. It never adds to your price, and it never decides what we feature."
+        },
+        {
+          "h": "Seven languages",
+          "p": "Drape is written in English, Mandarin, Hindi, Spanish, French, Arabic and Bengali. Pick yours from the language menu at the top of any page."
+        }
+      ]
+    },
+    "disclosure": {
+      "title": "Affiliate disclosure",
+      "lead": "Drape earns money through affiliate links. Here is exactly how that works.",
+      "sections": [
+        {
+          "h": "Affiliate links",
+          "p": "Every \"Shop\" button on Drape is an affiliate link. If you click one and buy something, the retailer may pay us a commission."
+        },
+        {
+          "h": "Your price stays the same",
+          "p": "The commission comes from the retailer's marketing budget. You pay the same price you would pay going to the store directly."
+        },
+        {
+          "h": "Editorial independence",
+          "p": "Retailers cannot pay to appear on Drape. We choose pieces for how they look and how they're made, then look for an affiliate link afterwards."
+        },
+        {
+          "h": "Prices and stock",
+          "p": "Prices shown here are a guide, recorded when we added the piece. The retailer's site always has the final price, sizes and availability."
+        },
+        {
+          "h": "Links marked as sponsored",
+          "p": "Outbound shop links are tagged {code} so search engines know they are paid links."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy",
+      "lead": "Drape collects as little as possible. This page explains what that means.",
+      "updated": "Last updated: {date}",
+      "sections": [
+        {
+          "h": "What we store",
+          "p": "We save your language choice in your browser's local storage so the site opens in the same language next time. It stays on your device and we never receive it."
+        },
+        {
+          "h": "No accounts, no checkout",
+          "p": "You can't create an account or pay on Drape, so we never collect your name, address or card details."
+        },
+        {
+          "h": "Retailer sites",
+          "p": "When you follow a shop link, the retailer and its affiliate network may set their own cookies to track the sale. Their privacy policies apply on their sites."
+        },
+        {
+          "h": "Fonts",
+          "p": "Typefaces load from Google Fonts, which receives your IP address to deliver the files."
+        },
+        {
+          "h": "Contact",
+          "p": "Questions about privacy? Write to {email} and we'll reply within 30 days."
+        }
+      ]
+    }
+  },
+  "admin": {
+    "title": "Dashboard",
+    "need_claude": "The dashboard works inside Claude. Open your artifact link while signed in to claude.ai.",
+    "owner_only": "Only the owner of this site can open the dashboard.",
+    "loading": "Loading…",
+    "tab_overview": "Overview",
+    "tab_products": "Products",
+    "tab_add": "Add a product",
+    "kpi_products": "Products",
+    "kpi_views": "Product views",
+    "kpi_clicks": "Shop clicks",
+    "kpi_ctr": "Click rate",
+    "chart_title": "Last 14 days",
+    "legend_views": "Views",
+    "legend_clicks": "Clicks",
+    "top_title": "Most clicked products",
+    "by_store": "Clicks by store",
+    "by_lang": "Views by language",
+    "stats_note": "Counts come from signed-in visitors who can write to this site's data (Contributor access or higher). For all public traffic and your commissions, check your AliExpress, SHEIN and Bulchic affiliate dashboards.",
+    "no_stats": "No visits recorded yet.",
+    "col_product": "Product",
+    "col_store": "Store",
+    "col_category": "Category",
+    "col_price": "Price",
+    "col_views": "Views",
+    "col_clicks": "Clicks",
+    "col_featured": "Home page",
+    "col_actions": "Actions",
+    "edit": "Edit",
+    "delete": "Delete",
+    "confirm_delete": "Delete this product?",
+    "yes_delete": "Yes, delete",
+    "cancel": "Cancel",
+    "link": "Product link",
+    "link_hint": "Paste your affiliate link from AliExpress, SHEIN or Bulchic.",
+    "store_detected": "Store: {store}",
+    "store_unknown": "Unknown store. Choose one:",
+    "photo": "Product photo",
+    "photo_hint": "Drop, paste (Ctrl+V) or choose the product photo. A screenshot of the product page also works: Claude reads the price from it.",
+    "photo_choose": "Choose a photo",
+    "price": "Price",
+    "currency": "Currency",
+    "category": "Category",
+    "featured": "Show on the home page",
+    "autofill": "Fill in with Claude",
+    "autofill_busy": "Claude is writing the details…",
+    "autofill_done": "Done. Check the text, then save.",
+    "autofill_error": "Claude could not fill this in. Write the details yourself, or try again.",
+    "autofill_unavailable": "Auto-fill is not available here.",
+    "names_title": "Name and description (all 7 languages)",
+    "name": "Name",
+    "description": "Description",
+    "save": "Save and publish",
+    "saving": "Publishing…",
+    "saved": "Published. The product is live in the shop.",
+    "save_error": "Could not publish. Check your connection and try again.",
+    "missing": "Fill in every field before saving: link, photo, price and all 7 names and descriptions.",
+    "new_item": "New",
+    "extract_note": "Pages hosted here cannot open store websites, so the photo and price come from you. Claude writes the rest.",
+    "empty_products": "No products yet.",
+    "publish_note": "Saving publishes a new version of the site. Every open copy reloads."
+  }
+}

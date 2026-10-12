@@ -1,0 +1,9 @@
+[
+  { "code": "en", "htmlLang": "en",      "name": "English",  "dir": "ltr", "ogLocale": "en_US", "dateLocale": "en-US",          "font": null },
+  { "code": "zh", "htmlLang": "zh-Hans", "name": "中文",      "dir": "ltr", "ogLocale": "zh_CN", "dateLocale": "zh-CN",          "font": "Noto Sans SC" },
+  { "code": "hi", "htmlLang": "hi",      "name": "हिन्दी",     "dir": "ltr", "ogLocale": "hi_IN", "dateLocale": "hi-IN-u-nu-latn", "font": "Noto Sans Devanagari" },
+  { "code": "es", "htmlLang": "es",      "name": "Español",  "dir": "ltr", "ogLocale": "es_ES", "dateLocale": "es-ES",          "font": null },
+  { "code": "fr", "htmlLang": "fr",      "name": "Français", "dir": "ltr", "ogLocale": "fr_FR", "dateLocale": "fr-FR",          "font": null },
+  { "code": "ar", "htmlLang": "ar",      "name": "العربية",   "dir": "rtl", "ogLocale": "ar_AR", "dateLocale": "ar-u-nu-latn",   "font": "Cairo" },
+  { "code": "bn", "htmlLang": "bn",      "name": "বাংলা",     "dir": "ltr", "ogLocale": "bn_BD", "dateLocale": "bn-BD-u-nu-latn", "font": "Noto Sans Bengali" }
+]

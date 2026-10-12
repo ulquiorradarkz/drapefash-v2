@@ -1,0 +1,2797 @@
+{
+  "ar": {
+    "home@390": [
+      {
+        "item": "1 html lang=\"ar\" dir=\"rtl\"",
+        "pass": true,
+        "detail": "lang=ar dir=rtl"
+      },
+      {
+        "item": "3 .site-header direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .main-nav direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .carousel direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .site-footer direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 header: logo at inline-start (right)",
+        "pass": true,
+        "detail": "logo.right=374"
+      },
+      {
+        "item": "3 header: language switcher at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 footer columns mirror",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 carousel starts at the right",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "4 directional icons mirrored",
+        "pass": true,
+        "detail": "20/20"
+      },
+      {
+        "item": "4 non-directional icons not mirrored",
+        "pass": true,
+        "detail": "27 checked"
+      },
+      {
+        "item": "5 chrome gradient angle reversed (255deg)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "5 headline chrome drift reversed",
+        "pass": true,
+        "detail": "alternate-reverse"
+      },
+      {
+        "item": "5 button shine starts at inline-start (right)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "6 wordmark #1 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 wordmark #2 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 prices / store names / numbers isolated LTR",
+        "pass": true,
+        "detail": "8 checked"
+      },
+      {
+        "item": "6 \"Drape\" and store names isolated in Arabic prose",
+        "pass": true,
+        "detail": "8 runs"
+      },
+      {
+        "item": "7 no letter-spacing on Arabic text",
+        "pass": true,
+        "detail": "69 text elements"
+      },
+      {
+        "item": "7 Arabic line-height >= 1.7",
+        "pass": true,
+        "detail": "ok"
+      },
+      {
+        "item": "7 Arabic font (Cairo)",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "item": "no horizontal page overflow",
+        "pass": true,
+        "detail": "390/390"
+      },
+      {
+        "item": "3 carousel next scrolls toward the left",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "8 language switcher anchored to inline-end, rtl",
+        "pass": true,
+        "detail": ""
+      }
+    ],
+    "home@1280": [
+      {
+        "item": "1 html lang=\"ar\" dir=\"rtl\"",
+        "pass": true,
+        "detail": "lang=ar dir=rtl"
+      },
+      {
+        "item": "3 .site-header direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .main-nav direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .carousel direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .site-footer direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 header: logo at inline-start (right)",
+        "pass": true,
+        "detail": "logo.right=1236"
+      },
+      {
+        "item": "3 header: language switcher at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 store tiles run right-to-left",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 footer columns mirror",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 carousel starts at the right",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "4 directional icons mirrored",
+        "pass": true,
+        "detail": "20/20"
+      },
+      {
+        "item": "4 non-directional icons not mirrored",
+        "pass": true,
+        "detail": "27 checked"
+      },
+      {
+        "item": "5 chrome gradient angle reversed (255deg)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "5 headline chrome drift reversed",
+        "pass": true,
+        "detail": "alternate-reverse"
+      },
+      {
+        "item": "5 button shine starts at inline-start (right)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "6 wordmark #1 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 wordmark #2 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 prices / store names / numbers isolated LTR",
+        "pass": true,
+        "detail": "8 checked"
+      },
+      {
+        "item": "6 \"Drape\" and store names isolated in Arabic prose",
+        "pass": true,
+        "detail": "8 runs"
+      },
+      {
+        "item": "7 no letter-spacing on Arabic text",
+        "pass": true,
+        "detail": "69 text elements"
+      },
+      {
+        "item": "7 Arabic line-height >= 1.7",
+        "pass": true,
+        "detail": "ok"
+      },
+      {
+        "item": "7 Arabic font (Cairo)",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "item": "no horizontal page overflow",
+        "pass": true,
+        "detail": "1280/1280"
+      },
+      {
+        "item": "3 carousel next scrolls toward the left",
+        "pass": true,
+        "detail": ""
+      }
+    ],
+    "shop@390": [
+      {
+        "item": "1 html lang=\"ar\" dir=\"rtl\"",
+        "pass": true,
+        "detail": "lang=ar dir=rtl"
+      },
+      {
+        "item": "3 .site-header direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .main-nav direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .breadcrumbs direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .filters direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 #grid direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .site-footer direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 header: logo at inline-start (right)",
+        "pass": true,
+        "detail": "logo.right=374"
+      },
+      {
+        "item": "3 header: language switcher at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 breadcrumbs run right-to-left",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 product grid fills right-to-left",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 footer columns mirror",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3/8 price slider direction rtl",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "4 directional icons mirrored",
+        "pass": true,
+        "detail": "25/25"
+      },
+      {
+        "item": "4 non-directional icons not mirrored",
+        "pass": true,
+        "detail": "31 checked"
+      },
+      {
+        "item": "5 chrome gradient angle reversed (255deg)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "5 button shine starts at inline-start (right)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "6 wordmark #1 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 wordmark #2 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 prices / store names / numbers isolated LTR",
+        "pass": true,
+        "detail": "24 checked"
+      },
+      {
+        "item": "6 \"Drape\" and store names isolated in Arabic prose",
+        "pass": true,
+        "detail": "2 runs"
+      },
+      {
+        "item": "7 no letter-spacing on Arabic text",
+        "pass": true,
+        "detail": "96 text elements"
+      },
+      {
+        "item": "7 Arabic line-height >= 1.7",
+        "pass": true,
+        "detail": "ok"
+      },
+      {
+        "item": "7 Arabic font (Cairo)",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "item": "8 search input rtl, text-align start",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "8 dropdown rtl, arrow at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "no horizontal page overflow",
+        "pass": true,
+        "detail": "390/390"
+      },
+      {
+        "item": "shop: price + store filters work, empty state hidden",
+        "pass": true,
+        "detail": "11 under $60"
+      }
+    ],
+    "shop@1280": [
+      {
+        "item": "1 html lang=\"ar\" dir=\"rtl\"",
+        "pass": true,
+        "detail": "lang=ar dir=rtl"
+      },
+      {
+        "item": "3 .site-header direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .main-nav direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .breadcrumbs direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .filters direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 #grid direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .site-footer direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 header: logo at inline-start (right)",
+        "pass": true,
+        "detail": "logo.right=1236"
+      },
+      {
+        "item": "3 header: language switcher at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 breadcrumbs run right-to-left",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 product grid fills right-to-left",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 filters sidebar on the right",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 footer columns mirror",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3/8 price slider direction rtl",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "4 directional icons mirrored",
+        "pass": true,
+        "detail": "25/25"
+      },
+      {
+        "item": "4 non-directional icons not mirrored",
+        "pass": true,
+        "detail": "31 checked"
+      },
+      {
+        "item": "5 chrome gradient angle reversed (255deg)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "5 button shine starts at inline-start (right)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "6 wordmark #1 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 wordmark #2 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 prices / store names / numbers isolated LTR",
+        "pass": true,
+        "detail": "24 checked"
+      },
+      {
+        "item": "6 \"Drape\" and store names isolated in Arabic prose",
+        "pass": true,
+        "detail": "2 runs"
+      },
+      {
+        "item": "7 no letter-spacing on Arabic text",
+        "pass": true,
+        "detail": "95 text elements"
+      },
+      {
+        "item": "7 Arabic line-height >= 1.7",
+        "pass": true,
+        "detail": "ok"
+      },
+      {
+        "item": "7 Arabic font (Cairo)",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "item": "8 search input rtl, text-align start",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "8 dropdown rtl, arrow at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "no horizontal page overflow",
+        "pass": true,
+        "detail": "1280/1280"
+      },
+      {
+        "item": "shop: price + store filters work, empty state hidden",
+        "pass": true,
+        "detail": "11 under $60"
+      }
+    ],
+    "product@390": [
+      {
+        "item": "1 html lang=\"ar\" dir=\"rtl\"",
+        "pass": true,
+        "detail": "lang=ar dir=rtl"
+      },
+      {
+        "item": "3 .site-header direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .main-nav direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .breadcrumbs direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .site-footer direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 header: logo at inline-start (right)",
+        "pass": true,
+        "detail": "logo.right=374"
+      },
+      {
+        "item": "3 header: language switcher at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 breadcrumbs run right-to-left",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 product grid fills right-to-left",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 footer columns mirror",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "4 directional icons mirrored",
+        "pass": true,
+        "detail": "9/9"
+      },
+      {
+        "item": "4 non-directional icons not mirrored",
+        "pass": true,
+        "detail": "8 checked"
+      },
+      {
+        "item": "5 chrome gradient angle reversed (255deg)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "5 button shine starts at inline-start (right)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "6 wordmark #1 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 wordmark #2 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 prices / store names / numbers isolated LTR",
+        "pass": true,
+        "detail": "7 checked"
+      },
+      {
+        "item": "6 \"Drape\" and store names isolated in Arabic prose",
+        "pass": true,
+        "detail": "6 runs"
+      },
+      {
+        "item": "7 no letter-spacing on Arabic text",
+        "pass": true,
+        "detail": "46 text elements"
+      },
+      {
+        "item": "7 Arabic line-height >= 1.7",
+        "pass": true,
+        "detail": "ok"
+      },
+      {
+        "item": "7 Arabic font (Cairo)",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "item": "no horizontal page overflow",
+        "pass": true,
+        "detail": "390/390"
+      }
+    ],
+    "product@1280": [
+      {
+        "item": "1 html lang=\"ar\" dir=\"rtl\"",
+        "pass": true,
+        "detail": "lang=ar dir=rtl"
+      },
+      {
+        "item": "3 .site-header direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .main-nav direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .breadcrumbs direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .site-footer direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 header: logo at inline-start (right)",
+        "pass": true,
+        "detail": "logo.right=1236"
+      },
+      {
+        "item": "3 header: language switcher at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 breadcrumbs run right-to-left",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 product grid fills right-to-left",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 footer columns mirror",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "4 directional icons mirrored",
+        "pass": true,
+        "detail": "9/9"
+      },
+      {
+        "item": "4 non-directional icons not mirrored",
+        "pass": true,
+        "detail": "8 checked"
+      },
+      {
+        "item": "5 chrome gradient angle reversed (255deg)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "5 button shine starts at inline-start (right)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "6 wordmark #1 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 wordmark #2 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 prices / store names / numbers isolated LTR",
+        "pass": true,
+        "detail": "7 checked"
+      },
+      {
+        "item": "6 \"Drape\" and store names isolated in Arabic prose",
+        "pass": true,
+        "detail": "6 runs"
+      },
+      {
+        "item": "7 no letter-spacing on Arabic text",
+        "pass": true,
+        "detail": "46 text elements"
+      },
+      {
+        "item": "7 Arabic line-height >= 1.7",
+        "pass": true,
+        "detail": "ok"
+      },
+      {
+        "item": "7 Arabic font (Cairo)",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "item": "no horizontal page overflow",
+        "pass": true,
+        "detail": "1280/1280"
+      }
+    ],
+    "about@390": [
+      {
+        "item": "1 html lang=\"ar\" dir=\"rtl\"",
+        "pass": true,
+        "detail": "lang=ar dir=rtl"
+      },
+      {
+        "item": "3 .site-header direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .main-nav direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .breadcrumbs direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .site-footer direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 header: logo at inline-start (right)",
+        "pass": true,
+        "detail": "logo.right=374"
+      },
+      {
+        "item": "3 header: language switcher at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 breadcrumbs run right-to-left",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 footer columns mirror",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "4 directional icons mirrored",
+        "pass": true,
+        "detail": "1/1"
+      },
+      {
+        "item": "4 non-directional icons not mirrored",
+        "pass": true,
+        "detail": "3 checked"
+      },
+      {
+        "item": "5 chrome gradient angle reversed (255deg)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "6 wordmark #1 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 wordmark #2 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 prices / store names / numbers isolated LTR",
+        "pass": true,
+        "detail": "0 checked"
+      },
+      {
+        "item": "6 \"Drape\" and store names isolated in Arabic prose",
+        "pass": true,
+        "detail": "8 runs"
+      },
+      {
+        "item": "7 no letter-spacing on Arabic text",
+        "pass": true,
+        "detail": "33 text elements"
+      },
+      {
+        "item": "7 Arabic line-height >= 1.7",
+        "pass": true,
+        "detail": "ok"
+      },
+      {
+        "item": "7 Arabic font (Cairo)",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "item": "no horizontal page overflow",
+        "pass": true,
+        "detail": "390/390"
+      }
+    ],
+    "about@1280": [
+      {
+        "item": "1 html lang=\"ar\" dir=\"rtl\"",
+        "pass": true,
+        "detail": "lang=ar dir=rtl"
+      },
+      {
+        "item": "3 .site-header direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .main-nav direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .breadcrumbs direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .site-footer direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 header: logo at inline-start (right)",
+        "pass": true,
+        "detail": "logo.right=1236"
+      },
+      {
+        "item": "3 header: language switcher at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 breadcrumbs run right-to-left",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 footer columns mirror",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "4 directional icons mirrored",
+        "pass": true,
+        "detail": "1/1"
+      },
+      {
+        "item": "4 non-directional icons not mirrored",
+        "pass": true,
+        "detail": "3 checked"
+      },
+      {
+        "item": "5 chrome gradient angle reversed (255deg)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "6 wordmark #1 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 wordmark #2 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 prices / store names / numbers isolated LTR",
+        "pass": true,
+        "detail": "0 checked"
+      },
+      {
+        "item": "6 \"Drape\" and store names isolated in Arabic prose",
+        "pass": true,
+        "detail": "8 runs"
+      },
+      {
+        "item": "7 no letter-spacing on Arabic text",
+        "pass": true,
+        "detail": "33 text elements"
+      },
+      {
+        "item": "7 Arabic line-height >= 1.7",
+        "pass": true,
+        "detail": "ok"
+      },
+      {
+        "item": "7 Arabic font (Cairo)",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "item": "no horizontal page overflow",
+        "pass": true,
+        "detail": "1280/1280"
+      }
+    ],
+    "disclosure@390": [
+      {
+        "item": "1 html lang=\"ar\" dir=\"rtl\"",
+        "pass": true,
+        "detail": "lang=ar dir=rtl"
+      },
+      {
+        "item": "3 .site-header direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .main-nav direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .breadcrumbs direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .site-footer direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 header: logo at inline-start (right)",
+        "pass": true,
+        "detail": "logo.right=374"
+      },
+      {
+        "item": "3 header: language switcher at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 breadcrumbs run right-to-left",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 footer columns mirror",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "4 directional icons mirrored",
+        "pass": true,
+        "detail": "1/1"
+      },
+      {
+        "item": "4 non-directional icons not mirrored",
+        "pass": true,
+        "detail": "3 checked"
+      },
+      {
+        "item": "5 chrome gradient angle reversed (255deg)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "6 wordmark #1 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 wordmark #2 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 prices / store names / numbers isolated LTR",
+        "pass": true,
+        "detail": "0 checked"
+      },
+      {
+        "item": "6 \"Drape\" and store names isolated in Arabic prose",
+        "pass": true,
+        "detail": "5 runs"
+      },
+      {
+        "item": "7 no letter-spacing on Arabic text",
+        "pass": true,
+        "detail": "35 text elements"
+      },
+      {
+        "item": "7 Arabic line-height >= 1.7",
+        "pass": true,
+        "detail": "ok"
+      },
+      {
+        "item": "7 Arabic font (Cairo)",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "item": "no horizontal page overflow",
+        "pass": true,
+        "detail": "390/390"
+      }
+    ],
+    "disclosure@1280": [
+      {
+        "item": "1 html lang=\"ar\" dir=\"rtl\"",
+        "pass": true,
+        "detail": "lang=ar dir=rtl"
+      },
+      {
+        "item": "3 .site-header direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .main-nav direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .breadcrumbs direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .site-footer direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 header: logo at inline-start (right)",
+        "pass": true,
+        "detail": "logo.right=1236"
+      },
+      {
+        "item": "3 header: language switcher at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 breadcrumbs run right-to-left",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 footer columns mirror",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "4 directional icons mirrored",
+        "pass": true,
+        "detail": "1/1"
+      },
+      {
+        "item": "4 non-directional icons not mirrored",
+        "pass": true,
+        "detail": "3 checked"
+      },
+      {
+        "item": "5 chrome gradient angle reversed (255deg)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "6 wordmark #1 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 wordmark #2 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 prices / store names / numbers isolated LTR",
+        "pass": true,
+        "detail": "0 checked"
+      },
+      {
+        "item": "6 \"Drape\" and store names isolated in Arabic prose",
+        "pass": true,
+        "detail": "5 runs"
+      },
+      {
+        "item": "7 no letter-spacing on Arabic text",
+        "pass": true,
+        "detail": "35 text elements"
+      },
+      {
+        "item": "7 Arabic line-height >= 1.7",
+        "pass": true,
+        "detail": "ok"
+      },
+      {
+        "item": "7 Arabic font (Cairo)",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "item": "no horizontal page overflow",
+        "pass": true,
+        "detail": "1280/1280"
+      }
+    ],
+    "privacy@390": [
+      {
+        "item": "1 html lang=\"ar\" dir=\"rtl\"",
+        "pass": true,
+        "detail": "lang=ar dir=rtl"
+      },
+      {
+        "item": "3 .site-header direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .main-nav direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .breadcrumbs direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .site-footer direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 header: logo at inline-start (right)",
+        "pass": true,
+        "detail": "logo.right=374"
+      },
+      {
+        "item": "3 header: language switcher at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 breadcrumbs run right-to-left",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 footer columns mirror",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "4 directional icons mirrored",
+        "pass": true,
+        "detail": "1/1"
+      },
+      {
+        "item": "4 non-directional icons not mirrored",
+        "pass": true,
+        "detail": "3 checked"
+      },
+      {
+        "item": "5 chrome gradient angle reversed (255deg)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "6 wordmark #1 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 wordmark #2 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 prices / store names / numbers isolated LTR",
+        "pass": true,
+        "detail": "0 checked"
+      },
+      {
+        "item": "6 \"Drape\" and store names isolated in Arabic prose",
+        "pass": true,
+        "detail": "4 runs"
+      },
+      {
+        "item": "7 no letter-spacing on Arabic text",
+        "pass": true,
+        "detail": "37 text elements"
+      },
+      {
+        "item": "7 Arabic line-height >= 1.7",
+        "pass": true,
+        "detail": "ok"
+      },
+      {
+        "item": "7 Arabic font (Cairo)",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "item": "no horizontal page overflow",
+        "pass": true,
+        "detail": "390/390"
+      }
+    ],
+    "privacy@1280": [
+      {
+        "item": "1 html lang=\"ar\" dir=\"rtl\"",
+        "pass": true,
+        "detail": "lang=ar dir=rtl"
+      },
+      {
+        "item": "3 .site-header direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .main-nav direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .breadcrumbs direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .site-footer direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 header: logo at inline-start (right)",
+        "pass": true,
+        "detail": "logo.right=1236"
+      },
+      {
+        "item": "3 header: language switcher at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 breadcrumbs run right-to-left",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 footer columns mirror",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "4 directional icons mirrored",
+        "pass": true,
+        "detail": "1/1"
+      },
+      {
+        "item": "4 non-directional icons not mirrored",
+        "pass": true,
+        "detail": "3 checked"
+      },
+      {
+        "item": "5 chrome gradient angle reversed (255deg)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "6 wordmark #1 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 wordmark #2 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 prices / store names / numbers isolated LTR",
+        "pass": true,
+        "detail": "0 checked"
+      },
+      {
+        "item": "6 \"Drape\" and store names isolated in Arabic prose",
+        "pass": true,
+        "detail": "4 runs"
+      },
+      {
+        "item": "7 no letter-spacing on Arabic text",
+        "pass": true,
+        "detail": "37 text elements"
+      },
+      {
+        "item": "7 Arabic line-height >= 1.7",
+        "pass": true,
+        "detail": "ok"
+      },
+      {
+        "item": "7 Arabic font (Cairo)",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "item": "no horizontal page overflow",
+        "pass": true,
+        "detail": "1280/1280"
+      }
+    ],
+    "notfound@390": [
+      {
+        "item": "1 html lang=\"ar\" dir=\"rtl\"",
+        "pass": true,
+        "detail": "lang=ar dir=rtl"
+      },
+      {
+        "item": "3 .site-header direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .main-nav direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .site-footer direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 header: logo at inline-start (right)",
+        "pass": true,
+        "detail": "logo.right=374"
+      },
+      {
+        "item": "3 header: language switcher at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 footer columns mirror",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "4 directional icons mirrored",
+        "pass": true,
+        "detail": "1/1"
+      },
+      {
+        "item": "4 non-directional icons not mirrored",
+        "pass": true,
+        "detail": "3 checked"
+      },
+      {
+        "item": "5 chrome gradient angle reversed (255deg)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "5 button shine starts at inline-start (right)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "6 wordmark #1 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 wordmark #2 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 prices / store names / numbers isolated LTR",
+        "pass": true,
+        "detail": "0 checked"
+      },
+      {
+        "item": "6 \"Drape\" and store names isolated in Arabic prose",
+        "pass": true,
+        "detail": "2 runs"
+      },
+      {
+        "item": "7 no letter-spacing on Arabic text",
+        "pass": true,
+        "detail": "24 text elements"
+      },
+      {
+        "item": "7 Arabic line-height >= 1.7",
+        "pass": true,
+        "detail": "ok"
+      },
+      {
+        "item": "7 Arabic font (Cairo)",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "item": "no horizontal page overflow",
+        "pass": true,
+        "detail": "390/390"
+      }
+    ],
+    "notfound@1280": [
+      {
+        "item": "1 html lang=\"ar\" dir=\"rtl\"",
+        "pass": true,
+        "detail": "lang=ar dir=rtl"
+      },
+      {
+        "item": "3 .site-header direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .main-nav direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .site-footer direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 header: logo at inline-start (right)",
+        "pass": true,
+        "detail": "logo.right=1236"
+      },
+      {
+        "item": "3 header: language switcher at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 footer columns mirror",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "4 directional icons mirrored",
+        "pass": true,
+        "detail": "1/1"
+      },
+      {
+        "item": "4 non-directional icons not mirrored",
+        "pass": true,
+        "detail": "3 checked"
+      },
+      {
+        "item": "5 chrome gradient angle reversed (255deg)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "5 button shine starts at inline-start (right)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "6 wordmark #1 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 wordmark #2 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 prices / store names / numbers isolated LTR",
+        "pass": true,
+        "detail": "0 checked"
+      },
+      {
+        "item": "6 \"Drape\" and store names isolated in Arabic prose",
+        "pass": true,
+        "detail": "2 runs"
+      },
+      {
+        "item": "7 no letter-spacing on Arabic text",
+        "pass": true,
+        "detail": "24 text elements"
+      },
+      {
+        "item": "7 Arabic line-height >= 1.7",
+        "pass": true,
+        "detail": "ok"
+      },
+      {
+        "item": "7 Arabic font (Cairo)",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "item": "no horizontal page overflow",
+        "pass": true,
+        "detail": "1280/1280"
+      }
+    ],
+    "admin-overview@390": [
+      {
+        "item": "1 html lang=\"ar\" dir=\"rtl\"",
+        "pass": true,
+        "detail": "lang=ar dir=rtl"
+      },
+      {
+        "item": "3 .site-header direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .main-nav direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .site-footer direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .admin-tabs direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .kpis direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 header: logo at inline-start (right)",
+        "pass": true,
+        "detail": "logo.right=374"
+      },
+      {
+        "item": "3 header: language switcher at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 dashboard tabs run right-to-left",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 footer columns mirror",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "4 non-directional icons not mirrored",
+        "pass": true,
+        "detail": "7 checked"
+      },
+      {
+        "item": "5 chrome gradient angle reversed (255deg)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "6 wordmark #1 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 wordmark #2 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 prices / store names / numbers isolated LTR",
+        "pass": true,
+        "detail": "14 checked"
+      },
+      {
+        "item": "6 \"Drape\" and store names isolated in Arabic prose",
+        "pass": true,
+        "detail": "5 runs"
+      },
+      {
+        "item": "7 no letter-spacing on Arabic text",
+        "pass": true,
+        "detail": "42 text elements"
+      },
+      {
+        "item": "7 Arabic line-height >= 1.7",
+        "pass": true,
+        "detail": "ok"
+      },
+      {
+        "item": "7 Arabic font (Cairo)",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "item": "no horizontal page overflow",
+        "pass": true,
+        "detail": "390/390"
+      }
+    ],
+    "admin-products@390": [
+      {
+        "item": "1 html lang=\"ar\" dir=\"rtl\"",
+        "pass": true,
+        "detail": "lang=ar dir=rtl"
+      },
+      {
+        "item": "3 .site-header direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .main-nav direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .site-footer direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .admin-tabs direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 header: logo at inline-start (right)",
+        "pass": true,
+        "detail": "logo.right=374"
+      },
+      {
+        "item": "3 header: language switcher at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 dashboard tabs run right-to-left",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 footer columns mirror",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "4 non-directional icons not mirrored",
+        "pass": true,
+        "detail": "55 checked"
+      },
+      {
+        "item": "5 chrome gradient angle reversed (255deg)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "6 wordmark #1 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 wordmark #2 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 prices / store names / numbers isolated LTR",
+        "pass": true,
+        "detail": "24 checked"
+      },
+      {
+        "item": "6 \"Drape\" and store names isolated in Arabic prose",
+        "pass": true,
+        "detail": "2 runs"
+      },
+      {
+        "item": "7 no letter-spacing on Arabic text",
+        "pass": true,
+        "detail": "146 text elements"
+      },
+      {
+        "item": "7 Arabic line-height >= 1.7",
+        "pass": true,
+        "detail": "ok"
+      },
+      {
+        "item": "7 Arabic font (Cairo)",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "item": "no horizontal page overflow",
+        "pass": true,
+        "detail": "390/390"
+      }
+    ],
+    "admin-add@390": [
+      {
+        "item": "1 html lang=\"ar\" dir=\"rtl\"",
+        "pass": true,
+        "detail": "lang=ar dir=rtl"
+      },
+      {
+        "item": "3 .site-header direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .main-nav direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .site-footer direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .admin-tabs direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .add-form direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 header: logo at inline-start (right)",
+        "pass": true,
+        "detail": "logo.right=374"
+      },
+      {
+        "item": "3 header: language switcher at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 dashboard tabs run right-to-left",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 footer columns mirror",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "4 non-directional icons not mirrored",
+        "pass": true,
+        "detail": "11 checked"
+      },
+      {
+        "item": "5 chrome gradient angle reversed (255deg)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "5 button shine starts at inline-start (right)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "6 wordmark #1 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 wordmark #2 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 prices / store names / numbers isolated LTR",
+        "pass": true,
+        "detail": "0 checked"
+      },
+      {
+        "item": "6 \"Drape\" and store names isolated in Arabic prose",
+        "pass": true,
+        "detail": "5 runs"
+      },
+      {
+        "item": "7 no letter-spacing on Arabic text",
+        "pass": true,
+        "detail": "54 text elements"
+      },
+      {
+        "item": "7 Arabic line-height >= 1.7",
+        "pass": true,
+        "detail": "ok"
+      },
+      {
+        "item": "7 Arabic font (Cairo)",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "item": "8 dropdown rtl, arrow at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "8 per-language inputs: en LTR, ar RTL",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "8 URL / price inputs stay LTR",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "no horizontal page overflow",
+        "pass": true,
+        "detail": "390/390"
+      }
+    ],
+    "admin-overview@1280": [
+      {
+        "item": "1 html lang=\"ar\" dir=\"rtl\"",
+        "pass": true,
+        "detail": "lang=ar dir=rtl"
+      },
+      {
+        "item": "3 .site-header direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .main-nav direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .site-footer direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .admin-tabs direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .kpis direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 header: logo at inline-start (right)",
+        "pass": true,
+        "detail": "logo.right=1236"
+      },
+      {
+        "item": "3 header: language switcher at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 dashboard tabs run right-to-left",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 footer columns mirror",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "4 non-directional icons not mirrored",
+        "pass": true,
+        "detail": "7 checked"
+      },
+      {
+        "item": "5 chrome gradient angle reversed (255deg)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "6 wordmark #1 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 wordmark #2 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 prices / store names / numbers isolated LTR",
+        "pass": true,
+        "detail": "14 checked"
+      },
+      {
+        "item": "6 \"Drape\" and store names isolated in Arabic prose",
+        "pass": true,
+        "detail": "5 runs"
+      },
+      {
+        "item": "7 no letter-spacing on Arabic text",
+        "pass": true,
+        "detail": "42 text elements"
+      },
+      {
+        "item": "7 Arabic line-height >= 1.7",
+        "pass": true,
+        "detail": "ok"
+      },
+      {
+        "item": "7 Arabic font (Cairo)",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "item": "no horizontal page overflow",
+        "pass": true,
+        "detail": "1280/1280"
+      }
+    ],
+    "admin-products@1280": [
+      {
+        "item": "1 html lang=\"ar\" dir=\"rtl\"",
+        "pass": true,
+        "detail": "lang=ar dir=rtl"
+      },
+      {
+        "item": "3 .site-header direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .main-nav direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .site-footer direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .admin-tabs direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 header: logo at inline-start (right)",
+        "pass": true,
+        "detail": "logo.right=1236"
+      },
+      {
+        "item": "3 header: language switcher at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 dashboard tabs run right-to-left",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 footer columns mirror",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "4 non-directional icons not mirrored",
+        "pass": true,
+        "detail": "55 checked"
+      },
+      {
+        "item": "5 chrome gradient angle reversed (255deg)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "6 wordmark #1 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 wordmark #2 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 prices / store names / numbers isolated LTR",
+        "pass": true,
+        "detail": "24 checked"
+      },
+      {
+        "item": "6 \"Drape\" and store names isolated in Arabic prose",
+        "pass": true,
+        "detail": "2 runs"
+      },
+      {
+        "item": "7 no letter-spacing on Arabic text",
+        "pass": true,
+        "detail": "146 text elements"
+      },
+      {
+        "item": "7 Arabic line-height >= 1.7",
+        "pass": true,
+        "detail": "ok"
+      },
+      {
+        "item": "7 Arabic font (Cairo)",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "item": "no horizontal page overflow",
+        "pass": true,
+        "detail": "1280/1280"
+      }
+    ],
+    "admin-add@1280": [
+      {
+        "item": "1 html lang=\"ar\" dir=\"rtl\"",
+        "pass": true,
+        "detail": "lang=ar dir=rtl"
+      },
+      {
+        "item": "3 .site-header direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .main-nav direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .site-footer direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .admin-tabs direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 .add-form direction rtl",
+        "pass": true,
+        "detail": "rtl"
+      },
+      {
+        "item": "3 header: logo at inline-start (right)",
+        "pass": true,
+        "detail": "logo.right=1236"
+      },
+      {
+        "item": "3 header: language switcher at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 dashboard tabs run right-to-left",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "3 footer columns mirror",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "4 non-directional icons not mirrored",
+        "pass": true,
+        "detail": "11 checked"
+      },
+      {
+        "item": "5 chrome gradient angle reversed (255deg)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "5 button shine starts at inline-start (right)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "6 wordmark #1 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 wordmark #2 stays LTR",
+        "pass": true,
+        "detail": "ltr"
+      },
+      {
+        "item": "6 prices / store names / numbers isolated LTR",
+        "pass": true,
+        "detail": "0 checked"
+      },
+      {
+        "item": "6 \"Drape\" and store names isolated in Arabic prose",
+        "pass": true,
+        "detail": "5 runs"
+      },
+      {
+        "item": "7 no letter-spacing on Arabic text",
+        "pass": true,
+        "detail": "54 text elements"
+      },
+      {
+        "item": "7 Arabic line-height >= 1.7",
+        "pass": true,
+        "detail": "ok"
+      },
+      {
+        "item": "7 Arabic font (Cairo)",
+        "pass": false,
+        "detail": ""
+      },
+      {
+        "item": "8 dropdown rtl, arrow at inline-end (left)",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "8 per-language inputs: en LTR, ar RTL",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "8 URL / price inputs stay LTR",
+        "pass": true,
+        "detail": ""
+      },
+      {
+        "item": "no horizontal page overflow",
+        "pass": true,
+        "detail": "1280/1280"
+      }
+    ]
+  },
+  "motion": [
+    {
+      "item": "en: WebGL chrome star rendered",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "item": "en: store marquee moves toward the left",
+      "pass": true,
+      "detail": "dx=-33.9px"
+    },
+    {
+      "item": "ar: WebGL chrome star rendered",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "item": "ar: store marquee moves toward the right (RTL)",
+      "pass": true,
+      "detail": "dx=40.7px"
+    },
+    {
+      "item": "3D tilt applies on pointer move",
+      "pass": true,
+      "detail": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1"
+    },
+    {
+      "item": "glare follows the pointer",
+      "pass": false,
+      "detail": "opacity=0"
+    },
+    {
+      "item": "reduced motion: marquee, shine and button sweep off",
+      "pass": true,
+      "detail": "{\"marquee\":\"none\",\"shine\":\"none\",\"btn\":\"none\"}"
+    }
+  ],
+  "admin": [
+    {
+      "item": "owner sees the Dashboard link in the header",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "item": "overview: KPIs, 14-day chart, top products from stats",
+      "pass": true,
+      "detail": "{\"kpis\":[\"24\",\"29\",\"8\",\"27.6%\"],\"bars\":28,\"top\":6}"
+    },
+    {
+      "item": "store auto-detected from the link (SHEIN)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "item": "photo upload -> compressed preview",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "item": "Claude auto-fill: 7 languages, category, visible price; photo sent",
+      "pass": true,
+      "detail": "{\"ar\":\"Ø¬Ø§ÙƒÙŠØª Ø¨ÙˆÙ…Ø¨Ø± Ø´Ø¨ÙƒÙŠ ÙØ¶ÙŠ\",\"cat\":\"outerwear\",\"price\":\"47.5\"}"
+    },
+    {
+      "item": "save republishes the page with the new product first",
+      "pass": true,
+      "detail": "products=25"
+    },
+    {
+      "item": "delete (with inline confirm) republishes without the product",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "item": "non-owner is shown the owner-only message, no dashboard",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "item": "outside Claude: dashboard explains it needs Claude",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "visitor": [
+    {
+      "item": "visitor product view + shop click recorded to stats/<id>",
+      "pass": true,
+      "detail": "{\"views\":{\"p16\":1},\"clicks\":{\"p16\":1},\"stores\":{\"aliexpress\":1}}"
+    }
+  ],
+  "scripts": {
+    "zh/home": {
+      "covered": true,
+      "els": 71,
+      "missing": 0,
+      "overflow": false
+    },
+    "zh/product": {
+      "covered": true,
+      "els": 48,
+      "missing": 0,
+      "overflow": false
+    },
+    "zh/shop": {
+      "covered": true,
+      "els": 105,
+      "missing": 0,
+      "overflow": false
+    },
+    "zh/admin": {
+      "covered": true,
+      "els": 61,
+      "missing": 0,
+      "overflow": false
+    },
+    "hi/home": {
+      "covered": true,
+      "els": 71,
+      "missing": 0,
+      "overflow": false
+    },
+    "hi/product": {
+      "covered": true,
+      "els": 48,
+      "missing": 0,
+      "overflow": false
+    },
+    "hi/shop": {
+      "covered": true,
+      "els": 105,
+      "missing": 0,
+      "overflow": false
+    },
+    "hi/admin": {
+      "covered": true,
+      "els": 61,
+      "missing": 0,
+      "overflow": false
+    },
+    "bn/home": {
+      "covered": true,
+      "els": 71,
+      "missing": 0,
+      "overflow": false
+    },
+    "bn/product": {
+      "covered": true,
+      "els": 48,
+      "missing": 0,
+      "overflow": false
+    },
+    "bn/shop": {
+      "covered": true,
+      "els": 105,
+      "missing": 0,
+      "overflow": false
+    },
+    "bn/admin": {
+      "covered": true,
+      "els": 61,
+      "missing": 0,
+      "overflow": false
+    }
+  },
+  "overflow": [
+    {
+      "url": "#/en",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/en",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/en/shop",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/en/shop",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/en/product/p04",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/en/product/p04",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/en/privacy",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/en/privacy",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/en/admin",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/en/admin",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/zh",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/zh",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/zh/shop",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/zh/shop",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/zh/product/p04",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/zh/product/p04",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/zh/privacy",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/zh/privacy",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/zh/admin",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/zh/admin",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/hi",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/hi",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/hi/shop",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/hi/shop",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/hi/product/p04",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/hi/product/p04",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/hi/privacy",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/hi/privacy",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/hi/admin",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/hi/admin",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/es",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/es",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/es/shop",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/es/shop",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/es/product/p04",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/es/product/p04",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/es/privacy",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/es/privacy",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/es/admin",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/es/admin",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/fr",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/fr",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/fr/shop",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/fr/shop",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/fr/product/p04",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/fr/product/p04",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/fr/privacy",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/fr/privacy",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/fr/admin",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/fr/admin",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/ar",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/ar",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/ar/shop",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/ar/shop",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/ar/product/p04",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/ar/product/p04",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/ar/privacy",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/ar/privacy",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/ar/admin",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/ar/admin",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/bn",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/bn",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/bn/shop",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/bn/shop",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/bn/product/p04",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/bn/product/p04",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/bn/privacy",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/bn/privacy",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    },
+    {
+      "url": "#/bn/admin",
+      "w": 390,
+      "pass": true,
+      "detail": "390/390"
+    },
+    {
+      "url": "#/bn/admin",
+      "w": 1280,
+      "pass": true,
+      "detail": "1280/1280"
+    }
+  ],
+  "errors": []
+}

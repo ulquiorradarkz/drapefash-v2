@@ -1,0 +1,268 @@
+{
+  "meta": {
+    "home_title": "Drape | Streetwear cyber Y2K seleccionado",
+    "home_desc": "Drape selecciona streetwear cyber Y2K de tiendas independientes: plumíferos cromados, cargos, botas de plataforma y más. Descubre aquí y compra directamente al vendedor.",
+    "shop_title": "Todas las prendas | Drape",
+    "shop_desc": "Filtra streetwear Y2K seleccionado por categoría, precio y tienda. Cada prenda enlaza a la tienda que la vende.",
+    "about_title": "Quiénes somos | Drape",
+    "about_desc": "Quién selecciona Drape, cómo funciona el sitio y cómo se financia.",
+    "disclosure_title": "Divulgación de afiliados | Drape",
+    "disclosure_desc": "Cómo gana Drape comisiones con enlaces de afiliado y por qué nunca cambia tu precio.",
+    "privacy_title": "Privacidad | Drape",
+    "privacy_desc": "Qué guarda Drape sobre ti (casi nada) y cómo tratan tus datos las tiendas.",
+    "product_title": "{name}, {store} | Drape",
+    "notfound_title": "Página no encontrada | Drape",
+    "notfound_desc": "Esta página no existe en Drape."
+  },
+  "nav": {
+    "skip": "Saltar al contenido",
+    "main": "Principal",
+    "home": "Inicio",
+    "shop": "Tienda",
+    "about": "Quiénes somos",
+    "disclosure": "Divulgación de afiliados",
+    "privacy": "Privacidad",
+    "language": "Idioma",
+    "logo": "Inicio de Drape",
+    "admin": "Panel"
+  },
+  "home": {
+    "eyebrow": "Selección OI26",
+    "title": "Streetwear cromado, elegido a mano.",
+    "sub": "Drape rastrea prendas cyber Y2K en tiendas independientes. Descúbrelas aquí y cómpralas directamente en la tienda que las vende.",
+    "cta_shop": "Ver la selección",
+    "cta_how": "Cómo funciona Drape",
+    "featured_title": "Lanzamientos destacados",
+    "featured_sub": "Ocho prendas a las que no dejamos de volver esta semana.",
+    "featured_list": "Prendas destacadas",
+    "prev": "Prendas anteriores",
+    "next": "Prendas siguientes",
+    "categories_title": "Compra por categoría",
+    "categories_sub": "Empieza por lo que te falta.",
+    "view_all": "Ver todas las prendas",
+    "how_title": "Cómo funciona Drape",
+    "steps": [
+      {
+        "t": "Seleccionamos",
+        "p": "Nuestro equipo elige prendas de marcas independientes y tiendas online."
+      },
+      {
+        "t": "Haces clic",
+        "p": "Cada producto enlaza a la página del vendedor con nuestro código de afiliado."
+      },
+      {
+        "t": "La tienda envía",
+        "p": "Pagas directamente al vendedor. Precios, tallas y devoluciones dependen de él."
+      }
+    ],
+    "stores_title": "Elegimos en tiendas que ya conoces",
+    "stores_sub": "Cada prenda viene de AliExpress, SHEIN o Bulchic. Compras en su web, a su precio."
+  },
+  "cat": {
+    "all": "Todas las categorías",
+    "tops": "Tops y camisetas",
+    "bottoms": "Pantalones y faldas",
+    "outerwear": "Chaquetas y abrigos",
+    "footwear": "Zapatos",
+    "accessories": "Bolsos y extras"
+  },
+  "shop": {
+    "title": "Todas las prendas",
+    "sub": "Cada prenda enlaza a la tienda que la vende. Cada vendedor fija sus precios.",
+    "filters": "Filtros",
+    "search": "Buscar",
+    "search_placeholder": "Nombre o tienda",
+    "category": "Categoría",
+    "price": "Precio máximo",
+    "price_value": "Hasta {price}",
+    "sort": "Ordenar por",
+    "sort_featured": "Destacados primero",
+    "sort_low": "Precio: de menor a mayor",
+    "sort_high": "Precio: de mayor a menor",
+    "reset": "Borrar filtros",
+    "results": {
+      "one": "{n} prenda",
+      "many": "{n} prendas",
+      "other": "{n} prendas"
+    },
+    "empty_title": "Ninguna prenda coincide con esos filtros",
+    "empty_text": "Sube el precio máximo o quita un filtro para ver más prendas.",
+    "noscript": "Los filtros necesitan JavaScript. Todas las prendas aparecen abajo.",
+    "store": "Tienda"
+  },
+  "product": {
+    "shop_at": "Comprar en {store}",
+    "shop_now": "Comprar",
+    "new_tab": "abre la web del vendedor en una pestaña nueva",
+    "breadcrumb": "Ruta de navegación",
+    "disclosure": "Enlace de afiliado: si compras con este botón, Drape puede recibir una comisión de {store} sin coste adicional para ti. El vendedor fija el precio y gestiona el envío y las devoluciones.",
+    "disclosure_link": "Lee la divulgación completa",
+    "price_note": "Precio orientativo del vendedor. Consulta su web para ver el precio actual.",
+    "details": "Detalles",
+    "category": "Categoría",
+    "ref": "Referencia",
+    "related": "Más en {category}",
+    "back": "Volver a la tienda",
+    "img_alt": "{name} de {store}",
+    "featured": "Destacado",
+    "store": "Tienda"
+  },
+  "footer": {
+    "tagline": "Streetwear cyber Y2K, seleccionado de tiendas en las que confiamos.",
+    "disclosure_title": "Divulgación de afiliados",
+    "disclosure": "Drape se financia gracias a sus lectores. Cuando compras a través de los enlaces de este sitio, podemos ganar una comisión. Eso nunca cambia el precio que pagas.",
+    "disclosure_link": "Cómo funciona",
+    "explore": "Explorar",
+    "legal": "Legal",
+    "language": "Idioma",
+    "copyright": "© {year} Drape. Los precios y la disponibilidad los fijan los vendedores."
+  },
+  "error": {
+    "nf_title": "Esta página se perdió en el vacío",
+    "nf_text": "Puede que el enlace esté desactualizado o que la página se haya movido. La tienda sigue aquí.",
+    "nf_cta": "Ir a la tienda",
+    "img": "Imagen no disponible"
+  },
+  "root": {
+    "choose": "Elige tu idioma"
+  },
+  "pages": {
+    "about": {
+      "title": "Sobre Drape",
+      "lead": "Drape es una selección independiente de streetwear cyber Y2K: cromo, malla, plataformas y todo lo que brilla.",
+      "sections": [
+        {
+          "h": "Qué hacemos",
+          "p": "Buscamos en AliExpress, SHEIN y Bulchic prendas que encajen con la estética y las reunimos aquí con notas sinceras. No fabricamos ropa ni tenemos stock."
+        },
+        {
+          "h": "Cómo compras",
+          "p": "Cuando eliges una prenda, te enviamos a la tienda que la vende. Pagas en su web, y ella se encarga del pago, el envío, las tallas y las devoluciones."
+        },
+        {
+          "h": "Cómo nos financiamos",
+          "p": "Algunos enlaces nos dan una pequeña comisión cuando compras. Nunca encarece tu compra ni decide qué mostramos."
+        },
+        {
+          "h": "Siete idiomas",
+          "p": "Drape está en inglés, mandarín, hindi, español, francés, árabe y bengalí. Elige el tuyo en el menú de idioma, arriba en cualquier página."
+        }
+      ]
+    },
+    "disclosure": {
+      "title": "Divulgación de afiliados",
+      "lead": "Drape gana dinero con enlaces de afiliado. Así funciona exactamente.",
+      "sections": [
+        {
+          "h": "Enlaces de afiliado",
+          "p": "Cada botón «Comprar» de Drape es un enlace de afiliado. Si haces clic y compras algo, la tienda puede pagarnos una comisión."
+        },
+        {
+          "h": "Tu precio no cambia",
+          "p": "La comisión sale del presupuesto de marketing de la tienda. Pagas lo mismo que si fueras directamente a la tienda."
+        },
+        {
+          "h": "Independencia editorial",
+          "p": "Las tiendas no pueden pagar para aparecer en Drape. Elegimos las prendas por su aspecto y su confección, y solo después buscamos un enlace de afiliado."
+        },
+        {
+          "h": "Precios y stock",
+          "p": "Los precios que mostramos son orientativos y se tomaron al añadir la prenda. La web de la tienda siempre tiene el precio final, las tallas y la disponibilidad."
+        },
+        {
+          "h": "Enlaces marcados como patrocinados",
+          "p": "Los enlaces de compra salientes llevan la etiqueta {code} para que los buscadores sepan que son enlaces de pago."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacidad",
+      "lead": "Drape recopila lo mínimo posible. Esta página explica qué significa eso.",
+      "updated": "Última actualización: {date}",
+      "sections": [
+        {
+          "h": "Qué guardamos",
+          "p": "Guardamos tu idioma elegido en el almacenamiento local de tu navegador para que el sitio se abra en el mismo idioma la próxima vez. Se queda en tu dispositivo y nunca nos llega."
+        },
+        {
+          "h": "Sin cuentas ni pagos",
+          "p": "En Drape no puedes crear una cuenta ni pagar, así que nunca recopilamos tu nombre, tu dirección ni los datos de tu tarjeta."
+        },
+        {
+          "h": "Webs de las tiendas",
+          "p": "Cuando sigues un enlace de compra, la tienda y su red de afiliados pueden usar sus propias cookies para registrar la venta. En sus webs se aplican sus políticas de privacidad."
+        },
+        {
+          "h": "Fuentes",
+          "p": "Las tipografías se cargan desde Google Fonts, que recibe tu dirección IP para enviar los archivos."
+        },
+        {
+          "h": "Contacto",
+          "p": "¿Tienes preguntas sobre privacidad? Escribe a {email} y te responderemos en un plazo de 30 días."
+        }
+      ]
+    }
+  },
+  "admin": {
+    "title": "Panel",
+    "need_claude": "El panel funciona dentro de Claude. Abre el enlace de tu artifact con la sesión iniciada en claude.ai.",
+    "owner_only": "Solo la persona propietaria del sitio puede abrir el panel.",
+    "loading": "Cargando…",
+    "tab_overview": "Resumen",
+    "tab_products": "Productos",
+    "tab_add": "Añadir producto",
+    "kpi_products": "Productos",
+    "kpi_views": "Vistas de producto",
+    "kpi_clicks": "Clics a tienda",
+    "kpi_ctr": "Tasa de clics",
+    "chart_title": "Últimos 14 días",
+    "legend_views": "Vistas",
+    "legend_clicks": "Clics",
+    "top_title": "Productos con más clics",
+    "by_store": "Clics por tienda",
+    "by_lang": "Vistas por idioma",
+    "stats_note": "Los datos vienen de visitantes con sesión iniciada que pueden escribir en los datos del sitio (acceso de colaborador o superior). Para todo el tráfico público y tus comisiones, consulta tus paneles de afiliado de AliExpress, SHEIN y Bulchic.",
+    "no_stats": "Aún no hay visitas registradas.",
+    "col_product": "Producto",
+    "col_store": "Tienda",
+    "col_category": "Categoría",
+    "col_price": "Precio",
+    "col_views": "Vistas",
+    "col_clicks": "Clics",
+    "col_featured": "Portada",
+    "col_actions": "Acciones",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "confirm_delete": "¿Eliminar este producto?",
+    "yes_delete": "Sí, eliminar",
+    "cancel": "Cancelar",
+    "link": "Enlace del producto",
+    "link_hint": "Pega tu enlace de afiliado de AliExpress, SHEIN o Bulchic.",
+    "store_detected": "Tienda: {store}",
+    "store_unknown": "Tienda no reconocida. Elige una:",
+    "photo": "Foto del producto",
+    "photo_hint": "Arrastra, pega (Ctrl+V) o elige la foto del producto. También sirve una captura de la página del producto: Claude lee el precio en ella.",
+    "photo_choose": "Elegir foto",
+    "price": "Precio",
+    "currency": "Moneda",
+    "category": "Categoría",
+    "featured": "Mostrar en la portada",
+    "autofill": "Rellenar con Claude",
+    "autofill_busy": "Claude está escribiendo los detalles…",
+    "autofill_done": "Listo. Revisa el texto y guarda.",
+    "autofill_error": "Claude no pudo rellenarlo. Escribe los detalles tú o vuelve a intentarlo.",
+    "autofill_unavailable": "El autorrelleno no está disponible aquí.",
+    "names_title": "Nombre y descripción (los 7 idiomas)",
+    "name": "Nombre",
+    "description": "Descripción",
+    "save": "Guardar y publicar",
+    "saving": "Publicando…",
+    "saved": "Publicado. El producto ya está en la tienda.",
+    "save_error": "No se pudo publicar. Revisa tu conexión e inténtalo de nuevo.",
+    "missing": "Rellena todo antes de guardar: enlace, foto, precio y los nombres y descripciones en los 7 idiomas.",
+    "new_item": "Nuevo",
+    "extract_note": "Las páginas alojadas aquí no pueden abrir webs de tiendas, así que la foto y el precio los pones tú. Claude escribe el resto.",
+    "empty_products": "Todavía no hay productos.",
+    "publish_note": "Al guardar se publica una nueva versión del sitio. Todas las copias abiertas se recargan."
+  }
+}

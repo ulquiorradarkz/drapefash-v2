@@ -1,0 +1,23 @@
+[
+  {
+    "id": "aliexpress",
+    "name": "AliExpress",
+    "domains": ["aliexpress.com", "aliexpress.us", "aliexpress.ru", "aliexpress.ru", "a.aliexpress.com", "s.click.aliexpress.com"],
+    "color": "#FF4747",
+    "logo": "assets/stores/aliexpress.svg"
+  },
+  {
+    "id": "shein",
+    "name": "SHEIN",
+    "domains": ["shein.com", "shein.co.uk", "shein.top", "onelink.shein.com", "api-shein.shein.com"],
+    "color": "#111111",
+    "logo": "assets/stores/shein.svg"
+  },
+  {
+    "id": "bulchic",
+    "name": "Bulchic",
+    "domains": ["bulchic.com"],
+    "color": "#C2185B",
+    "logo": "assets/stores/bulchic.svg"
+  }
+]

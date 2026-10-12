@@ -1,0 +1,8 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "echo no-deps",
+  "framework": null,
+  "cleanUrls": false,
+  "trailingSlash": true
+}

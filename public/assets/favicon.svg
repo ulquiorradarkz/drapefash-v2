@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-17 -10 80 80"><defs>
+<linearGradient id="fv-g" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#FFFFFF"/><stop offset=".28" stop-color="#C9D1DF"/><stop offset=".5" stop-color="#9FD8FF"/><stop offset=".68" stop-color="#EEF1F8"/><stop offset="1" stop-color="#A78BFA"/>
+</linearGradient>
+<linearGradient id="fv-s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#BFE6FF"/></linearGradient>
+<filter id="fv-f" x="-20%" y="-40%" width="140%" height="180%"><feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#A78BFA" flood-opacity=".55"/></filter>
+</defs><rect x="-17" y="-10" width="80" height="80" rx="16" fill="#05060A"/><path d="M-6 -6L30 0L48 16L48 46L30 64L-6 70L6 54L6 10Z M18 12L27 12L36 21L36 43L27 52L18 52Z" fill-rule="evenodd" fill="url(#fv-g)" filter="url(#fv-f)"/><path d="M51 -9Q52.26 -1.2600000000000002 60 0Q52.26 1.2600000000000002 51 9Q49.74 1.2600000000000002 42 0Q49.74 -1.2600000000000002 51 -9Z" fill="url(#fv-s)"/></svg>

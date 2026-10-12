@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+<defs>
+<radialGradient id="bg" cx=".5" cy=".42" r=".75"><stop offset="0" stop-color="hsl(72,45%,20%)"/><stop offset=".55" stop-color="#0B0D14"/><stop offset="1" stop-color="#05060A"/></radialGradient>
+<linearGradient id="c" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".3" stop-color="hsl(72,85%,84%)"/><stop offset=".55" stop-color="#DDE3EE"/><stop offset=".8" stop-color="hsl(142,70%,74%)"/><stop offset="1" stop-color="#7F74C4"/></linearGradient>
+<pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M25 0H0V25" fill="none" stroke="hsl(72,60%,70%)" stroke-opacity=".12"/></pattern>
+<pattern id="mesh" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0 5L5 0L10 5L5 10Z" fill="none" stroke="#FFFFFF" stroke-opacity=".75" stroke-width="1.2"/></pattern>
+</defs>
+<rect width="400" height="500" fill="url(#bg)"/>
+<rect width="400" height="500" fill="url(#grid)"/>
+<circle cx="200" cy="250" r="150" fill="none" stroke="hsl(72,70%,75%)" stroke-opacity=".18" stroke-width="1.5"/>
+<ellipse cx="200" cy="440" rx="130" ry="14" fill="#000" opacity=".5"/>
+<path d="M70 330Q76 262 140 246L200 232Q232 262 286 270Q336 280 336 320L336 340L70 340Z" fill="url(#c)" stroke="rgba(255,255,255,.7)" stroke-width="1.5"/><path d="M62 338L344 338Q346 380 316 386L90 386Q58 380 62 338Z" fill="#E8ECF5" stroke="rgba(10,12,22,.3)" stroke-width="2"/><path d="M60 362Q120 350 180 364T300 362" stroke="rgba(10,12,22,.38)" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M168 250L200 280M184 244L214 272M200 240L230 266" stroke="rgba(10,12,22,.38)" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M100 300Q150 280 230 300" stroke="#A78BFA" stroke-width="6" fill="none"/>
+<path d="M332 56Q334.52 71.48 350 74Q334.52 76.52 332 92Q329.48 76.52 314 74Q329.48 71.48 332 56Z" fill="#FFFFFF" opacity=".9"/>
+<path d="M64 410Q65.4 418.6 74 420Q65.4 421.4 64 430Q62.6 421.4 54 420Q62.6 418.6 64 410Z" fill="hsl(72,90%,85%)" opacity=".8"/>
+<path d="M360 134Q360.84 139.16 366 140Q360.84 140.84 360 146Q359.16 140.84 354 140Q359.16 139.16 360 134Z" fill="#FFFFFF" opacity=".6"/>
+</svg>

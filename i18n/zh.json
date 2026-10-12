@@ -1,0 +1,266 @@
+{
+  "meta": {
+    "home_title": "Drape | 精选赛博 Y2K 街头潮服",
+    "home_desc": "Drape 从独立店铺精选赛博 Y2K 街头潮服：铬银羽绒服、工装裤、厚底靴等。在这里浏览，直接向零售商购买。",
+    "shop_title": "全部单品 | Drape",
+    "shop_desc": "按品类、价格和店铺筛选精选 Y2K 街头潮服。每件单品都链接到售卖它的店铺。",
+    "about_title": "关于我们 | Drape",
+    "about_desc": "谁在为 Drape 选品、网站如何运作，以及我们如何获得收入。",
+    "disclosure_title": "联盟营销披露 | Drape",
+    "disclosure_desc": "Drape 如何通过联盟链接获得佣金，以及为什么这不会改变你支付的价格。",
+    "privacy_title": "隐私政策 | Drape",
+    "privacy_desc": "Drape 会保存哪些关于你的信息（几乎没有），以及零售商网站如何处理你的数据。",
+    "product_title": "{name}，{store} | Drape",
+    "notfound_title": "页面未找到 | Drape",
+    "notfound_desc": "Drape 上不存在此页面。"
+  },
+  "nav": {
+    "skip": "跳到正文",
+    "main": "主导航",
+    "home": "首页",
+    "shop": "选购",
+    "about": "关于",
+    "disclosure": "联盟营销披露",
+    "privacy": "隐私",
+    "language": "语言",
+    "logo": "Drape 首页",
+    "admin": "控制台"
+  },
+  "home": {
+    "eyebrow": "2026 秋冬精选",
+    "title": "镀铬质感街头潮服，逐件亲手挑选。",
+    "sub": "Drape 在各家独立店铺中搜寻赛博 Y2K 单品。在这里浏览，然后直接从售卖它们的店铺购买。",
+    "cta_shop": "选购本季精选",
+    "cta_how": "了解 Drape 如何运作",
+    "featured_title": "精选上新",
+    "featured_sub": "本周我们反复回看的八件单品。",
+    "featured_list": "精选单品",
+    "prev": "上一组单品",
+    "next": "下一组单品",
+    "categories_title": "按品类选购",
+    "categories_sub": "从你衣橱里缺的那件开始。",
+    "view_all": "查看全部单品",
+    "how_title": "Drape 如何运作",
+    "steps": [
+      {
+        "t": "我们选品",
+        "p": "编辑从独立品牌和网店中挑选单品。"
+      },
+      {
+        "t": "你点击跳转",
+        "p": "每件单品都链接到零售商自己的页面，并附带我们的联盟代码。"
+      },
+      {
+        "t": "店铺发货",
+        "p": "你直接向零售商付款。价格、尺码和退换货均由零售商负责。"
+      }
+    ],
+    "stores_title": "我们只从你熟悉的店铺选品",
+    "stores_sub": "每件单品都来自 AliExpress、SHEIN 或 Bulchic。你在他们的网站上按他们的价格购买。"
+  },
+  "cat": {
+    "all": "全部品类",
+    "tops": "上衣与T恤",
+    "bottoms": "裤装与半裙",
+    "outerwear": "夹克与大衣",
+    "footwear": "鞋履",
+    "accessories": "包袋与配饰"
+  },
+  "shop": {
+    "title": "全部单品",
+    "sub": "每件单品都链接到售卖它的店铺。价格由各零售商设定。",
+    "filters": "筛选",
+    "search": "搜索",
+    "search_placeholder": "名称或店铺",
+    "category": "品类",
+    "price": "最高价格",
+    "price_value": "不超过 {price}",
+    "sort": "排序方式",
+    "sort_featured": "精选优先",
+    "sort_low": "价格从低到高",
+    "sort_high": "价格从高到低",
+    "reset": "清除筛选",
+    "results": {
+      "other": "{n} 件单品"
+    },
+    "empty_title": "没有符合筛选条件的单品",
+    "empty_text": "提高最高价格或清除某个筛选条件，即可看到更多单品。",
+    "noscript": "筛选功能需要 JavaScript。所有单品都列在下方。",
+    "store": "店铺"
+  },
+  "product": {
+    "shop_at": "前往 {store} 购买",
+    "shop_now": "去购买",
+    "new_tab": "在新标签页中打开零售商网站",
+    "breadcrumb": "面包屑导航",
+    "disclosure": "联盟链接：如果你通过此按钮购买，Drape 可能会从 {store} 获得佣金，你无需支付任何额外费用。价格由零售商设定，配送和退换货也由其负责。",
+    "disclosure_link": "阅读完整披露声明",
+    "price_note": "零售商提供的参考价格。当前价格请以其网站为准。",
+    "details": "详情",
+    "category": "品类",
+    "ref": "编号",
+    "related": "更多{category}",
+    "back": "返回选购",
+    "img_alt": "{store} 的{name}",
+    "featured": "精选",
+    "store": "店铺"
+  },
+  "footer": {
+    "tagline": "精选赛博 Y2K 街头潮服，来自我们信赖的店铺。",
+    "disclosure_title": "联盟营销披露",
+    "disclosure": "Drape 由读者支持。当你通过本站链接购物时，我们可能会获得佣金，但这绝不会改变你支付的价格。",
+    "disclosure_link": "了解详情",
+    "explore": "探索",
+    "legal": "法律信息",
+    "language": "语言",
+    "copyright": "© {year} Drape。价格与库存由零售商决定。"
+  },
+  "error": {
+    "nf_title": "这个页面飘进了虚空",
+    "nf_text": "链接可能已过期，或页面已被移动。商店依然在这里。",
+    "nf_cta": "前往选购",
+    "img": "图片无法显示"
+  },
+  "root": {
+    "choose": "选择你的语言"
+  },
+  "pages": {
+    "about": {
+      "title": "关于 Drape",
+      "lead": "Drape 是一份独立的赛博 Y2K 街头潮服精选：铬银、网纱、厚底，以及一切会发光的东西。",
+      "sections": [
+        {
+          "h": "我们做什么",
+          "p": "我们在 AliExpress、SHEIN 和 Bulchic 上寻找符合这种风格的单品，附上真实的点评后收录在这里。我们不生产服装，也不囤货。"
+        },
+        {
+          "h": "如何购买",
+          "p": "当你选中一件单品，我们会把你带到售卖它的零售商。你在对方网站上结账，付款、配送、尺码和退换货都由零售商处理。"
+        },
+        {
+          "h": "我们如何获得收入",
+          "p": "部分链接会在你购买时为我们带来少量佣金。它不会让你多花一分钱，也不会决定我们推荐什么。"
+        },
+        {
+          "h": "七种语言",
+          "p": "Drape 提供英语、中文、印地语、西班牙语、法语、阿拉伯语和孟加拉语版本。在任意页面顶部的语言菜单中选择即可。"
+        }
+      ]
+    },
+    "disclosure": {
+      "title": "联盟营销披露",
+      "lead": "Drape 通过联盟链接获得收入。以下是具体的运作方式。",
+      "sections": [
+        {
+          "h": "联盟链接",
+          "p": "Drape 上的每个“去购买”按钮都是联盟链接。如果你点击后购买了商品，零售商可能会向我们支付佣金。"
+        },
+        {
+          "h": "你的价格不变",
+          "p": "佣金来自零售商的营销预算。你支付的价格与直接前往店铺购买时完全相同。"
+        },
+        {
+          "h": "编辑独立性",
+          "p": "零售商无法付费在 Drape 上露出。我们根据外观和做工挑选单品，之后才去寻找联盟链接。"
+        },
+        {
+          "h": "价格与库存",
+          "p": "此处显示的价格是我们收录单品时的参考价。最终价格、尺码和库存请以零售商网站为准。"
+        },
+        {
+          "h": "标记为赞助的链接",
+          "p": "所有站外购买链接都带有 {code} 标记，让搜索引擎知道这些是付费链接。"
+        }
+      ]
+    },
+    "privacy": {
+      "title": "隐私政策",
+      "lead": "Drape 尽可能少地收集信息。本页说明这意味着什么。",
+      "updated": "最后更新：{date}",
+      "sections": [
+        {
+          "h": "我们保存什么",
+          "p": "我们会把你选择的语言保存在浏览器的本地存储中，以便下次以同一语言打开网站。这些信息只留在你的设备上，我们从不接收。"
+        },
+        {
+          "h": "无账户，无结账",
+          "p": "你无法在 Drape 上注册账户或付款，因此我们从不收集你的姓名、地址或银行卡信息。"
+        },
+        {
+          "h": "零售商网站",
+          "p": "当你点击购买链接时，零售商及其联盟网络可能会设置自己的 Cookie 来追踪销售。在他们的网站上适用他们的隐私政策。"
+        },
+        {
+          "h": "字体",
+          "p": "网站字体从 Google Fonts 加载，Google 会接收你的 IP 地址以传输字体文件。"
+        },
+        {
+          "h": "联系我们",
+          "p": "有隐私方面的问题？请发送邮件至 {email}，我们会在 30 天内回复。"
+        }
+      ]
+    }
+  },
+  "admin": {
+    "title": "控制台",
+    "need_claude": "控制台需要在 Claude 中使用。请登录 claude.ai 后打开你的 Artifact 链接。",
+    "owner_only": "只有本站所有者可以打开控制台。",
+    "loading": "加载中…",
+    "tab_overview": "概览",
+    "tab_products": "商品",
+    "tab_add": "添加商品",
+    "kpi_products": "商品数",
+    "kpi_views": "商品浏览",
+    "kpi_clicks": "购买点击",
+    "kpi_ctr": "点击率",
+    "chart_title": "最近 14 天",
+    "legend_views": "浏览",
+    "legend_clicks": "点击",
+    "top_title": "点击最多的商品",
+    "by_store": "各店铺点击",
+    "by_lang": "各语言浏览",
+    "stats_note": "统计来自已登录、且对本站数据有写入权限（贡献者及以上）的访客。全部公开流量和佣金请查看你在 AliExpress、SHEIN 和 Bulchic 的联盟后台。",
+    "no_stats": "暂无访问记录。",
+    "col_product": "商品",
+    "col_store": "店铺",
+    "col_category": "品类",
+    "col_price": "价格",
+    "col_views": "浏览",
+    "col_clicks": "点击",
+    "col_featured": "首页展示",
+    "col_actions": "操作",
+    "edit": "编辑",
+    "delete": "删除",
+    "confirm_delete": "删除这件商品？",
+    "yes_delete": "确认删除",
+    "cancel": "取消",
+    "link": "商品链接",
+    "link_hint": "粘贴你在 AliExpress、SHEIN 或 Bulchic 的联盟推广链接。",
+    "store_detected": "店铺：{store}",
+    "store_unknown": "无法识别店铺，请选择：",
+    "photo": "商品图片",
+    "photo_hint": "拖入、粘贴（Ctrl+V）或选择商品图片。也可以用商品页截图：Claude 会从中读取价格。",
+    "photo_choose": "选择图片",
+    "price": "价格",
+    "currency": "货币",
+    "category": "品类",
+    "featured": "在首页展示",
+    "autofill": "让 Claude 填写",
+    "autofill_busy": "Claude 正在撰写详情…",
+    "autofill_done": "完成。检查文字后保存。",
+    "autofill_error": "Claude 未能填写。请手动填写，或再试一次。",
+    "autofill_unavailable": "此处无法使用自动填写。",
+    "names_title": "名称和描述（全部 7 种语言）",
+    "name": "名称",
+    "description": "描述",
+    "save": "保存并发布",
+    "saving": "发布中…",
+    "saved": "已发布，商品已在商店上线。",
+    "save_error": "发布失败。请检查网络后重试。",
+    "missing": "保存前请填写所有字段：链接、图片、价格，以及 7 种语言的名称和描述。",
+    "new_item": "新",
+    "extract_note": "托管在这里的页面无法打开店铺网站，所以图片和价格需要你提供，其余由 Claude 撰写。",
+    "empty_products": "还没有商品。",
+    "publish_note": "保存会发布网站的新版本，所有打开的页面都会重新加载。"
+  }
+}
