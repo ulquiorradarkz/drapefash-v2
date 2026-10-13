@@ -22,7 +22,7 @@ const ITEMS = [
   },
 ] as const;
 
-const published: { store: string; slug: string; title: string; affiliate: string; quality: string; method: string }[] = [];
+const published: { id: string; store: string; slug: string; title: string; affiliate: string; quality: string; method: string }[] = [];
 
 async function importAndPublish(page: Page, item: (typeof ITEMS)[number]) {
   await page.goto("/admin/import");
@@ -37,9 +37,14 @@ async function importAndPublish(page: Page, item: (typeof ITEMS)[number]) {
   await expect(status).toBeVisible();
   await shot(page, `admin-import-${item.store}-result`);
   if (item.store === "aliexpress") {
-    // AliExpress product pages expose title + photos server-side (price needs the API keys).
-    expect(json.data.title.length).toBeGreaterThan(10);
-    expect(json.data.images.length).toBeGreaterThan(0);
+    // From a residential IP the page gives title + photos; from datacenter IPs (Vercel) AliExpress shows a
+    // bot check, which we don't bypass. Either way the admin must get a usable result or a clear message.
+    if (json.quality === "failed") {
+      expect(json.message).toMatch(/fill in the form by hand/i);
+    } else {
+      expect(json.data.title.length).toBeGreaterThan(10);
+      expect(json.data.images.length).toBeGreaterThan(0);
+    }
   }
 
   // The form is always shown and editable: complete anything the store didn't give us.
@@ -55,7 +60,7 @@ async function importAndPublish(page: Page, item: (typeof ITEMS)[number]) {
   expect(saved.status(), await saved.text()).toBe(201);
   const { product } = await saved.json();
   await expect(page.getByText(/is live\./)).toBeVisible();
-  published.push({ store: item.store, slug: product.slug, title: product.title, affiliate: product.affiliate_url, quality: json.quality, method: json.method });
+  published.push({ id: product.id, store: item.store, slug: product.slug, title: product.title, affiliate: product.affiliate_url, quality: json.quality, method: json.method });
 }
 
 test.describe.serial("Drape owner flow", () => {
@@ -112,7 +117,7 @@ test.describe.serial("Drape owner flow", () => {
     await loginAsAdmin(page, baseURL!);
     await page.goto("/admin?range=1");
     for (const p of published) {
-      await expect(page.locator("ol").getByRole("link", { name: p.title })).toBeVisible();
+      await expect(page.locator(`ol a[href="/admin/products/${p.id}"]`)).toBeVisible();
     }
     await shot(page, "admin-overview-desktop");
   });

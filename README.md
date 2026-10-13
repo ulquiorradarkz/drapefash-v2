@@ -34,7 +34,7 @@ For a one-off link without email: `node --env-file=.env.local scripts/admin-user
 
 ## Import notes
 
-- **AliExpress**: without API keys we read the product page: title and photos are usually found, the price is rendered client-side so you type it. With `ALIEXPRESS_APP_KEY` / `ALIEXPRESS_APP_SECRET` (+ `ALIEXPRESS_TRACKING_ID`) the official `aliexpress.affiliate.productdetail.get` API fills title, price, images and your promotion link. Titles come in the language of the server's region (Vercel = US = English).
+- **AliExpress**: without API keys we read the product page. From a home connection title + photos are found (price is rendered client-side, so you type it), but from Vercel's datacenter IPs AliExpress shows a bot check, so on the live site you get an empty form until you add the API keys. With `ALIEXPRESS_APP_KEY` / `ALIEXPRESS_APP_SECRET` (+ `ALIEXPRESS_TRACKING_ID`) the official `aliexpress.affiliate.productdetail.get` API fills title, price, images and your promotion link. 
 - **SHEIN** answers server requests with a bot check. Drape does not bypass it: you get the title from the link and fill price/photos yourself (paste image links or upload).
 - The editable form is always shown before publishing. Bulk import saves everything as drafts.
 
