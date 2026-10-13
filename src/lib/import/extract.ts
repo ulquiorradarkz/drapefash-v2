@@ -289,9 +289,17 @@ export function titleFromUrl(url: string, store: Store): string {
   }
 }
 
+/** Store-wide boilerplate that must never be used as a product title or description. */
+const GENERIC_TEXT =
+  /smarter shopping,? better living|women'?s (&|and) men'?s clothing,? shop online fashion|shop online fashion \| shein|^aliexpress\.com$|free shipping on (all|your) orders/i;
+
+function isWallUrl(url: string): boolean {
+  return /\/risk\/challenge|_____tmd_____|\/punish|captcha|login\.|\/login|sync_cookie/i.test(url);
+}
+
 function looksBlocked(html: string, status: number): boolean {
   if (status === 403 || status === 429 || status === 503) return true;
-  return /captcha|punish|x5sec|verify you are human|challenge-platform|access denied|robot check|slide to verify/i.test(html.slice(0, 30_000)) && html.length < 200_000;
+  return /captcha|punish|x5sec|verify you are human|challenge-platform|access denied|robot check|slide to verify|risk\/challenge/i.test(html.slice(0, 30_000)) && html.length < 200_000;
 }
 
 function merge(...parts: (Found | null | undefined)[]): Found {
@@ -364,6 +372,13 @@ export async function extractProduct(input: { url: string; affiliate_url?: strin
       }
     }
 
+    // AliExpress regional hosts (aliexpress.us, es./fr. sub-sites) bounce through login/cookie redirects;
+    // the global item page has the same product data.
+    if (store === "aliexpress") {
+      const id = aliexpressProductId(sourceUrl);
+      if (id) sourceUrl = `https://www.aliexpress.com/item/${id}.html`;
+    }
+
     // 1) AliExpress official API when keys exist
     let affiliateFromApi: string | null = null;
     if (store === "aliexpress" && aliexpressKeysConfigured()) {
@@ -389,14 +404,16 @@ export async function extractProduct(input: { url: string; affiliate_url?: strin
     if (method !== "aliexpress-api") {
       try {
         const page = await fetchPage(sourceUrl);
-        sourceUrl = page.url;
-        if (store === "other") store = detectStore(page.url);
+        const redirectedToWall = isWallUrl(page.url);
+        // Keep the real product URL (never store a captcha / login URL as the source).
+        if (!redirectedToWall) sourceUrl = page.url;
+        if (store === "other") store = detectStore(sourceUrl);
         const $ = cheerio.load(page.html);
         const ld = fromJsonLd($, page.url);
         const og = fromMeta($, page.url);
         const pd = fromPageData(page.html, store, page.url);
-        if (looksBlocked(page.html, page.status)) {
-          pageNote = `${storeName(store)} blocked the automatic read (HTTP ${page.status}).`;
+        if (redirectedToWall || looksBlocked(page.html, page.status)) {
+          pageNote = `${storeName(store)} answered with a bot check${page.status !== 200 ? ` (HTTP ${page.status})` : ""}, which Drape doesn't bypass.`;
           // Meta tags on a block page are useless (e.g. "Captcha"), only trust embedded product data.
           found = merge(pd);
         } else if (page.status >= 400) {
@@ -406,7 +423,8 @@ export async function extractProduct(input: { url: string; affiliate_url?: strin
           found = merge(ld, pd, og);
         }
         method = ld?.title ? "json-ld" : pd.title ? "page-data" : found.title ? "open-graph" : "none";
-        if (found.title && /^(aliexpress|shein|bulchic|404|not found|page not found|captcha|login|sign in)/i.test(found.title)) {
+        if (found.description && GENERIC_TEXT.test(found.description)) found.description = undefined;
+        if (found.title && (GENERIC_TEXT.test(found.title) || /^(aliexpress|shein|bulchic|404|not found|page not found|captcha|login|sign in)/i.test(found.title))) {
           found.title = undefined;
           method = "none";
         }

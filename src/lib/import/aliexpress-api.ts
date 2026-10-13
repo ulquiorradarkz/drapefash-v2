@@ -17,7 +17,7 @@ export function aliexpressKeysConfigured(): boolean {
 
 export function aliexpressProductId(url: string): string | null {
   const m =
-    url.match(/\/item\/(?:[^/]*?)?(\d{8,})\.html/i) ??
+    url.match(/\/item\/(?:[^/]*[^\d/])?(\d{8,})\.html/i) ??
     url.match(/[?&](?:productId|product_id|itemId|item_id)=(\d{8,})/i) ??
     url.match(/\/(\d{10,})\.html/);
   return m ? m[1] : null;
