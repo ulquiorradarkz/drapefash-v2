@@ -1,0 +1,201 @@
+/* ===================================================================== Drape: Y2K chrome */
+@keyframes sheen {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -10px, 0); }
+}
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+html { -webkit-tap-highlight-color: transparent; }
+body {
+  min-height: 100dvh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: rgb(180 156 255 / 0.45); color: white; }
+.font-display, h1, h2, h3 { font-family: var(--font-display), var(--font-body), system-ui, sans-serif; }
+
+/* Soft iridescent gradient backdrop for the storefront */
+.drape-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60vmax 50vmax at 85% -10%, rgb(180 156 255 / 0.18), transparent 60%),
+    radial-gradient(50vmax 40vmax at -10% 20%, rgb(126 231 255 / 0.12), transparent 60%),
+    radial-gradient(60vmax 50vmax at 50% 110%, rgb(255 157 226 / 0.10), transparent 60%),
+    linear-gradient(180deg, #08080c 0%, #0b0b12 50%, #07070a 100%);
+}
+
+/* Liquid-silver text */
+.chrome-text {
+  background-image: linear-gradient(100deg, #8a919e 0%, #f7f9fc 18%, #a7afbd 30%, #ffffff 42%, #7c8494 55%, #e9edf3 68%, #9aa2b0 82%, #f7f9fc 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.chrome-text-animated { animation: sheen 6s linear infinite; }
+
+.iris-text {
+  background-image: linear-gradient(90deg, #7ee7ff, #b49cff, #ff9de2, #7ee7ff);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Giant "Drape" wordmark with layered chrome */
+.chrome-wordmark {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+  padding-inline: 0.04em;
+  background-image: linear-gradient(180deg, #ffffff 0%, #e8ebf0 22%, #8d95a3 46%, #2b2f38 50%, #c6ccd6 54%, #ffffff 72%, #9aa1ad 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 0 rgb(255 255 255 / 0.35)) drop-shadow(0 18px 40px rgb(0 0 0 / 0.55));
+}
+.chrome-wordmark::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  padding-inline: 0.04em;
+  background-image: linear-gradient(110deg, transparent 35%, rgb(255 255 255 / 0.95) 48%, rgb(126 231 255 / 0.6) 52%, transparent 62%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: sheen 5.5s linear infinite;
+}
+
+/* Frosted glass with a chrome hairline border */
+.glass {
+  background: linear-gradient(160deg, rgb(255 255 255 / 0.085), rgb(255 255 255 / 0.025));
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.12), 0 10px 30px -12px rgb(0 0 0 / 0.6);
+}
+.glass-blur {
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+
+.chrome-border { position: relative; isolation: isolate; }
+.chrome-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgb(255 255 255 / 0.65), rgb(255 255 255 / 0.08) 30%, rgb(180 156 255 / 0.35) 55%, rgb(255 255 255 / 0.06) 75%, rgb(126 231 255 / 0.5));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Chrome pill button */
+.btn-chrome {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  font-weight: 700;
+  color: #0b0b10;
+  background: linear-gradient(180deg, #ffffff 0%, #dfe3ea 45%, #a9b0bc 55%, #eef1f5 100%);
+  box-shadow: inset 0 1px 0 #fff, inset 0 -2px 6px rgb(0 0 0 / 0.25), 0 8px 24px -8px rgb(180 156 255 / 0.55);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+.btn-chrome::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgb(255 255 255 / 0.9) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.7s ease;
+}
+.btn-chrome:hover {
+  transform: translateY(-1px);
+  box-shadow: inset 0 1px 0 #fff, inset 0 -2px 6px rgb(0 0 0 / 0.25), 0 14px 32px -8px rgb(126 231 255 / 0.55);
+}
+.btn-chrome:hover::after { transform: translateX(120%); }
+.btn-chrome:focus-visible { outline: 2px solid #7ee7ff; outline-offset: 3px; }
+
+.btn-ghost-chrome {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  color: #eef1f5;
+  background: rgb(255 255 255 / 0.06);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.18);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-ghost-chrome:hover { background: rgb(255 255 255 / 0.12); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.35); }
+.btn-ghost-chrome:focus-visible { outline: 2px solid #7ee7ff; outline-offset: 3px; }
+
+/* Product card tilt + shine (values set from JS via CSS variables) */
+.tilt-card {
+  --rx: 0deg;
+  --ry: 0deg;
+  --mx: 50%;
+  --my: 50%;
+  transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+}
+.tilt-card .tilt-shine {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background:
+    radial-gradient(420px circle at var(--mx) var(--my), rgb(255 255 255 / 0.2), transparent 45%),
+    linear-gradient(115deg, transparent 20%, rgb(126 231 255 / 0.1) 40%, rgb(255 157 226 / 0.1) 60%, transparent 80%);
+  z-index: 2;
+}
+.tilt-card:hover .tilt-shine { opacity: 1; }
+.tilt-card:hover { box-shadow: 0 24px 50px -20px rgb(126 231 255 / 0.35); }
+
+.marquee-track { animation: marquee 30s linear infinite; }
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+.prose-drape p { margin-block: 0.9em; line-height: 1.75; color: rgb(228 231 236 / 0.82); }
+.prose-drape h2 { margin-top: 2em; margin-bottom: 0.6em; font-size: 1.25rem; font-weight: 700; color: #f4f5f7; }
+.prose-drape ul { list-style: disc; padding-inline-start: 1.25rem; color: rgb(228 231 236 / 0.82); }
+.prose-drape li { margin-block: 0.4em; line-height: 1.7; }
+.prose-drape a { color: #7ee7ff; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  .chrome-text-animated, .chrome-wordmark::after, .marquee-track, .animate-float-slow { animation: none !important; }
+  .tilt-card { transform: none !important; transition: none !important; }
+  .btn-chrome::after { display: none; }
+}
