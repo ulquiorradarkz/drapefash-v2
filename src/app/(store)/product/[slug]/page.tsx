@@ -87,7 +87,7 @@ export default async function ProductPage({ params }: Props) {
         {product.category && (
           <>
             <ChevronRight className="size-3" aria-hidden />
-            <Link href={`/category/${product.category.slug}`} className="hover:text-white">
+            <Link href={`/category/${product.category.slug}`} className="whitespace-nowrap hover:text-white">
               {product.category.name}
             </Link>
           </>
@@ -101,7 +101,11 @@ export default async function ProductPage({ params }: Props) {
 
         <div className="lg:sticky lg:top-24 lg:self-start">
           <StoreBadge store={product.store} />
-          <h1 className="mt-4 font-display text-2xl font-bold leading-tight text-white sm:text-4xl">{product.title}</h1>
+          <h1
+            className={`mt-4 font-display font-bold leading-tight text-white ${product.title.length > 70 ? "text-lg sm:text-2xl" : "text-2xl sm:text-4xl"}`}
+          >
+            {product.title}
+          </h1>
           <div className="mt-5">
             <Price price={product.price} original={product.original_price} currency={product.currency} large />
           </div>

@@ -11,7 +11,7 @@ export function Hero() {
           <p className="glass glass-blur mb-6 rounded-full border border-white/10 px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.28em] text-white/75">
             AliExpress · SHEIN · Bulchic
           </p>
-          <h1 id="hero-title" className="chrome-wordmark text-[clamp(5.5rem,27vw,15rem)]" data-text="Drape">
+          <h1 id="hero-title" className="chrome-wordmark text-[clamp(4.25rem,21vw,15rem)]" data-text="Drape">
             Drape
           </h1>
           <p className="mt-5 max-w-md text-balance text-base leading-relaxed text-white/75 sm:text-lg">

@@ -406,7 +406,7 @@ export async function extractProduct(input: { url: string; affiliate_url?: strin
         const page = await fetchPage(sourceUrl);
         const redirectedToWall = isWallUrl(page.url);
         // Keep the real product URL (never store a captcha / login URL as the source).
-        if (!redirectedToWall) sourceUrl = page.url;
+        if (!redirectedToWall && store !== "aliexpress") sourceUrl = page.url;
         if (store === "other") store = detectStore(sourceUrl);
         const $ = cheerio.load(page.html);
         const ld = fromJsonLd($, page.url);

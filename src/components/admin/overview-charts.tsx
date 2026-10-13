@@ -69,7 +69,7 @@ export function OverviewCharts({ data, range }: { data: DashboardData; range: nu
   const series = data.series.map((d) => ({ ...d, label: d.day.slice(5) }));
 
   return (
-    <div className="space-y-6">
+    <div className="min-w-0 space-y-6">
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         <Kpi icon={Package} label="Products" value={compactNumber(data.products.total)} sub={`${data.products.published} published · ${data.products.featured} featured`} />
         <Kpi
@@ -112,7 +112,7 @@ export function OverviewCharts({ data, range }: { data: DashboardData; range: nu
         </div>
       </section>
 
-      <div className="grid gap-4 lg:grid-cols-[1.4fr_1fr]">
+      <div className="grid min-w-0 gap-4 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
         <section className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
           <h2 className="text-sm font-semibold">Top 10 products by clicks</h2>
           {data.top_products.length === 0 ? (

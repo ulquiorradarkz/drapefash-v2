@@ -58,18 +58,27 @@ const BROWSER_HEADERS: Record<string, string> = {
   "Accept-Language": "en-US,en;q=0.9",
 };
 
+/** Base site (last two host labels) so cookies set by login.aliexpress.us are sent back to www.aliexpress.us. */
+function siteOf(host: string): string {
+  return host.split(".").slice(-2).join(".");
+}
+
 /**
- * Plain server-side GET following redirects manually (each hop re-validated).
- * No headless browser, no challenge solving: if the store blocks us we report it.
+ * Plain server-side GET following redirects manually (each hop re-validated), keeping cookies across
+ * hops like a normal browser does. No headless browser, no challenge solving: if the store blocks us we report it.
  */
 export async function fetchPage(raw: string, timeoutMs = 12_000): Promise<{ url: string; html: string; status: number }> {
   let current = raw;
-  for (let hop = 0; hop <= MAX_REDIRECTS; hop++) {
+  const jar = new Map<string, Map<string, string>>();
+  for (let hop = 0; hop <= MAX_REDIRECTS + 2; hop++) {
     const url = await assertPublicUrl(current);
+    const cookies = jar.get(siteOf(url.hostname));
+    const headers: Record<string, string> = { ...BROWSER_HEADERS };
+    if (cookies?.size) headers.Cookie = Array.from(cookies, ([k, v]) => `${k}=${v}`).join("; ");
     let res: Response;
     try {
       res = await fetch(url, {
-        headers: BROWSER_HEADERS,
+        headers,
         redirect: "manual",
         signal: AbortSignal.timeout(timeoutMs),
         cache: "no-store",
@@ -77,6 +86,17 @@ export async function fetchPage(raw: string, timeoutMs = 12_000): Promise<{ url:
     } catch (e) {
       const msg = e instanceof Error && e.name === "TimeoutError" ? "The store took too long to respond." : "Could not reach the store.";
       throw new FetchError(msg);
+    }
+    const setCookies = typeof res.headers.getSetCookie === "function" ? res.headers.getSetCookie() : [];
+    if (setCookies.length) {
+      const site = siteOf(url.hostname);
+      const bag = jar.get(site) ?? new Map<string, string>();
+      for (const sc of setCookies) {
+        const [pair] = sc.split(";");
+        const eq = pair.indexOf("=");
+        if (eq > 0) bag.set(pair.slice(0, eq).trim(), pair.slice(eq + 1).trim());
+      }
+      jar.set(site, bag);
     }
     if (res.status >= 300 && res.status < 400) {
       const loc = res.headers.get("location");

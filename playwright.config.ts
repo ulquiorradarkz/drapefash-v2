@@ -14,6 +14,7 @@ export default defineConfig({
     userAgent: UA,
     trace: "retain-on-failure",
     screenshot: "only-on-failure",
+    ...(process.env.HTTPS_PROXY ? { proxy: { server: process.env.HTTPS_PROXY, bypass: "localhost,127.0.0.1" } } : {}),
   },
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"], userAgent: UA } }],
 });

@@ -23,6 +23,7 @@ export async function loginAsAdmin(page: Page, baseURL: string) {
 }
 
 export async function shot(page: Page, name: string) {
-  await page.waitForTimeout(400);
+  await page.waitForLoadState("networkidle", { timeout: 10_000 }).catch(() => undefined);
+  await page.waitForTimeout(600);
   await page.screenshot({ path: `e2e/screenshots/${name}.png`, fullPage: true });
 }
