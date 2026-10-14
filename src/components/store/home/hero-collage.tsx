@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SmartImage } from "@/components/smart-image";
 import { ArrowRight } from "lucide-react";
@@ -49,16 +50,20 @@ export function HeroCollage({ locale, t, latestCode, looks }: { locale: Locale; 
           <GrainDisc id="hero-sun" className="layer absolute start-[10%] top-[-7%] w-[64%]" style={{ ["--depth" as string]: 5 }} />
           <GrainDisc id="hero-moon" className="layer absolute bottom-[9%] start-[6%] w-[19%]" style={{ ["--depth" as string]: 20 }} />
           <Orbit className="absolute -inset-[4%] text-ink" rx={47} ry={34} rotate={-18} />
-          {small && (
-            <div className="layer absolute start-[-3%] top-[38%] w-[47%]" style={{ ["--depth" as string]: 11, ["--rot" as string]: "8deg" }}>
+          <div className="layer absolute start-[-3%] top-[38%] w-[47%]" style={{ ["--depth" as string]: 11, ["--rot" as string]: "8deg" }}>
+            {small ? (
               <FramedLook look={small} frame="astragal" sizes="(max-width: 1024px) 30vw, 12vw" />
-            </div>
-          )}
-          {big && (
-            <div className="layer absolute end-[4%] top-[5%] w-[66%]" style={{ ["--depth" as string]: 17, ["--rot" as string]: "-5deg" }}>
+            ) : (
+              <FramedStatue src="/collage/statue-head.webp" frame="astragal" ground="bg-ink" />
+            )}
+          </div>
+          <div className="layer absolute end-[4%] top-[5%] w-[66%]" style={{ ["--depth" as string]: 17, ["--rot" as string]: "-5deg" }}>
+            {big ? (
               <FramedLook look={big} frame="swept" sizes="(max-width: 1024px) 44vw, 19vw" priority />
-            </div>
-          )}
+            ) : (
+              <FramedStatue src="/collage/statue-draped.webp" frame="swept" ground="bg-paper-3" />
+            )}
+          </div>
           {big?.code && (
             <Link href={big.href} tabIndex={-1} aria-hidden className="tag layer absolute end-[1%] top-[64%] hover:bg-night-2" style={{ ["--depth" as string]: 24 }} dir="ltr">
               {big.code}
@@ -128,5 +133,18 @@ function FramedLook({ look, frame, sizes, priority }: { look: HeroLook; frame: "
         </div>
       </OrnateFrame>
     </Link>
+  );
+}
+
+/** Before any piece is published, the frames hold the draped marble figures instead. Decorative. */
+function FramedStatue({ src, frame, ground }: { src: string; frame: "swept" | "astragal"; ground: string }) {
+  return (
+    <div aria-hidden>
+      <OrnateFrame frame={frame} sizes={frame === "swept" ? "(max-width: 1024px) 66vw, 28vw" : "(max-width: 1024px) 46vw, 20vw"}>
+        <div className={`relative size-full ${ground}`}>
+          <Image src={src} alt="" fill sizes="(max-width: 1024px) 40vw, 18vw" className="object-contain object-bottom pt-[6%]" />
+        </div>
+      </OrnateFrame>
+    </div>
   );
 }

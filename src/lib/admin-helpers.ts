@@ -43,7 +43,7 @@ export function isDuplicateCode(error: { code?: string; message: string } | null
   return !!error && (error.code === "23505" || /duplicate key/i.test(error.message)) && /code/i.test(error.message);
 }
 
-/** The code column does not exist yet (migration 20261014000001 not applied). */
+/** The code column does not exist yet (migration 20261014205834 not applied). */
 export function isMissingCodeColumn(error: { message: string } | null): boolean {
   return !!error && /\bcode\b/i.test(error.message) && /does not exist|schema cache|could not find/i.test(error.message);
 }

@@ -77,7 +77,7 @@ DRAPE_PREVIEW_DRAFTS=1 NEXT_DIST_DIR=.next-dev npx next dev -p 3100
 
 ## Products and categories in other languages
 
-English text lives in the product's `title` / `description`. The other six languages live in `products.translations` (jsonb), added by `supabase/migrations/20261013000003_translations.sql`, which also fills them for the 24 seed products. In the dashboard, open a product and expand **Name and description in the other 6 languages**. An empty field shows the English text.
+English text lives in the product's `title` / `description`. The other six languages live in `products.translations` (jsonb), added by `supabase/migrations/20261014205831_translations.sql`, which also fills them for the 24 seed products. In the dashboard, open a product and expand **Name and description in the other 6 languages**. An empty field shows the English text.
 
 Category names for the six built-in categories (tops, bottoms, outerwear, footwear, accessories, dresses) are translated in the dictionaries. A category you add yourself shows its own name until it gets a `categories.translations` entry.
 
@@ -95,7 +95,7 @@ Dashboard → **Import**: paste the product link (AliExpress, SHEIN, Bulchic). T
 
 ## Item IDs
 
-Every piece has a short ID such as `DRP-014` (column `products.code`, added by `supabase/migrations/20261014000001_product_code.sql`, which also numbers the 24 seed pieces DRP-001 … DRP-024).
+Every piece has a short ID such as `DRP-014` (column `products.code`, added by `supabase/migrations/20261014205834_product_code.sql`, which also numbers the 24 seed pieces DRP-001 … DRP-024).
 
 - **Dashboard:** the product form has an **Item ID** field. Leave it empty and the piece gets the next free number. IDs are stored in capitals and must be unique (2–24 letters, digits, dashes).
 - **Visitors** type the ID in the item-ID box (home, contact, fitting room, 404) or in any search box. `DRP-014`, `drp 14`, `DRP14` and just `14` all open the piece. Shareable links: `/en/id/DRP-014` (any language).

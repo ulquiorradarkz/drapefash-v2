@@ -10,7 +10,7 @@ const PRODUCT_COLUMNS =
   "id, slug, title, description, price, currency, original_price, images, category_id, store, source_url, affiliate_url, gender, is_published, is_featured, created_at, updated_at";
 
 /**
- * Columns added by later migrations: `translations` (20261013000003) and `code` (20261014000001).
+ * Columns added by later migrations: `translations` (20261014205831) and `code` (20261014205834).
  * Until a migration is applied we leave its column out instead of failing, and remember that
  * for this process.
  */

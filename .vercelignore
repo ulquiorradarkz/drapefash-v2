@@ -1,0 +1,14 @@
+# Not needed to build the site (and never upload local secrets or build folders)
+.env*
+!.env.example
+.next
+.next-dev
+.next-build
+node_modules
+test-results
+playwright-report
+e2e/.auth
+_old_v2
+_old_next_store
+.taste-skill
+.claude

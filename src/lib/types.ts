@@ -24,7 +24,7 @@ export type Category = {
 export type Product = {
   id: string;
   slug: string;
-  /** Item ID the owner picked (for example DRP-014). Null until set, or before migration 20261014000001. */
+  /** Item ID the owner picked (for example DRP-014). Null until set, or before migration 20261014205834. */
   code?: string | null;
   title: string;
   description: string;
