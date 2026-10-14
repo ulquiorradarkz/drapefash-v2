@@ -7,9 +7,26 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-body);
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
-  --font-heading: var(--font-display);
+  --font-sans: var(--font-text);
+  --font-mono: var(--font-data);
+  --font-heading: var(--font-text);
+  --font-display: var(--font-head);
+  /* Drape storefront roles (values live in drape.css) */
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-paper-3: var(--paper-3);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-grey: var(--grey);
+  --color-accent: var(--accent);
+  --color-accent-deep: var(--accent-deep);
+  --color-accent-soft: var(--accent-soft);
+  --color-on-accent: var(--on-accent);
+  --color-night: var(--night);
+  --color-night-2: var(--night-2);
+  --color-lilac: var(--lilac);
+  --color-silver: var(--silver);
+  --ease-drape: cubic-bezier(0.22, 1, 0.36, 1);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -51,7 +68,7 @@
 :root {
   color-scheme: dark;
   --radius: 0.75rem;
-  --background: oklch(0.12 0.008 280);
+  --background: oklch(0.13 0.01 265);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.17 0.01 280);
   --card-foreground: oklch(0.985 0 0);

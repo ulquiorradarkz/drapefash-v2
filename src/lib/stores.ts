@@ -1,18 +1,21 @@
 import type { Store } from "@/lib/types";
 
-export const STORE_META: Record<Store, { name: string; color: string; domains: string[] }> = {
+/** `color` is the store's accent on dark backgrounds (charts); `ink` is its name colour on the white store tag. */
+export const STORE_META: Record<Store, { name: string; color: string; ink: string; domains: string[] }> = {
   aliexpress: {
     name: "AliExpress",
     color: "#ff4747",
+    ink: "#cc2a04",
     domains: ["aliexpress.com", "aliexpress.us", "aliexpress.ru", "aliexpress.ru", "alix.ae", "aliexpress-media.com"],
   },
   shein: {
     name: "SHEIN",
     color: "#e5e5e5",
+    ink: "#111111",
     domains: ["shein.com", "shein.co.uk", "shein.top", "shein.us", "sheingsp.com", "shein.de", "shein.fr", "shein.es", "shein.it"],
   },
-  bulchic: { name: "Bulchic", color: "#e0529c", domains: ["bulchic.com"] },
-  other: { name: "Store", color: "#a1a1aa", domains: [] },
+  bulchic: { name: "Bulchic", color: "#e0529c", ink: "#b5145b", domains: ["bulchic.com"] },
+  other: { name: "Store", color: "#a1a1aa", ink: "#3a4252", domains: [] },
 };
 
 function hostOf(url: string): string | null {

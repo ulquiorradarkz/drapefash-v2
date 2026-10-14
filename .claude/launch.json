@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "drape-dev",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["next", "dev", "-p", "3100"],
+      "env": { "DRAPE_PREVIEW_DRAFTS": "1", "NEXT_DIST_DIR": ".next-dev", "NODE_USE_ENV_PROXY": "1" },
+      "port": 3100
+    }
+  ]
+}

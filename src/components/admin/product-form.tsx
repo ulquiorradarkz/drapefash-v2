@@ -15,11 +15,24 @@ import { Switch } from "@/components/ui/switch";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SmartImage } from "@/components/smart-image";
-import { GENDERS, STORES, type Category, type Product } from "@/lib/types";
+import { GENDERS, STORES, TRANSLATED_LOCALES, type Category, type Product } from "@/lib/types";
 import { STORE_META, detectStore } from "@/lib/stores";
 import { slugify } from "@/lib/format";
+import { LOCALE_META } from "@/i18n/config";
+import { isCode, normalizeCode } from "@/lib/code";
 
 const isPrice = (v: string) => v.trim() === "" || (Number.isFinite(Number(v.replace(",", "."))) && Number(v.replace(",", ".")) >= 0);
+
+const LANGUAGE_NAMES: Record<(typeof TRANSLATED_LOCALES)[number], string> = {
+  zh: "Mandarin",
+  hi: "Hindi",
+  es: "Spanish",
+  fr: "French",
+  ar: "Arabic",
+  bn: "Bengali",
+};
+
+const translationFields = z.object({ title: z.string().max(300), description: z.string().max(5000) });
 
 const formSchema = z.object({
   affiliate_url: z
@@ -32,6 +45,10 @@ const formSchema = z.object({
     .trim()
     .refine((v) => v === "" || /^https?:\/\/[^\s]+/i.test(v), "Enter a full link starting with https://"),
   title: z.string().trim().min(1, "Title is required").max(300),
+  code: z
+    .string()
+    .max(40)
+    .refine((v) => v.trim() === "" || isCode(normalizeCode(v)), "2–24 letters, numbers or dashes, e.g. DRP-014"),
   slug: z
     .string()
     .trim()
@@ -48,12 +65,38 @@ const formSchema = z.object({
   is_published: z.boolean(),
   is_featured: z.boolean(),
   rehost_images: z.boolean(),
+  translations: z.object({
+    zh: translationFields,
+    hi: translationFields,
+    es: translationFields,
+    fr: translationFields,
+    ar: translationFields,
+    bn: translationFields,
+  }),
 });
 
 export type ProductFormValues = z.infer<typeof formSchema>;
 
 export type ProductFormInitial = Partial<
-  Pick<Product, "title" | "slug" | "description" | "price" | "original_price" | "currency" | "images" | "category_id" | "store" | "source_url" | "affiliate_url" | "gender" | "is_published" | "is_featured">
+  Pick<
+    Product,
+    | "title"
+    | "code"
+    | "slug"
+    | "description"
+    | "price"
+    | "original_price"
+    | "currency"
+    | "images"
+    | "category_id"
+    | "store"
+    | "source_url"
+    | "affiliate_url"
+    | "gender"
+    | "is_published"
+    | "is_featured"
+    | "translations"
+  >
 >;
 
 function toValues(p: ProductFormInitial): ProductFormValues {
@@ -61,6 +104,7 @@ function toValues(p: ProductFormInitial): ProductFormValues {
     affiliate_url: p.affiliate_url ?? "",
     source_url: p.source_url ?? "",
     title: p.title ?? "",
+    code: p.code ?? "",
     slug: p.slug ?? "",
     description: p.description ?? "",
     price: p.price === null || p.price === undefined ? "" : String(p.price),
@@ -73,6 +117,9 @@ function toValues(p: ProductFormInitial): ProductFormValues {
     is_published: p.is_published ?? false,
     is_featured: p.is_featured ?? false,
     rehost_images: true,
+    translations: Object.fromEntries(
+      TRANSLATED_LOCALES.map((l) => [l, { title: p.translations?.[l]?.title ?? "", description: p.translations?.[l]?.description ?? "" }]),
+    ) as ProductFormValues["translations"],
   };
 }
 
@@ -108,6 +155,7 @@ export function ProductForm({ categories, initial = {}, productId, onSaved }: Pr
     setSaving(intent);
     const payload = {
       title: values.title.trim(),
+      code: values.code.trim() === "" ? null : normalizeCode(values.code),
       slug: values.slug.trim(),
       description: values.description.trim(),
       price: values.price.trim() === "" ? null : Number(values.price.replace(",", ".")),
@@ -122,6 +170,7 @@ export function ProductForm({ categories, initial = {}, productId, onSaved }: Pr
       is_published: intent === "publish" ? true : intent === "draft" ? false : values.is_published,
       is_featured: values.is_featured,
       rehost_images: values.rehost_images,
+      translations: values.translations,
     };
     try {
       const res = await fetch(isEdit ? `/api/admin/products/${productId}` : "/api/admin/products", {
@@ -132,6 +181,7 @@ export function ProductForm({ categories, initial = {}, productId, onSaved }: Pr
       const json = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(json.error ?? `Save failed (${res.status})`);
       const product = json.product as Product;
+      if (json.warning) toast.warning(json.warning);
       toast.success(
         isEdit ? "Changes saved" : product.is_published ? "Product published" : "Saved as draft",
         product.is_published ? { action: { label: "View", onClick: () => window.open(`/product/${product.slug}`, "_blank") } } : undefined,
@@ -213,6 +263,28 @@ export function ProductForm({ categories, initial = {}, productId, onSaved }: Pr
           {fieldError(errors.title?.message)}
         </div>
         <div className="space-y-2">
+          <Label htmlFor="code">Item ID</Label>
+          <Input
+            id="code"
+            placeholder={isEdit ? "DRP-014" : "Leave empty for the next free number"}
+            autoComplete="off"
+            spellCheck={false}
+            className="font-mono uppercase tracking-wide"
+            {...register("code", {
+              onBlur: (e) => {
+                const v = e.target.value.trim();
+                if (v) setValue("code", normalizeCode(v), { shouldValidate: true });
+              },
+            })}
+            aria-invalid={!!errors.code}
+            aria-describedby="code-help"
+          />
+          <p id="code-help" className="text-xs text-muted-foreground">
+            Visitors type this ID in the search box (or open /id/{watch("code") ? normalizeCode(watch("code")) : "DRP-014"}) and land on this piece. Put it in your Instagram posts.
+          </p>
+          {fieldError(errors.code?.message)}
+        </div>
+        <div className="space-y-2">
           <Label htmlFor="slug">URL slug</Label>
           <Input id="slug" placeholder={slugify(title || "product-name")} {...register("slug")} aria-invalid={!!errors.slug} />
           <p className="text-xs text-muted-foreground">/product/{slug || slugify(title || "product-name")} · leave empty to generate from the title</p>
@@ -222,6 +294,42 @@ export function ProductForm({ categories, initial = {}, productId, onSaved }: Pr
           <Label htmlFor="description">Description</Label>
           <Textarea id="description" rows={5} {...register("description")} />
         </div>
+
+        <details className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+          <summary className="cursor-pointer text-sm font-medium">
+            Name and description in the other 6 languages
+            <span className="block text-xs font-normal text-muted-foreground">
+              The shop shows these on the Mandarin, Hindi, Spanish, French, Arabic and Bengali pages. Empty fields show the English text.
+            </span>
+          </summary>
+          <div className="mt-4 space-y-6">
+            {TRANSLATED_LOCALES.map((l) => {
+              const meta = LOCALE_META[l];
+              return (
+                <fieldset key={l} className="space-y-2">
+                  <legend className="text-sm font-medium">
+                    {LANGUAGE_NAMES[l]} <span lang={meta.htmlLang}>({meta.name})</span>
+                  </legend>
+                  <Input
+                    aria-label={`${LANGUAGE_NAMES[l]} name`}
+                    placeholder="Name"
+                    lang={meta.htmlLang}
+                    dir={meta.dir}
+                    {...register(`translations.${l}.title`)}
+                  />
+                  <Textarea
+                    aria-label={`${LANGUAGE_NAMES[l]} description`}
+                    placeholder="Description"
+                    rows={2}
+                    lang={meta.htmlLang}
+                    dir={meta.dir}
+                    {...register(`translations.${l}.description`)}
+                  />
+                </fieldset>
+              );
+            })}
+          </div>
+        </details>
         <div className="grid grid-cols-3 gap-3">
           <div className="space-y-2">
             <Label htmlFor="price">Price</Label>

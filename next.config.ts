@@ -9,6 +9,9 @@ const supabaseHost = (() => {
 })();
 
 const nextConfig: NextConfig = {
+  // A local dev server can build into its own folder (NEXT_DIST_DIR=.next-dev) so it never
+  // overwrites the production build that `next start` serves from .next.
+  distDir: process.env.NEXT_DIST_DIR || ".next",
   poweredByHeader: false,
   images: {
     formats: ["image/avif", "image/webp"],
@@ -35,10 +38,6 @@ const nextConfig: NextConfig = {
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
         ],
-      },
-      {
-        source: "/hero/:path*",
-        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
       },
     ];
   },

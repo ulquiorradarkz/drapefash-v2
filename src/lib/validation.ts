@@ -1,5 +1,41 @@
 import { z } from "zod";
-import { GENDERS, STORES } from "@/lib/types";
+import { GENDERS, STORES, TRANSLATED_LOCALES, type ProductTranslations } from "@/lib/types";
+import { isCode, normalizeCode } from "@/lib/code";
+
+/** Item ID, stored in capitals ("drp 14" → "DRP-14"). Empty means "no ID yet". */
+const itemCode = z
+  .string()
+  .max(40)
+  .optional()
+  .nullable()
+  .transform((v, ctx) => {
+    if (!v || !v.trim()) return null;
+    const code = normalizeCode(v);
+    if (!isCode(code)) {
+      ctx.addIssue({ code: "custom", message: "Use 2–24 letters, numbers or dashes, e.g. DRP-014" });
+      return z.NEVER;
+    }
+    return code;
+  });
+
+/** Name and description in the other six languages. Empty fields are dropped. */
+const translations = z
+  .partialRecord(
+    z.enum(TRANSLATED_LOCALES),
+    z.object({
+      title: z.string().trim().max(300).optional(),
+      description: z.string().trim().max(5000).optional(),
+    }),
+  )
+  .optional()
+  .transform((value) => {
+    const out: ProductTranslations = {};
+    for (const [locale, t] of Object.entries(value ?? {}) as [keyof ProductTranslations, { title?: string; description?: string }][]) {
+      const entry = { ...(t.title ? { title: t.title } : {}), ...(t.description ? { description: t.description } : {}) };
+      if (Object.keys(entry).length) out[locale] = entry;
+    }
+    return out;
+  });
 
 const httpUrl = z
   .string()
@@ -28,6 +64,7 @@ const money = z
 
 export const productInputSchema = z.object({
   title: z.string().trim().min(1, "Title is required").max(300),
+  code: itemCode,
   slug: z
     .string()
     .trim()
@@ -55,6 +92,7 @@ export const productInputSchema = z.object({
   gender: z.enum(GENDERS).default("unisex"),
   is_published: z.boolean().default(false),
   is_featured: z.boolean().default(false),
+  translations,
   rehost_images: z.boolean().optional().default(true),
 });
 

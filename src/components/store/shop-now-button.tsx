@@ -5,19 +5,24 @@ import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /**
- * Shop Now -> /go/[slug] (logs the click, then 302 to the affiliate link).
+ * Shop button -> /go/[slug] (logs the click, then 302 to the affiliate link).
  * Forwards utm_* params from the current URL (or this tab's landing URL, stored only with consent).
  */
 export function ShopNowButton({
   slug,
+  label,
+  newTabText,
   className,
   size = "md",
-  label = "Shop Now",
+  variant = "primary",
 }: {
   slug: string;
+  label: string;
+  /** Screen-reader note that the store opens in a new tab. */
+  newTabText: string;
   className?: string;
   size?: "sm" | "md" | "lg";
-  label?: string;
+  variant?: "primary" | "ink" | "line" | "paper";
 }) {
   const base = `/go/${slug}`;
   const [href, setHref] = useState(base);
@@ -43,18 +48,13 @@ export function ShopNowButton({
     <a
       href={href}
       target="_blank"
-      rel="nofollow sponsored noopener"
+      rel="sponsored nofollow noopener"
       data-testid="shop-now"
-      className={cn(
-        "btn-chrome",
-        size === "sm" && "h-9 px-4 text-xs",
-        size === "md" && "h-11 px-6 text-sm",
-        size === "lg" && "h-14 px-8 text-base",
-        className,
-      )}
+      className={cn("btn", `btn-${variant}`, size === "sm" && "btn-sm", size === "lg" && "btn-lg", className)}
     >
-      {label} <ArrowUpRight className={size === "sm" ? "size-3.5" : "size-4"} aria-hidden />
-      <span className="sr-only">(opens the store in a new tab)</span>
+      {label}
+      <ArrowUpRight className={cn("btn-icon", size === "sm" ? "size-3.5" : "size-4")} strokeWidth={1.75} aria-hidden />
+      <span className="sr-only">({newTabText})</span>
     </a>
   );
 }

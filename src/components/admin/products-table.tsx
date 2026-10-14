@@ -49,7 +49,7 @@ export function ProductsTable({ products, categories }: { products: ProductWithC
   const filtered = useMemo(() => {
     const term = q.trim().toLowerCase();
     return rows.filter((p) => {
-      if (term && !`${p.title} ${p.slug} ${p.description}`.toLowerCase().includes(term)) return false;
+      if (term && !`${p.code ?? ""} ${p.title} ${p.slug} ${p.description}`.toLowerCase().includes(term)) return false;
       if (store !== "all" && p.store !== store) return false;
       if (category === "none" && p.category_id) return false;
       if (category !== "all" && category !== "none" && p.category_id !== category) return false;
@@ -104,7 +104,7 @@ export function ProductsTable({ products, categories }: { products: ProductWithC
       <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-[1fr_160px_180px_160px]">
         <div className="relative">
           <Search className="pointer-events-none absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
-          <Input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search products" className="pl-8" aria-label="Search products" />
+          <Input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search by name or item ID" className="pl-8" aria-label="Search products by name or item ID" />
         </div>
         <Select value={store} onValueChange={setStore}>
           <SelectTrigger className="w-full" aria-label="Filter by store">
@@ -182,7 +182,9 @@ export function ProductsTable({ products, categories }: { products: ProductWithC
                       <Link href={`/admin/products/${p.id}`} className="line-clamp-1 font-medium hover:underline">
                         {p.title}
                       </Link>
-                      <p className="line-clamp-1 text-xs text-muted-foreground">/{p.slug}</p>
+                      <p className="line-clamp-1 text-xs text-muted-foreground">
+                        {p.code ? <span className="font-mono font-semibold text-foreground">{p.code}</span> : <span>No ID</span>} · /{p.slug}
+                      </p>
                     </div>
                   </div>
                 </td>

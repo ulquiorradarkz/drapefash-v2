@@ -1,40 +1,89 @@
 import Link from "next/link";
 import { SmartImage } from "@/components/smart-image";
-import { TiltCard } from "@/components/store/tilt-card";
 import { StoreBadge } from "@/components/store/store-badge";
 import { Price } from "@/components/store/price";
 import { ShopNowButton } from "@/components/store/shop-now-button";
+import { PickButton } from "@/components/store/pick-button";
+import { localePath, type Locale } from "@/i18n/config";
+import { fmt, type Dictionary } from "@/i18n";
+import { categoryName, localizeProduct, storeLabel } from "@/lib/localize";
+import { toPickSnapshot } from "@/lib/pick-item";
 import type { ProductWithCategory } from "@/lib/types";
 
-export function ProductCard({ product, priority = false }: { product: ProductWithCategory; priority?: boolean }) {
+/**
+ * A piece filed like an archive specimen: its item ID on a black tag, the star to save it,
+ * and the store and category as data labels. The picture turns to fluted glass under the pointer.
+ */
+export function ProductCard({
+  product: raw,
+  locale,
+  t,
+  priority = false,
+}: {
+  product: ProductWithCategory;
+  locale: Locale;
+  t: Dictionary;
+  priority?: boolean;
+}) {
+  const product = localizeProduct(raw, locale);
   const img = product.images[0];
+  const href = localePath(locale, `/product/${product.slug}`);
+  const store = storeLabel(product.store, t);
   return (
-    <TiltCard className="glass chrome-border group relative flex h-full flex-col overflow-hidden rounded-[1.4rem]">
-      <Link href={`/product/${product.slug}`} className="relative block aspect-[4/5] overflow-hidden rounded-t-[1.4rem] bg-white/[0.03]" aria-label={product.title}>
-        {img ? (
-          <SmartImage
-            src={img}
-            alt={product.title}
-            fill
-            priority={priority}
-            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-          />
-        ) : (
-          <div className="grid h-full place-items-center text-xs text-white/40">No image</div>
-        )}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/50 to-transparent" />
-        <StoreBadge store={product.store} className="absolute left-2.5 top-2.5" />
-      </Link>
-      <div className="flex flex-1 flex-col gap-2 p-3 sm:p-4">
-        <Link href={`/product/${product.slug}`} className="line-clamp-2 text-[13px] font-medium leading-snug text-white/90 hover:text-white sm:text-sm">
-          {product.title}
+    <article className="group relative flex h-full flex-col">
+      <div className="relative">
+        <Link
+          href={href}
+          className="frame-zoom ribbed-hover focus-ring relative block aspect-[4/5] overflow-hidden bg-paper-3"
+          tabIndex={-1}
+          aria-hidden
+        >
+          {img ? (
+            <SmartImage
+              src={img}
+              alt={fmt(t.product.imgAlt, { name: product.title, store })}
+              fill
+              priority={priority}
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              className="object-cover"
+            />
+          ) : (
+            <span className="grid h-full place-items-center t-small text-ink-2">{t.product.noImage}</span>
+          )}
+          <span className="ribbed" />
         </Link>
-        <Price price={product.price} original={product.original_price} currency={product.currency} />
-        <div className="mt-auto pt-1">
-          <ShopNowButton slug={product.slug} size="sm" className="w-full" />
+        {product.code && (
+          <span className="tag pointer-events-none absolute start-0 top-0" dir="ltr">
+            {product.code}
+          </span>
+        )}
+        <PickButton
+          item={toPickSnapshot(raw, locale)}
+          labels={{ save: t.picks.save, remove: t.picks.remove, saved: t.picks.saved }}
+          className="absolute end-0 top-0"
+        />
+      </div>
+      <div className="mt-3 flex flex-1 flex-col gap-1.5">
+        <p className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+          <StoreBadge store={product.store} otherLabel={t.product.store} />
+          {product.category && <span className="t-data text-ink-2">{categoryName(product.category, locale, t)}</span>}
+        </p>
+        <h3 className="text-[length:var(--t-small)] leading-snug">
+          <Link href={href} className="link-u focus-ring line-clamp-2">
+            <bdi>{product.title}</bdi>
+          </Link>
+        </h3>
+        <div className="mt-auto flex flex-wrap items-center justify-between gap-x-3 gap-y-2 pt-1.5">
+          <Price price={product.price} original={product.original_price} currency={product.currency} locale={locale} labels={t.price} />
+          <ShopNowButton
+            slug={product.slug}
+            label={t.product.shop}
+            newTabText={`${fmt(t.product.shopOn, { store })}, ${t.product.newTab}`}
+            size="sm"
+            variant="line"
+          />
         </div>
       </div>
-    </TiltCard>
+    </article>
   );
 }

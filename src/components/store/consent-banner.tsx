@@ -1,10 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { CONSENT_EVENT, OPEN_CONSENT_EVENT, readConsent, writeConsent } from "@/lib/consent";
+import { RichText } from "@/components/store/rich-text";
+import type { Locale } from "@/i18n/config";
 
-export function ConsentBanner() {
+export function ConsentBanner({
+  locale,
+  labels,
+}: {
+  locale: Locale;
+  labels: { title: string; text: string; reject: string; accept: string };
+}) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -26,35 +33,30 @@ export function ConsentBanner() {
       role="dialog"
       aria-modal="false"
       aria-labelledby="consent-title"
-      className="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-xl rounded-2xl border border-white/15 bg-[#111118]/95 p-4 shadow-2xl backdrop-blur-md sm:bottom-5 sm:p-5"
+      className="fixed inset-x-2 bottom-2 z-50 bg-paper-3 p-4 text-ink shadow-[6px_6px_0_var(--grey)] ring-[1.5px] ring-ink sm:inset-x-auto sm:bottom-4 sm:start-4 sm:max-w-md sm:p-5" // taste-skill-ignore: a floating dialog, hard print shadow
     >
-      <p id="consent-title" className="font-semibold">
-        Cookies &amp; privacy
+      <p id="consent-title" className="font-display text-[28px] leading-none">
+        {labels.title}
       </p>
-      <p className="mt-1 text-sm leading-relaxed text-white/70">
-        We use one essential cookie to remember this choice. With your OK we also count anonymous page views (no IP addresses, no tracking
-        across sites) to see which pieces you like. Read our{" "}
-        <Link href="/cookies" className="underline underline-offset-2">
-          Cookie Policy
-        </Link>
-        .
+      <p className="mt-1.5 text-[length:var(--t-small)] leading-snug text-ink [&_a]:font-semibold [&_a]:underline [&_a]:underline-offset-2">
+        <RichText text={labels.text} locale={locale} />
       </p>
-      <div className="mt-4 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
-        <button type="button" onClick={() => writeConsent("denied")} className="btn-ghost-chrome h-10 px-5 text-sm">
-          Reject
+      <div className="mt-4 grid grid-cols-2 gap-2">
+        <button type="button" onClick={() => writeConsent("denied")} className="btn btn-sm btn-wrap btn-line">
+          {labels.reject}
         </button>
-        <button type="button" onClick={() => writeConsent("granted")} className="btn-chrome h-10 px-5 text-sm">
-          Accept analytics
+        <button type="button" onClick={() => writeConsent("granted")} className="btn btn-sm btn-wrap btn-primary">
+          {labels.accept}
         </button>
       </div>
     </div>
   );
 }
 
-export function CookieSettingsButton({ className }: { className?: string }) {
+export function CookieSettingsButton({ label, className }: { label: string; className?: string }) {
   return (
     <button type="button" className={className} onClick={() => window.dispatchEvent(new Event(OPEN_CONSENT_EVENT))}>
-      Cookie settings
+      {label}
     </button>
   );
 }

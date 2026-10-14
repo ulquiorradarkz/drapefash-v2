@@ -1,11 +1,5 @@
-import type { Metadata } from "next";
 import { requireAdminPage } from "@/lib/auth";
 import { AdminNav } from "@/components/admin/admin-nav";
-
-export const metadata: Metadata = {
-  title: { default: "Dashboard", template: "%s | Drape admin" },
-  robots: { index: false, follow: false },
-};
 
 export const dynamic = "force-dynamic";
 

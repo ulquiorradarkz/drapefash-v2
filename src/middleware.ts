@@ -1,9 +1,44 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createServerClient } from "@supabase/ssr";
+import { DEFAULT_LOCALE, LOCALE_COOKIE, isLocale, matchLocale } from "@/i18n/config";
 
 const ADMIN_EMAIL = (process.env.ADMIN_EMAIL ?? "ahmedqlila99@gmail.com").trim().toLowerCase();
 
 export async function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+  if (pathname === "/admin" || pathname.startsWith("/admin/") || pathname.startsWith("/api/admin")) {
+    return adminGate(request);
+  }
+  return storefront(request);
+}
+
+/**
+ * Every storefront page lives under a language prefix (/en, /ar, ...).
+ * Paths without one are sent to the visitor's saved language, then their browser language, then English.
+ */
+function storefront(request: NextRequest) {
+  const { pathname, search } = request.nextUrl;
+  const first = pathname.split("/")[1];
+
+  if (isLocale(first)) {
+    const headers = new Headers(request.headers);
+    headers.set("x-drape-locale", first);
+    return NextResponse.next({ request: { headers } });
+  }
+
+  const saved = request.cookies.get(LOCALE_COOKIE)?.value;
+  const locale = isLocale(saved) ? saved : matchLocale(request.headers.get("accept-language")) || DEFAULT_LOCALE;
+  // Old single-language addresses keep working: /search?q=x -> /en/shop?q=x, /product/x -> /en/product/x.
+  const rest = pathname === "/" ? "" : pathname === "/search" ? "/shop" : pathname;
+  const url = request.nextUrl.clone();
+  url.pathname = `/${locale}${rest}`;
+  url.search = search;
+  const res = NextResponse.redirect(url, 307);
+  res.headers.set("Vary", "Cookie, Accept-Language");
+  return res;
+}
+
+async function adminGate(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const isApi = pathname.startsWith("/api/admin");
   const isLogin = pathname === "/admin/login";
@@ -59,5 +94,7 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*", "/api/admin/:path*"],
+  // Everything except Next internals, API routes (admin APIs are matched separately), the
+  // click redirect, auth callbacks and files with an extension (images, robots.txt, sitemap.xml...).
+  matcher: ["/((?!_next/|api/|go/|auth/|.*\\.[a-zA-Z0-9]+$).*)", "/api/admin/:path*"],
 };

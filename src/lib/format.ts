@@ -1,9 +1,12 @@
-export function formatPrice(value: number | null | undefined, currency = "USD"): string {
+import { LOCALE_META, type Locale } from "@/i18n/config";
+
+export function formatPrice(value: number | null | undefined, currency = "USD", locale: Locale = "en"): string {
   if (value === null || value === undefined || Number.isNaN(value)) return "";
   try {
-    return new Intl.NumberFormat("en-US", {
+    return new Intl.NumberFormat(LOCALE_META[locale].intl, {
       style: "currency",
       currency,
+      currencyDisplay: "narrowSymbol",
       minimumFractionDigits: value % 1 === 0 ? 0 : 2,
       maximumFractionDigits: 2,
     }).format(value);
@@ -21,7 +24,7 @@ export function discountPercent(price: number | null, original: number | null): 
 export function slugify(input: string, max = 80): string {
   const s = input
     .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[̀-ͯ]/g, "")
     .toLowerCase()
     .replace(/&/g, " and ")
     .replace(/[^a-z0-9]+/g, "-")

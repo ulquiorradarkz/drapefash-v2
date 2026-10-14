@@ -1,51 +1,69 @@
 import Link from "next/link";
 import { Search } from "lucide-react";
-import { MobileMenu } from "@/components/store/mobile-menu";
-import type { Category } from "@/lib/types";
+import { Wordmark } from "@/components/wordmark";
+import { localePath, type Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n";
+import { LanguageSwitcher } from "./language-switcher";
+import { MobileMenu } from "./mobile-menu";
+import { NavLinks } from "./nav-links";
+import { PicksLink } from "./picks-link";
 
-export function Header({ categories }: { categories: Category[] }) {
+/** A plain bar on the paper: wordmark, a few links, the ID/search box, saved pieces, language. */
+export function Header({ locale, t, categories }: { locale: Locale; t: Dictionary; categories: { href: string; label: string }[] }) {
+  const shop = localePath(locale, "/shop");
+  const picks = localePath(locale, "/picks");
+  const primary = [
+    { href: localePath(locale, "/women"), label: t.nav.women },
+    { href: localePath(locale, "/men"), label: t.nav.men },
+    { href: shop, label: t.nav.shop },
+    { href: picks, label: t.nav.fitting },
+    { href: localePath(locale, "/contact"), label: t.nav.contact },
+  ];
   return (
-    <header className="sticky top-0 z-40">
-      <div className="glass-blur border-b border-white/10 bg-[#08080c]/70">
-        <div className="mx-auto flex h-14 max-w-7xl items-center gap-4 px-4 sm:h-16 sm:px-6">
-          <MobileMenu categories={categories} />
-          <Link href="/" className="chrome-wordmark text-[1.65rem] sm:text-3xl" data-text="Drape" aria-label="Drape home">
-            Drape
+    <header className="sticky top-0 z-40 h-[var(--header-h)] bg-paper/95 shadow-[inset_0_-1.5px_0_var(--ink)] supports-[backdrop-filter]:bg-paper/85 supports-[backdrop-filter]:backdrop-blur-md">
+      <div className="page-x page-max flex h-full items-center gap-3">
+        <MobileMenu
+          primary={primary}
+          categories={categories}
+          searchAction={shop}
+          labels={{
+            open: t.nav.menuOpen,
+            close: t.nav.menuClose,
+            categories: t.nav.categories,
+            search: t.nav.searchLabel,
+            searchPlaceholder: t.nav.searchPlaceholder,
+            menu: t.nav.main,
+          }}
+        />
+        <Link href={localePath(locale)} aria-label={t.nav.logo} className="focus-ring shrink-0">
+          <Wordmark className="w-[104px] sm:w-[124px]" />
+        </Link>
+        <nav aria-label={t.nav.main} className="ms-8 hidden lg:block xl:ms-12">
+          <NavLinks items={primary} className="flex" />
+        </nav>
+        <div className="ms-auto flex items-center gap-0.5">
+          <form action={shop} role="search" className="relative hidden xl:block">
+            <label htmlFor="header-q" className="sr-only">
+              {t.nav.searchLabel}
+            </label>
+            <Search className="pointer-events-none absolute start-3 top-1/2 size-4 -translate-y-1/2 text-ink-2" strokeWidth={1.6} aria-hidden />
+            <input
+              id="header-q"
+              name="q"
+              type="search"
+              enterKeyHint="search"
+              autoComplete="off"
+              placeholder={`${t.idSearch.placeholder} · ${t.nav.searchPlaceholder}`}
+              className="field h-10 min-h-10 w-64 ps-9 text-[15px] transition-[width] duration-300 ease-drape focus:w-80"
+            />
+          </form>
+          <Link href={shop} aria-label={t.nav.search} className="focus-ring grid size-11 place-items-center hover:text-ink-2 xl:hidden">
+            <Search className="size-5" strokeWidth={1.6} aria-hidden />
           </Link>
-          <nav aria-label="Main" className="ml-6 hidden items-center gap-1 text-sm md:flex">
-            <NavLink href="/women">Women</NavLink>
-            <NavLink href="/men">Men</NavLink>
-            {categories.slice(0, 4).map((c) => (
-              <NavLink key={c.id} href={`/category/${c.slug}`}>
-                {c.name}
-              </NavLink>
-            ))}
-          </nav>
-          <div className="ml-auto flex items-center gap-2">
-            <form action="/search" className="relative hidden sm:block" role="search">
-              <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-white/50" aria-hidden />
-              <input
-                name="q"
-                type="search"
-                placeholder="Search pieces"
-                aria-label="Search products"
-                className="h-9 w-44 rounded-full border border-white/15 bg-white/5 pl-9 pr-3 text-sm text-white placeholder:text-white/40 outline-none transition-[width,border-color] focus:w-60 focus:border-white/40 lg:w-56"
-              />
-            </form>
-            <Link href="/search" className="grid size-10 place-items-center rounded-full text-white/80 hover:bg-white/10 sm:hidden" aria-label="Search">
-              <Search className="size-5" />
-            </Link>
-          </div>
+          <PicksLink href={picks} locale={locale} labels={{ fitting: t.nav.fitting, count: t.nav.picksCount }} />
+          <LanguageSwitcher locale={locale} label={t.nav.language} />
         </div>
       </div>
     </header>
-  );
-}
-
-function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
-  return (
-    <Link href={href} className="rounded-full px-3 py-1.5 text-white/70 transition-colors hover:bg-white/10 hover:text-white">
-      {children}
-    </Link>
   );
 }

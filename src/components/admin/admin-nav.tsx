@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BarChart3, ExternalLink, FolderTree, KeyRound, LinkIcon, LogOut, Package } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Wordmark } from "@/components/wordmark";
 
 const ITEMS = [
   { href: "/admin", label: "Overview", icon: BarChart3 },
@@ -19,8 +20,8 @@ export function AdminNav({ email }: { email: string }) {
   return (
     <aside className="sticky top-0 z-30 border-b border-white/10 bg-[#0c0c12]/95 backdrop-blur md:h-dvh md:border-b-0 md:border-r">
       <div className="flex items-center justify-between gap-3 px-4 py-3 md:block md:px-5 md:py-6">
-        <Link href="/admin" className="chrome-wordmark text-2xl md:text-3xl" data-text="Drape">
-          Drape
+        <Link href="/admin" aria-label="Drape dashboard" className="block">
+          <Wordmark variant="paper" className="w-24 md:w-32" />
         </Link>
         <a
           href="/"

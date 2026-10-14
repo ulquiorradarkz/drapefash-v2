@@ -3,6 +3,8 @@
 .pnp.*
 /coverage
 /.next/
+/.next-dev/
+/.next-build/
 /out/
 /build
 .DS_Store
@@ -21,3 +23,10 @@ next-env.d.ts
 
 .vercel
 .env*
+
+# design-taste-frontend inspector screenshots
+/.taste-skill/inspect/
+/.taste-skill/previews/
+
+# raw 3D downloads (compressed copies live in public/models)
+/models-inbox/*.glb

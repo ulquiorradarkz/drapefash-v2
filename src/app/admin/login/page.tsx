@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { LoginForm } from "@/components/admin/login-form";
+import { Wordmark } from "@/components/wordmark";
 import { ADMIN_EMAIL } from "@/lib/env";
 
 export const metadata: Metadata = { title: "Admin login", robots: { index: false, follow: false } };
@@ -15,13 +16,10 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
   const error = sp.error ? (ERRORS[sp.error] ?? "Login failed.") : null;
   const next = sp.next && sp.next.startsWith("/admin") ? sp.next : "/admin";
   return (
-    <main className="relative grid min-h-dvh place-items-center px-4 py-12">
-      <div className="drape-backdrop" aria-hidden />
-      <div className="glass chrome-border w-full max-w-sm rounded-3xl p-7">
-        <p className="chrome-wordmark text-5xl" data-text="Drape">
-          Drape
-        </p>
-        <h1 className="mt-4 text-lg font-semibold">Dashboard sign in</h1>
+    <main className="grid min-h-dvh place-items-center bg-background px-4 py-12">
+      <div className="w-full max-w-sm rounded-3xl bg-card p-7">
+        <Wordmark title="Drape" variant="paper" className="w-40" />
+        <h1 className="mt-6 text-lg font-semibold">Dashboard sign in</h1>
         <p className="mt-1 text-sm text-muted-foreground">Owner access only.</p>
         <LoginForm defaultEmail={ADMIN_EMAIL} next={next} initialError={error} />
       </div>
