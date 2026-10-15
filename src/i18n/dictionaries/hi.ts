@@ -127,6 +127,8 @@ const hi: Dictionary = {
     putOn: "पहनाएँ",
     takeOff: "उतारें",
     wearAs: "कहाँ पहनाएँ",
+    fit: "फ़िट",
+    fits: { auto: "ऑटो", close: "टाइट", regular: "रेगुलर", loose: "ढीला" },
     slots: {
       head: "सिर",
       top: "टॉप",

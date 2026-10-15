@@ -14,6 +14,7 @@ import { fmt, pluralize } from "@/i18n/format";
 import type { Plural } from "@/i18n/types";
 import { formatPrice } from "@/lib/format";
 import {
+  FITS,
   SLOTS,
   clearPicks,
   defaultSlot,
@@ -24,12 +25,15 @@ import {
   takeOff,
   togglePick,
   undress,
+  setFit,
   useOutfit,
   usePicks,
   wearPick,
+  type Fit,
   type PickItem,
   type Slot,
 } from "@/lib/picks";
+import { styleFor } from "@/lib/fitting/styles";
 import { STORE_META } from "@/lib/stores";
 import type { Store } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -52,6 +56,8 @@ export type FittingLabels = {
     putOn: string;
     takeOff: string;
     wearAs: string;
+    fit: string;
+    fits: Record<Fit, string>;
     slots: Record<Slot, string>;
     form: string;
     formWomen: string;
@@ -165,8 +171,18 @@ export function FittingRoom({
     [outfit.wear, bySlug],
   );
   const worn: WornPiece[] = useMemo(
-    () => wornEntries.filter((w) => w.pick.image).map((w) => ({ slot: w.slot, slug: w.pick.slug, src: w.pick.image as string })),
-    [wornEntries],
+    () =>
+      wornEntries
+        .filter((w) => w.pick.image)
+        .map((w) => ({
+          slot: w.slot,
+          slug: w.pick.slug,
+          src: w.pick.image as string,
+          title: w.pick.name ?? w.pick.title,
+          category: w.pick.category,
+          fit: outfit.fit?.[w.slot] ?? "auto",
+        })),
+    [wornEntries, outfit.fit],
   );
   const slotOf = (slug: string) => SLOTS.find((s) => outfit.wear[s] === slug);
 
@@ -324,9 +340,28 @@ export function FittingRoom({
           {wornEntries.length ? (
             <ul className="divide-y-[1.5px] divide-ink/15">
               {wornEntries.map((w) => (
-                <li key={w.slot} className="flex items-center gap-3 py-3">
+                <li key={w.slot} className="flex flex-wrap items-center gap-x-3 gap-y-2 py-3">
                   <span className="w-20 shrink-0 t-data t-data-up text-ink-2">{labels.fitting.slots[w.slot]}</span>
-                  <bdi className="min-w-0 flex-1 truncate text-[length:var(--t-small)]">{w.pick.title}</bdi>
+                  <bdi className="min-w-0 flex-1 basis-32 truncate text-[length:var(--t-small)]">{w.pick.title}</bdi>
+                  {styleFor(w.slot, w.pick.name ?? w.pick.title, w.pick.category, "auto", null)?.fitAdjustable && (
+                    <>
+                      <label htmlFor={`fit-${w.slot}`} className="sr-only">
+                        {labels.fitting.fit}
+                      </label>
+                      <select
+                        id={`fit-${w.slot}`}
+                        value={outfit.fit?.[w.slot] ?? "auto"}
+                        onChange={(e) => setFit(w.slot, e.target.value as Fit)}
+                        className="field h-10 min-h-10 w-auto shrink-0 text-[14px]"
+                      >
+                        {FITS.map((f) => (
+                          <option key={f} value={f}>
+                            {labels.fitting.fit}: {labels.fitting.fits[f]}
+                          </option>
+                        ))}
+                      </select>
+                    </>
+                  )}
                   <button type="button" onClick={() => takeOff(w.pick.slug)} className="btn btn-sm btn-line shrink-0">
                     {labels.fitting.takeOff}
                   </button>

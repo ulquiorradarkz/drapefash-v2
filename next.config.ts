@@ -13,6 +13,22 @@ const nextConfig: NextConfig = {
   // overwrites the production build that `next start` serves from .next.
   distDir: process.env.NEXT_DIST_DIR || ".next",
   poweredByHeader: false,
+  // The fitting room's clothes segmentation runs onnxruntime natively; only the Linux x64 build ships with the function.
+  serverExternalPackages: ["onnxruntime-node"],
+  outputFileTracingIncludes: {
+    "/api/fitting/[slug]": [
+      "./node_modules/onnxruntime-node/bin/napi-v6/linux/x64/onnxruntime_binding.node",
+      "./node_modules/onnxruntime-node/bin/napi-v6/linux/x64/libonnxruntime.so.1",
+    ],
+  },
+  outputFileTracingExcludes: {
+    "/api/fitting/[slug]": [
+      "./node_modules/onnxruntime-node/bin/napi-v6/darwin/**/*",
+      "./node_modules/onnxruntime-node/bin/napi-v6/win32/**/*",
+      "./node_modules/onnxruntime-node/bin/napi-v6/linux/arm64/**/*",
+      "./node_modules/onnxruntime-node/bin/napi-v6/linux/x64/libonnxruntime_providers_*",
+    ],
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [360, 414, 640, 750, 828, 1080, 1280, 1600],

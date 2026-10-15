@@ -136,6 +136,8 @@ const ar: Dictionary = {
     putOn: "ألبِس",
     takeOff: "انزع",
     wearAs: "تُلبس كـ",
+    fit: "المقاس",
+    fits: { auto: "تلقائي", close: "ضيّق", regular: "عادي", loose: "واسع" },
     slots: {
       head: "الرأس",
       top: "علوي",

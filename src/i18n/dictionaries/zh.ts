@@ -127,6 +127,8 @@ const zh: Dictionary = {
     putOn: "穿上",
     takeOff: "脱下",
     wearAs: "穿在",
+    fit: "版型",
+    fits: { auto: "自动", close: "修身", regular: "常规", loose: "宽松" },
     slots: {
       head: "头部",
       top: "上衣",

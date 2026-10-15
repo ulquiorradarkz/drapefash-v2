@@ -127,6 +127,8 @@ const bn: Dictionary = {
     putOn: "পরান",
     takeOff: "খুলুন",
     wearAs: "কোথায় পরাবেন",
+    fit: "ফিট",
+    fits: { auto: "অটো", close: "আঁটসাঁট", regular: "রেগুলার", loose: "ঢিলেঢালা" },
     slots: {
       head: "মাথা",
       top: "টপ",

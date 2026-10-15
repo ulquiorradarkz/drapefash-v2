@@ -58,6 +58,8 @@ export default async function PicksPage({ params, searchParams }: Props) {
               putOn: t.fitting.putOn,
               takeOff: t.fitting.takeOff,
               wearAs: t.fitting.wearAs,
+              fit: t.fitting.fit,
+              fits: t.fitting.fits,
               slots: t.fitting.slots,
               form: t.fitting.form,
               formWomen: t.fitting.formWomen,

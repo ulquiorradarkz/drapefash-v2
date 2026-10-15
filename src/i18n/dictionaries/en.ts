@@ -126,6 +126,8 @@ const en = {
     putOn: "Put on",
     takeOff: "Take off",
     wearAs: "Wear as",
+    fit: "Fit",
+    fits: { auto: "Auto", close: "Close", regular: "Regular", loose: "Loose" },
     slots: {
       head: "Head",
       top: "Top",

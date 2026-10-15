@@ -127,6 +127,8 @@ const es: Dictionary = {
     putOn: "Poner",
     takeOff: "Quitar",
     wearAs: "Llevar como",
+    fit: "Corte",
+    fits: { auto: "Auto", close: "Ajustado", regular: "Normal", loose: "Holgado" },
     slots: {
       head: "Cabeza",
       top: "Arriba",

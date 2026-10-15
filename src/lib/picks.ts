@@ -17,6 +17,8 @@ export type PickItem = {
   /** Category slug, used to guess where the piece goes on the mannequin. */
   category: string | null;
   code: string | null;
+  /** English name (older saves don't have it: the title is used instead). */
+  name?: string;
   savedAt: number;
 };
 
@@ -25,10 +27,15 @@ export type Slot = (typeof SLOTS)[number];
 
 export type Form = "women" | "men";
 
+export const FITS = ["auto", "close", "regular", "loose"] as const;
+export type Fit = (typeof FITS)[number];
+
 export type Outfit = {
   form: Form;
   /** Which saved piece is on which part of the mannequin. */
   wear: Partial<Record<Slot, string>>;
+  /** How loose the piece in each slot is worn (tops and trousers); "auto" reads it from the piece. */
+  fit?: Partial<Record<Slot, Fit>>;
 };
 
 const PICKS_KEY = "drape_picks_v1";
@@ -95,7 +102,11 @@ export function getOutfit(): Outfit {
   if (typeof window === "undefined") return EMPTY_OUTFIT;
   if (!outfitCache) {
     const raw = read<Partial<Outfit>>(OUTFIT_KEY, EMPTY_OUTFIT);
-    outfitCache = { form: raw.form === "men" ? "men" : "women", wear: raw.wear && typeof raw.wear === "object" ? raw.wear : {} };
+    outfitCache = {
+      form: raw.form === "men" ? "men" : "women",
+      wear: raw.wear && typeof raw.wear === "object" ? raw.wear : {},
+      fit: raw.fit && typeof raw.fit === "object" ? raw.fit : {},
+    };
   }
   return outfitCache;
 }
@@ -172,6 +183,11 @@ export function takeOff(slug: string) {
 
 export function undress() {
   setOutfit({ ...getOutfit(), wear: {} });
+}
+
+export function setFit(slot: Slot, fit: Fit) {
+  const outfit = getOutfit();
+  setOutfit({ ...outfit, fit: { ...outfit.fit, [slot]: fit } });
 }
 
 export function setForm(form: Form) {

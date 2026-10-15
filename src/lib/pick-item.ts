@@ -12,6 +12,8 @@ export type PickSnapshot = {
   store: string;
   category: string | null;
   code: string | null;
+  /** The English name: the fitting room reads the cut from it (baggy, cropped, puffer…) in every language. */
+  name: string;
 };
 
 export function toPickSnapshot(product: ProductWithCategory, locale: Locale): PickSnapshot {
@@ -25,5 +27,6 @@ export function toPickSnapshot(product: ProductWithCategory, locale: Locale): Pi
     store: p.store,
     category: p.category?.slug ?? null,
     code: p.code ?? null,
+    name: product.title,
   };
 }
