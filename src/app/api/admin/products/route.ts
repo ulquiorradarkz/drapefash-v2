@@ -41,7 +41,7 @@ export async function POST(request: Request) {
   const supabase = auth.supabase;
 
   const slug = await uniqueSlug(supabase, "products", input.slug || input.title);
-  const store = input.store === "other" && input.source_url ? detectStore(input.source_url) : input.store;
+  const store = input.store === "other" ? detectStore(input.source_url || input.affiliate_url) : input.store;
 
   // Every piece gets an item ID: the one typed in the form, or the next free DRP number.
   const code = input.code ?? (await nextFreeCode(supabase));

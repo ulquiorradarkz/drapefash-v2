@@ -26,7 +26,6 @@ const published: { id: string; store: string; slug: string; title: string; affil
 
 async function importAndPublish(page: Page, item: (typeof ITEMS)[number]) {
   await page.goto("/admin/import");
-  await page.locator("#import-url").fill(item.url);
   await page.locator("#import-affiliate").fill(item.affiliate);
   const resp = page.waitForResponse((r) => r.url().includes("/api/admin/import"));
   await page.getByRole("button", { name: /fetch details/i }).click();

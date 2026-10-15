@@ -39,6 +39,22 @@ export function detectStore(url: string): Store {
   return "other";
 }
 
+/**
+ * A sign-in link (for example the one in the admin login email) pasted where a shop link belongs.
+ * Never stored: Shop Now would send visitors to it, and opening it would use up the sign-in.
+ */
+export function isSignInLink(url: string): boolean {
+  try {
+    const u = new URL(url);
+    if (/(^|\.)supabase\.(co|in)$/i.test(u.hostname) || u.pathname.includes("/auth/v1/")) return true;
+    return u.searchParams.has("token") && /^(magiclink|recovery|signup|invite|email)$/i.test(u.searchParams.get("type") ?? "");
+  } catch {
+    return false;
+  }
+}
+
+export const SIGN_IN_LINK_MESSAGE = "This is a sign-in link, not a shop link. Paste the affiliate link from the store instead.";
+
 export function storeName(store: Store): string {
   return STORE_META[store]?.name ?? "Store";
 }

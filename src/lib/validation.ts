@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { GENDERS, STORES, TRANSLATED_LOCALES, type ProductTranslations } from "@/lib/types";
 import { isCode, normalizeCode } from "@/lib/code";
+import { SIGN_IN_LINK_MESSAGE, isSignInLink } from "@/lib/stores";
 
 /** Item ID, stored in capitals ("drp 14" → "DRP-14"). Empty means "no ID yet". */
 const itemCode = z
@@ -42,6 +43,8 @@ const httpUrl = z
   .trim()
   .url("Enter a full link starting with https://")
   .refine((v) => /^https?:\/\//i.test(v), "Link must start with http:// or https://");
+
+const affiliateUrl = httpUrl.refine((v) => !isSignInLink(v), SIGN_IN_LINK_MESSAGE);
 
 const optionalHttpUrl = z
   .union([httpUrl, z.literal("")])
@@ -88,7 +91,7 @@ export const productInputSchema = z.object({
     .transform((v) => (v ? v : null)),
   store: z.enum(STORES).default("other"),
   source_url: optionalHttpUrl,
-  affiliate_url: httpUrl,
+  affiliate_url: affiliateUrl,
   gender: z.enum(GENDERS).default("unisex"),
   is_published: z.boolean().default(false),
   is_featured: z.boolean().default(false),
@@ -127,6 +130,6 @@ export const reorderSchema = z.object({
 });
 
 export const importRequestSchema = z.object({
-  url: z.string().trim().min(1, "Paste a product link").max(2000),
+  url: z.string().trim().min(1, "Paste your affiliate link").max(2000).refine((v) => !isSignInLink(v), SIGN_IN_LINK_MESSAGE),
   affiliate_url: z.string().trim().max(2000).optional().default(""),
 });

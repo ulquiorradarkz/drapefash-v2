@@ -363,8 +363,8 @@ export async function extractProduct(input: { url: string; affiliate_url?: strin
   }
 
   try {
-    // Expand short links (s.click.aliexpress.com, a.aliexpress.com, onelink.shein.com, ...)
-    if (/^(s\.click|a|click)\.aliexpress\.|onelink\.shein\.|api-shein\.|\.page\.link$/i.test(new URL(sourceUrl).hostname)) {
+    // Expand affiliate and short links (s.click.aliexpress.com, onelink.shein.com, network tracking links, ...)
+    if (store === "other" || /^(s\.click|a|click)\.aliexpress\.|onelink\.shein\.|api-shein\.|\.page\.link$/i.test(new URL(sourceUrl).hostname)) {
       const expanded = await resolveFinalUrl(sourceUrl);
       if (expanded !== sourceUrl) {
         sourceUrl = expanded;

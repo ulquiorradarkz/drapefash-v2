@@ -14,8 +14,8 @@ type ItemStatus = "queued" | "reading" | "saving" | "saved" | "review" | "failed
 
 type Item = {
   id: number;
+  /** The affiliate link: Shop Now sends people here, and the importer reads the store page behind it. */
   url: string;
-  affiliate: string;
   status: ItemStatus;
   message?: string;
   productId?: string;
@@ -24,16 +24,13 @@ type Item = {
 
 const CONCURRENCY = 2;
 
-/** "productUrl affiliateUrl" (space, tab, comma or | separated). The affiliate link is optional. */
-export function parseLines(text: string): { url: string; affiliate: string }[] {
+/** One affiliate link per line. Anything after the first link on a line is ignored. */
+export function parseLines(text: string): { url: string }[] {
   return text
     .split(/\r?\n/)
     .map((l) => l.trim())
     .filter(Boolean)
-    .map((line) => {
-      const urls = line.match(/https?:\/\/[^\s,|]+/gi) ?? [];
-      return { url: urls[0] ?? line, affiliate: urls[1] ?? "" };
-    });
+    .map((line) => ({ url: (line.match(/https?:\/\/[^\s,|]+/i) ?? [line])[0] }));
 }
 
 export function BulkImport() {
@@ -51,7 +48,7 @@ export function BulkImport() {
       const res = await fetch("/api/admin/import", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: item.url, affiliate_url: item.affiliate }),
+        body: JSON.stringify({ url: item.url, affiliate_url: item.url }),
       });
       const result = (await res.json().catch(() => null)) as ExtractResult | { error: string } | null;
       if (!res.ok || !result || "error" in result) {
@@ -62,7 +59,6 @@ export function BulkImport() {
         return;
       }
       update(item.id, { status: "saving", title: result.data.title });
-      const affiliate = result.data.affiliate_url || result.data.source_url || item.url;
       const save = await fetch("/api/admin/products", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -75,7 +71,7 @@ export function BulkImport() {
           images: result.data.images,
           store: result.data.store,
           source_url: result.data.source_url,
-          affiliate_url: affiliate,
+          affiliate_url: item.url,
           gender: result.data.gender,
           category_id: result.data.category_id,
           is_published: false,
@@ -85,12 +81,12 @@ export function BulkImport() {
       });
       const saved = await save.json().catch(() => ({}));
       if (!save.ok) throw new Error(saved.error ?? "Save failed");
-      const needsReview = result.quality !== "complete" || !result.data.affiliate_url;
+      const needsReview = result.quality !== "complete";
       update(item.id, {
         status: needsReview ? "review" : "saved",
         productId: saved.product.id,
         message: needsReview
-          ? [result.data.price === null && "price missing", !result.data.images.length && "no images", !result.data.affiliate_url && "affiliate link missing"]
+          ? [result.data.price === null && "price missing", !result.data.images.length && "no images"]
               .filter(Boolean)
               .join(", ") || "check details"
           : "Draft saved: review and publish",
@@ -117,7 +113,7 @@ export function BulkImport() {
   function start() {
     const parsed = parseLines(text).slice(0, 100);
     if (!parsed.length) return;
-    const newItems: Item[] = parsed.map((p) => ({ id: nextId.current++, url: p.url, affiliate: p.affiliate, status: "queued" }));
+    const newItems: Item[] = parsed.map((p) => ({ id: nextId.current++, url: p.url, status: "queued" }));
     setItems((list) => [...list, ...newItems]);
     setText("");
     void run(newItems);
@@ -137,13 +133,13 @@ export function BulkImport() {
   return (
     <div className="space-y-5">
       <div className="space-y-3 rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-        <Label htmlFor="bulk-links">One product per line: product link, then (optionally) your affiliate link</Label>
+        <Label htmlFor="bulk-links">One affiliate link per line</Label>
         <Textarea
           id="bulk-links"
           rows={7}
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder={"https://www.aliexpress.com/item/1005….html https://s.click.aliexpress.com/e/…\nhttps://us.shein.com/…-p-123456.html https://onelink.shein.com/…"}
+          placeholder={"https://s.click.aliexpress.com/e/…\nhttps://onelink.shein.com/…"}
           className="font-mono text-xs"
         />
         <div className="flex flex-wrap items-center gap-2">
@@ -197,7 +193,7 @@ export function BulkImport() {
                 )}
                 {it.status === "failed" && (
                   <Link
-                    href={`/admin/products/new?source=${encodeURIComponent(it.url)}&affiliate=${encodeURIComponent(it.affiliate)}`}
+                    href={`/admin/products/new?affiliate=${encodeURIComponent(it.url)}`}
                     className="shrink-0 text-xs underline"
                   >
                     Add manually

@@ -16,7 +16,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SmartImage } from "@/components/smart-image";
 import { GENDERS, STORES, TRANSLATED_LOCALES, type Category, type Product } from "@/lib/types";
-import { STORE_META, detectStore } from "@/lib/stores";
+import { SIGN_IN_LINK_MESSAGE, STORE_META, detectStore, isSignInLink } from "@/lib/stores";
 import { slugify } from "@/lib/format";
 import { LOCALE_META } from "@/i18n/config";
 import { isCode, normalizeCode } from "@/lib/code";
@@ -39,11 +39,8 @@ const formSchema = z.object({
     .string()
     .trim()
     .min(1, "Your affiliate link is required")
-    .refine((v) => /^https?:\/\/[^\s]+\.[^\s]+/i.test(v), "Enter a full link starting with https://"),
-  source_url: z
-    .string()
-    .trim()
-    .refine((v) => v === "" || /^https?:\/\/[^\s]+/i.test(v), "Enter a full link starting with https://"),
+    .refine((v) => /^https?:\/\/[^\s]+\.[^\s]+/i.test(v), "Enter a full link starting with https://")
+    .refine((v) => !isSignInLink(v), SIGN_IN_LINK_MESSAGE),
   title: z.string().trim().min(1, "Title is required").max(300),
   code: z
     .string()
@@ -102,7 +99,6 @@ export type ProductFormInitial = Partial<
 function toValues(p: ProductFormInitial): ProductFormValues {
   return {
     affiliate_url: p.affiliate_url ?? "",
-    source_url: p.source_url ?? "",
     title: p.title ?? "",
     code: p.code ?? "",
     slug: p.slug ?? "",
@@ -164,7 +160,8 @@ export function ProductForm({ categories, initial = {}, productId, onSaved }: Pr
       images: values.images.map((i) => i.url.trim()).filter(Boolean),
       category_id: values.category_id === "none" ? null : values.category_id,
       store: values.store,
-      source_url: values.source_url.trim(),
+      // The store page behind the affiliate link, found by Import. Not shown: the owner only manages the affiliate link.
+      ...(initial.source_url ? { source_url: initial.source_url } : {}),
       affiliate_url: values.affiliate_url.trim(),
       gender: values.gender,
       is_published: intent === "publish" ? true : intent === "draft" ? false : values.is_published,
@@ -239,23 +236,18 @@ export function ProductForm({ categories, initial = {}, productId, onSaved }: Pr
       <div className="space-y-5">
         <div className="space-y-2">
           <Label htmlFor="affiliate_url">Affiliate link (where Shop Now sends people)</Label>
-          <Input id="affiliate_url" placeholder="https://s.click.aliexpress.com/e/..." {...register("affiliate_url")} aria-invalid={!!errors.affiliate_url} />
-          {fieldError(errors.affiliate_url?.message)}
-        </div>
-        <div className="space-y-2">
-          <Label htmlFor="source_url">Product page link</Label>
           <Input
-            id="source_url"
-            placeholder="https://www.aliexpress.com/item/....html"
-            {...register("source_url", {
+            id="affiliate_url"
+            placeholder="https://s.click.aliexpress.com/e/..."
+            {...register("affiliate_url", {
               onBlur: (e) => {
                 const s = detectStore(e.target.value);
                 if (s !== "other" && watch("store") === "other") setValue("store", s);
               },
             })}
-            aria-invalid={!!errors.source_url}
+            aria-invalid={!!errors.affiliate_url}
           />
-          {fieldError(errors.source_url?.message)}
+          {fieldError(errors.affiliate_url?.message)}
         </div>
         <div className="space-y-2">
           <Label htmlFor="title">Title</Label>

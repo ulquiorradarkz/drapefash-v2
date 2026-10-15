@@ -16,7 +16,7 @@ export function IdSearch({
   className,
 }: {
   locale: Locale;
-  t: Dictionary;
+  t: Pick<Dictionary, "idSearch">;
   id: string;
   tone?: "paper" | "night";
   defaultValue?: string;

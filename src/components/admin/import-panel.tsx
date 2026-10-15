@@ -31,7 +31,6 @@ export function ImportPanel({ categories }: { categories: Category[] }) {
 }
 
 function SingleImport({ categories }: { categories: Category[] }) {
-  const [url, setUrl] = useState("");
   const [affiliate, setAffiliate] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<ExtractResult | null>(null);
@@ -48,7 +47,8 @@ function SingleImport({ categories }: { categories: Category[] }) {
       const res = await fetch("/api/admin/import", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url, affiliate_url: affiliate }),
+        // The importer follows the affiliate link to the store page and reads the details there.
+        body: JSON.stringify({ url: affiliate, affiliate_url: affiliate }),
       });
       const json = await res.json().catch(() => null);
       if (!res.ok || !json) throw new Error(json?.error ?? `Request failed (${res.status})`);
@@ -70,7 +70,7 @@ function SingleImport({ categories }: { categories: Category[] }) {
           currency: "USD",
           images: [],
           store: "other",
-          source_url: url,
+          source_url: "",
           affiliate_url: affiliate,
           gender: "unisex",
           category_id: null,
@@ -84,7 +84,6 @@ function SingleImport({ categories }: { categories: Category[] }) {
   }
 
   function reset() {
-    setUrl("");
     setAffiliate("");
     setResult(null);
     setSaved(null);
@@ -94,22 +93,19 @@ function SingleImport({ categories }: { categories: Category[] }) {
 
   return (
     <div className="space-y-6">
-      <form onSubmit={fetchDetails} className="grid gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-4 md:grid-cols-[1fr_1fr_auto] md:items-end">
+      <form onSubmit={fetchDetails} className="grid gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-4 md:grid-cols-[1fr_auto] md:items-end">
         <div className="space-y-2">
-          <Label htmlFor="import-url">Product link</Label>
+          <Label htmlFor="import-affiliate">Your affiliate link</Label>
           <Input
-            id="import-url"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            placeholder="https://www.aliexpress.com/item/1005….html"
+            id="import-affiliate"
+            type="url"
+            value={affiliate}
+            onChange={(e) => setAffiliate(e.target.value)}
+            placeholder="https://s.click.aliexpress.com/e/…"
             required
           />
         </div>
-        <div className="space-y-2">
-          <Label htmlFor="import-affiliate">Your affiliate link</Label>
-          <Input id="import-affiliate" value={affiliate} onChange={(e) => setAffiliate(e.target.value)} placeholder="https://s.click.aliexpress.com/e/…" />
-        </div>
-        <Button type="submit" className="h-9" disabled={loading || !url.trim()}>
+        <Button type="submit" className="h-9" disabled={loading || !affiliate.trim()}>
           {loading ? <Loader2 className="animate-spin" /> : <Sparkles />} {loading ? "Reading…" : "Fetch details"}
         </Button>
       </form>

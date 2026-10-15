@@ -20,11 +20,7 @@ function storefront(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
   const first = pathname.split("/")[1];
 
-  if (isLocale(first)) {
-    const headers = new Headers(request.headers);
-    headers.set("x-drape-locale", first);
-    return NextResponse.next({ request: { headers } });
-  }
+  if (isLocale(first)) return NextResponse.next();
 
   const saved = request.cookies.get(LOCALE_COOKIE)?.value;
   const locale = isLocale(saved) ? saved : matchLocale(request.headers.get("accept-language")) || DEFAULT_LOCALE;
