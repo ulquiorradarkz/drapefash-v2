@@ -10,6 +10,7 @@ import { StoreBadge } from "@/components/store/store-badge";
 import { Price } from "@/components/store/price";
 import { Reveal } from "@/components/store/motion";
 import { PickButton } from "@/components/store/pick-button";
+import { SwingTag } from "@/components/store/swing-tag";
 import { CopyId } from "@/components/store/copy-id";
 import { toPickSnapshot } from "@/lib/pick-item";
 import { LOCALES, LOCALE_META, isLocale, localePath } from "@/i18n/config";
@@ -129,23 +130,18 @@ export default async function ProductPage({ params }: Props) {
         </div>
 
         <div className="lg:sticky lg:top-24 lg:self-start">
-          {product.code && (
-            <div className="hero-rise mb-6 flex items-stretch justify-between gap-3 shadow-[inset_0_0_0_1.5px_var(--ink)]" style={{ ["--rise-delay" as string]: "0s" }}>
-              <p className="flex items-baseline gap-3 px-3 py-2">
-                <span className="t-data t-data-up text-ink-2">{t.product.code}</span>
-                <span className="font-mono text-[clamp(22px,2.2vw,30px)] font-medium tracking-[0.06em] text-ink" dir="ltr">
-                  {product.code}
-                </span>
-              </p>
-              <CopyId code={product.code} labels={{ copy: t.idSearch.copy, copied: t.idSearch.copied }} />
-            </div>
-          )}
           <h1
             className={product.title.length > 70 ? "hero-rise font-display text-[clamp(32px,3vw,44px)] leading-[1.02]" : "hero-rise t-head"}
             style={{ ["--rise-delay" as string]: "0.05s" }}
           >
             <bdi>{product.title}</bdi>
           </h1>
+          {product.code && (
+            <div className="hero-rise mt-6 flex items-end gap-3" style={{ ["--rise-delay" as string]: "0s" }}>
+              <SwingTag code={product.code} lines={[]} className="w-[184px]" />
+              <CopyId code={product.code} labels={{ copy: t.idSearch.copy, copied: t.idSearch.copied }} />
+            </div>
+          )}
           <div className="hero-rise mt-6 flex flex-wrap items-center gap-4" style={{ ["--rise-delay" as string]: "0.15s" }}>
             <Price price={product.price} original={product.original_price} currency={product.currency} locale={locale} labels={t.price} large />
             <StoreBadge store={product.store} size="md" otherLabel={t.product.store} />
@@ -173,9 +169,9 @@ export default async function ProductPage({ params }: Props) {
               {t.product.tryOn}
             </Link>
           </p>
-          <p className="mt-8 bg-ink p-4 text-[length:var(--t-small)] leading-relaxed text-paper-3" role="note">
+          <p className="mt-8 bg-paper-2 p-4 text-[length:var(--t-small)] leading-relaxed text-ink" role="note">
             {fmt(t.product.disclosure, { store })}{" "}
-            <Link href={localePath(locale, "/affiliate-disclosure")} className="underline underline-offset-2 hover:opacity-80">
+            <Link href={localePath(locale, "/affiliate-disclosure")} className="font-semibold underline decoration-accent underline-offset-4 hover:text-accent">
               {t.product.disclosureLink}
             </Link>
           </p>
@@ -191,10 +187,10 @@ export default async function ProductPage({ params }: Props) {
               </p>
             </section>
           )}
-          <dl className="mt-8 grid grid-cols-2 gap-px bg-ink text-[length:var(--t-small)]">
+          <dl className="mt-8 grid grid-cols-2 gap-2 text-[length:var(--t-small)]">
             {catName && product.category && (
-              <div className="bg-paper p-3">
-                <dt className="t-data t-data-up text-ink-2">{t.product.category}</dt>
+              <div className="bg-paper-2 p-4">
+                <dt className="t-data text-ink-2">{t.product.category}</dt>
                 <dd className="mt-1">
                   <Link href={localePath(locale, `/category/${product.category.slug}`)} className="link-u focus-ring">
                     {catName}
@@ -202,8 +198,8 @@ export default async function ProductPage({ params }: Props) {
                 </dd>
               </div>
             )}
-            <div className="bg-paper p-3">
-              <dt className="t-data t-data-up text-ink-2">{t.product.store}</dt>
+            <div className="bg-paper-2 p-4">
+              <dt className="t-data text-ink-2">{t.product.store}</dt>
               <dd className="mt-1">
                 <bdi>{store}</bdi>
               </dd>
@@ -214,7 +210,7 @@ export default async function ProductPage({ params }: Props) {
 
       {related.length > 0 && (
         <section className="mt-[var(--section)]" aria-labelledby="related-title">
-          <Reveal as="h2" id="related-title" className="t-head mb-10 border-b-[1.5px] border-ink pb-4 text-ink">
+          <Reveal as="h2" id="related-title" className="t-head mb-10 text-ink">
             {catName ? fmt(t.product.related, { category: catName }) : t.product.alsoLike}
           </Reveal>
           <ProductGrid products={related} locale={locale} t={t} />

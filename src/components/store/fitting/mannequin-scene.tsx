@@ -26,7 +26,7 @@ export type Turn = { angle: number; target: number; dragging: boolean; idleSince
 
 const STAND = 0.03;
 const INK = "#0a0a0a";
-const ACCENT = "#7a2e31";
+const ACCENT = "#8fa68e";
 
 /** Each form's file, its mannequin height, and the folder of its garments. */
 const MODELS: Record<Form, { url: string; height: number; garments: string }> = {

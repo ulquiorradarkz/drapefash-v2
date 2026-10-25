@@ -68,6 +68,17 @@ const fr: Dictionary = {
     piece: "Pièce",
     seeAll: "Ouvrir toute l'archive",
   },
+  finder: {
+    label: "Trouver une pièce",
+    placeholder: "DRP-014 ou un mot",
+    noMatch: "Rien ne correspond à « {q} ». Essayez juste le numéro.",
+  },
+  verbs: [
+    { verb: "Repérez", text: "Vu une pièce sur Instagram ? Tapez son identifiant, comme DRP-014, et elle s'ouvre ici." },
+    { verb: "Gardez", text: "Mettez une étoile aux pièces qui vous plaisent. Elles restent sur cet appareil ; rien ne nous est envoyé." },
+    { verb: "Essayez", text: "Habillez le mannequin 3D avec vos favoris et faites-le tourner." },
+    { verb: "Achetez", text: "Acheter ouvre la page de la boutique. Vous payez chez elle, à son prix ; nous pouvons toucher une petite commission." },
+  ],
   fittingTeaser: {
     heading: "La cabine d'essayage",
     text: "Ajoutez une étoile aux pièces qui vous plaisent : elles restent sur cet appareil. Habillez ensuite le mannequin 3D avec elles, haut, bas, chaussures et accessoires, et faites-le tourner.",
@@ -177,6 +188,7 @@ const fr: Dictionary = {
     contact: "Contact",
     picks: "Cabine d'essayage",
     credits: "Photos des statues et des cadres : The Metropolitan Museum of Art, domaine public (CC0).",
+    streetCredits: "Photos de rue : Unsplash, via Lorem Picsum. Vidéo: “Traffic on Slovenska street 2”, Sounds of Changes, CC BY 3.0, Wikimedia Commons.",
   },
   shop: {
     title: "Tout voir",

@@ -1,84 +1,89 @@
-/* ===================================================================== Drape: editorial collage, monochrome
-   Black, white and greys (from the owner's black-and-white poster reference), with one oxblood
-   accent used sparingly: the logo star, saved pieces, discounts.
-   A condensed Didone for the poster lines, a mono face for item IDs and data labels,
-   classical marble and ornate silver frames as collage material.
-   Layout uses logical properties only, so every page mirrors itself under dir="rtl". */
+/* ===================================================================== Drape: the pinned poster
+   Charcoal ground, off-white ink, one grey-sage accent (the action, the star, saved pieces, discounts),
+   and one pale concrete field (.night) that a section may flip to.
+   Anton (compressed heavy capitals) for the poster lines, Work Sans for everything else, item IDs and
+   prices included, with tabular figures. No monospace, no rules, no gradients, no shadows at rest.
+   Layout uses logical properties only, so every page mirrors itself under dir="rtl".
+
+   Token names are kept from the first storefront so every page follows the new values:
+   --paper is the ground, --ink the text, and "bg-ink text-paper-3" is still the inverted chip. */
 
 :root {
-  --paper: #f0f0ee;
-  --paper-2: #e2e2df;
-  --paper-3: #fbfbfa;
-  --ink: #0a0a0a;
-  --ink-2: #4a4a4a;
-  --grey: #9a9a9a;
-  --accent: #7a2e31;
-  --accent-deep: #5c2124;
-  --accent-soft: #e2b1b3;
-  --on-accent: #fbfbfa;
-  --night: #0a0a0a;
-  --night-2: #1e1e1e;
-  --lilac: #c8bdf6;
-  --silver: #c9ccd3;
-  --grid: rgb(10 10 10 / 0.055);
-  --grid-night: rgb(251 251 250 / 0.06);
+  --paper: #1c1c1c;
+  --paper-2: #262626;
+  --paper-3: #141414;
+  --ink: #f1f1ef;
+  --ink-2: #b9bab4;
+  --grey: #6f706b;
+  --accent: #8fa68e;
+  --accent-deep: #748c73;
+  --accent-soft: #c4d2c3;
+  --on-accent: #1c1c1c;
+  /* The pale concrete field. Text on it is --paper-3 (near black). */
+  --night: #c8c5ba;
+  --night-2: #b8b5a9;
+  --lilac: var(--accent-soft);
+  --silver: #c8c5ba;
 
-  --gutter: clamp(16px, 2.4vw, 32px);
-  --section: clamp(104px, 12vw, 200px);
+  --gutter: clamp(16px, 2.2vw, 32px);
+  --section: clamp(120px, 13vw, 220px);
   --header-h: 64px;
 
-  /* The type sizes. */
-  --t-giant: clamp(76px, 15vw, 248px);
-  --t-monument: clamp(56px, 9.5vw, 156px);
-  --t-head: clamp(38px, 4.4vw, 68px);
-  --t-statement: clamp(20px, 1.7vw, 26px);
+  /* The type sizes: the pinned poster line, the head, the lead, the body, the small. */
+  --t-giant: clamp(88px, 16vw, 300px);
+  --t-monument: clamp(64px, 10vw, 180px);
+  --t-head: clamp(40px, 5vw, 88px);
+  --t-statement: clamp(20px, 1.9vw, 28px);
   --t-body: 18px;
   --t-small: 16px;
-  --t-label: 13px;
+  --t-label: 14px;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --dir: 1;
 
   --script-text: var(--font-sc), var(--font-deva), var(--font-beng), var(--font-cairo);
-  --script-display: var(--font-sc-serif), var(--font-deva-serif), var(--font-beng-serif), var(--font-naskh);
-  --font-text: var(--font-geist), var(--script-text), system-ui, sans-serif;
-  --font-head: var(--font-didone), var(--script-display), Georgia, serif;
-  --font-data: var(--font-geist-mono), var(--script-text), ui-monospace, monospace;
+  --font-text: var(--font-work), var(--script-text), system-ui, sans-serif;
+  --font-head: var(--font-anton), var(--script-text), Impact, sans-serif;
+  /* IDs and prices: the text face with tabular figures (no monospace on this site). */
+  --font-data: var(--font-text);
+  --head-weight: 400;
+  --head-case: uppercase;
 }
 
 [dir="rtl"] {
   --dir: -1;
 }
 
-/* ------------------------------------------------------------- per-script type */
+/* ------------------------------------------------------------- per-script type
+   Anton has no Chinese, Devanagari, Bengali or Arabic letters: those pages set their poster lines in the
+   heaviest cut of their own sans, and never synthesise a bold Anton for the Latin words in between. */
 html:lang(zh-Hans) {
-  --font-text: var(--font-geist), var(--font-sc), system-ui, sans-serif;
-  --font-head: var(--font-didone), var(--font-sc-serif), serif;
-  --font-data: var(--font-geist-mono), var(--font-sc), monospace;
+  --font-text: var(--font-work), var(--font-sc), system-ui, sans-serif;
+  --font-head: var(--font-anton), var(--font-sc), sans-serif;
+  --head-weight: 900;
 }
 html:lang(hi) {
-  --font-text: var(--font-geist), var(--font-deva), system-ui, sans-serif;
-  --font-head: var(--font-didone), var(--font-deva-serif), serif;
-  --font-data: var(--font-geist-mono), var(--font-deva), monospace;
+  --font-text: var(--font-work), var(--font-deva), system-ui, sans-serif;
+  --font-head: var(--font-anton), var(--font-deva), sans-serif;
+  --head-weight: 800;
 }
 html:lang(bn) {
-  --font-text: var(--font-geist), var(--font-beng), system-ui, sans-serif;
-  --font-head: var(--font-didone), var(--font-beng-serif), serif;
-  --font-data: var(--font-geist-mono), var(--font-beng), monospace;
+  --font-text: var(--font-work), var(--font-beng), system-ui, sans-serif;
+  --font-head: var(--font-anton), var(--font-beng), sans-serif;
+  --head-weight: 800;
 }
 html:lang(ar) {
-  --font-text: var(--font-cairo), var(--font-geist), system-ui, sans-serif;
-  --font-head: var(--font-naskh), var(--font-didone), serif;
-  --font-data: var(--font-cairo), var(--font-geist-mono), monospace;
+  --font-text: var(--font-cairo), var(--font-work), system-ui, sans-serif;
+  --font-head: var(--font-cairo), var(--font-anton), sans-serif;
+  --head-weight: 900;
 }
-/* Devanagari and Bengali marks sit above and below the line: give them room, and a wider cut. */
+/* Devanagari and Bengali marks sit above and below the line: give them room. */
 html:lang(hi) :where(.display, .t-giant, .t-monument, .t-head),
 html:lang(bn) :where(.display, .t-giant, .t-monument, .t-head) {
-  line-height: 1.32;
-  font-stretch: 87.5%;
+  line-height: 1.3;
 }
 html:lang(zh-Hans) :where(.display, .t-giant, .t-monument, .t-head) {
-  line-height: 1.12;
+  line-height: 1.1;
   letter-spacing: 0;
 }
 /* Arabic: no letter-spacing (it breaks letter joining) and generous line height everywhere. */
@@ -89,6 +94,9 @@ html:lang(ar) body * {
 html:lang(ar) body :where(:not(svg, svg *)) {
   line-height: 1.7;
 }
+html:lang(ar) :where(.display, .t-giant, .t-monument, .t-head) {
+  line-height: 1.25 !important;
+}
 
 /* Everything below is a component class: Tailwind utilities (later layer) can override it. */
 @layer components {
@@ -97,7 +105,7 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 html.store {
-  color-scheme: light;
+  color-scheme: dark;
   background: var(--paper);
 }
 body {
@@ -107,18 +115,15 @@ body {
 }
 .store-body {
   background-color: var(--paper);
-  background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px); /* taste-skill-ignore: the paper grid of the brand references */
-  background-size: 40px 40px;
   color: var(--ink);
   font-family: var(--font-text);
   font-size: var(--t-body);
   line-height: 1.55;
+  font-synthesis-weight: none;
 }
 ::selection {
-  background: var(--ink);
-  color: var(--paper-3);
+  background: var(--accent);
+  color: var(--on-accent);
 }
 
 /* ------------------------------------------------------------- type */
@@ -128,43 +133,45 @@ body {
 .t-monument,
 .t-head {
   font-family: var(--font-head);
-  font-stretch: 62.5%;
-  font-weight: 500;
+  font-weight: var(--head-weight);
+  text-transform: var(--head-case);
+  font-synthesis: none;
 }
 .t-giant {
   font-size: var(--t-giant);
-  line-height: 0.84;
-  letter-spacing: -0.02em;
+  line-height: 0.86;
+  letter-spacing: -0.01em;
 }
 .t-monument {
   font-size: var(--t-monument);
   line-height: 0.88;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.01em;
 }
 .t-head {
   font-size: var(--t-head);
-  line-height: 0.98;
-  letter-spacing: -0.01em;
+  line-height: 0.95;
+  letter-spacing: -0.005em;
   text-wrap: balance;
 }
 .t-statement {
   font-size: var(--t-statement);
-  line-height: 1.38;
+  line-height: 1.4;
   text-wrap: pretty;
 }
 .t-small {
   font-size: var(--t-small);
   line-height: 1.5;
 }
-/* Data labels: item IDs, prices, the archive tags. Mono, upper case in Latin scripts. */
+/* Data: item IDs, prices, counts. The text face, tabular, sentence case, readable size. */
 .t-data {
   font-family: var(--font-data);
   font-size: var(--t-label);
-  line-height: 1.35;
-  letter-spacing: 0.04em;
+  line-height: 1.4;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
 }
 .t-data-up {
-  text-transform: uppercase;
+  text-transform: none;
 }
 .tabular {
   font-variant-numeric: tabular-nums;
@@ -178,18 +185,18 @@ body {
   padding-inline: var(--gutter);
 }
 .page-max {
-  max-width: 1560px;
+  max-width: 1600px;
   margin-inline: auto;
 }
 
-/* Grid paper on dark fields too. */
+/* The pale concrete field: a section flips to it whole. Dark text, the same accent. */
 .night {
   background-color: var(--night);
-  background-image:
-    linear-gradient(var(--grid-night) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-night) 1px, transparent 1px); /* taste-skill-ignore: the paper grid, night version */
-  background-size: 40px 40px;
   color: var(--paper-3);
+  --ink: #141414;
+  --ink-2: #3d3e3a;
+  --grey: #6f706b;
+  --paper-3: #f1f1ef;
 }
 
 /* ------------------------------------------------------------- buttons: square, flat, one fill */
@@ -202,39 +209,28 @@ body {
   min-height: 48px;
   padding-inline: 1.4rem;
   border-radius: 0;
-  font-family: var(--font-data);
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-family: var(--font-text);
+  font-size: 16px;
+  font-weight: 600;
   line-height: 1.2;
   white-space: nowrap;
   isolation: isolate;
   transition:
-    transform 0.2s var(--ease),
+    transform 0.25s var(--ease),
     background-color 0.25s var(--ease),
     color 0.25s var(--ease),
     box-shadow 0.25s var(--ease);
 }
-html:lang(ar) .btn,
-html:lang(hi) .btn,
-html:lang(bn) .btn,
-html:lang(zh-Hans) .btn {
-  font-family: var(--font-text);
-  font-size: var(--t-small);
-  text-transform: none;
-}
 .btn:active {
-  transform: translateY(1px) scale(0.985);
+  transform: translateY(1px) scale(0.98);
 }
 .btn:focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 .btn-sm {
   min-height: 40px;
   padding-inline: 0.95rem;
-  font-size: 12px;
 }
 .btn-lg {
   min-height: 58px;
@@ -245,53 +241,45 @@ html:lang(zh-Hans) .btn {
   text-align: center;
   padding-block: 0.45rem;
 }
-/* The action: black, flat. Under the pointer it lifts off the page with a hard grey print shadow. */
+/* The action: sage, flat. Under the pointer it takes the ink. */
 .btn-primary {
-  color: var(--paper-3);
-  background: var(--ink);
+  color: var(--on-accent);
+  background: var(--accent);
 }
 .btn-primary:hover {
-  box-shadow: 6px 6px 0 var(--grey); /* taste-skill-ignore: hard offset print shadow on hover (collage) */
-  transform: translate(-2px, -2px);
+  background: var(--ink);
+  color: var(--paper);
 }
-[dir="rtl"] .btn-primary:hover {
-  box-shadow: -6px 6px 0 var(--grey); /* taste-skill-ignore: hard offset print shadow on hover (collage) */
-  transform: translate(2px, -2px);
-}
-.night .btn-primary {
-  color: var(--ink);
-  background: var(--paper-3);
+.night .btn-primary:hover {
+  background: #141414;
+  color: #f1f1ef;
 }
 .btn-ink {
-  color: var(--paper-3);
+  color: var(--paper);
   background: var(--ink);
 }
 .btn-ink:hover {
-  background: var(--night-2);
+  background: var(--accent);
+  color: var(--on-accent);
 }
 .btn-paper {
   color: var(--ink);
-  background: var(--paper-3);
+  background: var(--paper-2);
 }
 .btn-paper:hover {
-  background: #fff;
+  background: var(--grey);
 }
+/* Secondary: a filled tone step, never an outline at rest. */
 .btn-line {
   color: var(--ink);
-  background: transparent;
-  box-shadow: inset 0 0 0 1.5px currentColor;
+  background: var(--paper-2);
 }
 .btn-line:hover {
-  color: var(--paper-3);
+  color: var(--paper);
   background: var(--ink);
-  box-shadow: inset 0 0 0 1.5px var(--ink);
-}
-.night .btn-line:hover {
-  color: var(--ink);
-  background: var(--paper-3);
 }
 .night .btn-line {
-  color: var(--paper-3);
+  background: var(--night-2);
 }
 .btn .btn-icon {
   transition: transform 0.35s var(--ease);
@@ -307,32 +295,38 @@ html:lang(zh-Hans) .btn {
   transform: translateX(-3px) scaleX(-1);
 }
 
-/* Text link with an underline that grows from the start edge. */
+/* Text link: an ink bar under the words grows from the start edge (a pseudo-element, scaled). */
 .link-u {
-  background-image: linear-gradient(currentColor, currentColor); /* taste-skill-ignore: solid underline drawn as a background, not a gradient */
-  background-repeat: no-repeat;
-  background-size: 0% 1.5px;
-  background-position: 0 100%;
-  transition:
-    background-size 0.35s var(--ease),
-    color 0.2s var(--ease);
+  position: relative;
   padding-block-end: 2px;
+  transition: color 0.2s var(--ease);
 }
-[dir="rtl"] .link-u {
-  background-position: 100% 100%;
+.link-u::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease);
 }
-.link-u:hover,
-.link-u[aria-current="page"] {
-  background-size: 100% 1.5px;
+[dir="rtl"] .link-u::after {
+  transform-origin: right;
+}
+.link-u:hover::after,
+.link-u[aria-current="page"]::after {
+  transform: scaleX(1);
 }
 .link-u:focus-visible,
 .focus-ring:focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 .night .link-u:focus-visible,
 .night .focus-ring:focus-visible {
-  outline-color: var(--paper-3);
+  outline-color: #141414;
 }
 
 /* Directional icons (arrows, chevrons) flip in right-to-left languages. */
@@ -340,18 +334,19 @@ html:lang(zh-Hans) .btn {
   transform: scaleX(-1);
 }
 
-/* ------------------------------------------------------------- tags and brackets (the data-UI layer) */
+/* ------------------------------------------------------------- the swing tag: item IDs */
 .tag {
   display: inline-flex;
   align-items: center;
   gap: 0.5em;
-  padding: 0.28em 0.55em;
+  padding: 0.35em 0.6em;
   background: var(--ink);
-  color: var(--paper-3);
-  font-family: var(--font-data);
-  font-size: 12px;
-  line-height: 1.2;
-  letter-spacing: 0.05em;
+  color: var(--paper);
+  font-family: var(--font-text);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 .tag-accent {
@@ -359,36 +354,17 @@ html:lang(zh-Hans) .btn {
   color: var(--on-accent);
 }
 .tag-paper {
-  background: var(--paper-3);
+  background: var(--paper);
   color: var(--ink);
 }
-/* [ … ] rails: a thin bracket drawn on the start and end edges of a block. */
+/* Kept as no-ops for pages not yet rebuilt: the old bracket and rule ornaments are gone. */
 .bracket {
   position: relative;
-  padding-inline: 14px;
-}
-.bracket::before,
-.bracket::after {
-  content: "";
-  position: absolute;
-  inset-block: 0;
-  width: 8px;
-  border: 1.5px solid currentColor;
-}
-.bracket::before {
-  inset-inline-start: 0;
-  border-inline-end: 0;
-}
-.bracket::after {
-  inset-inline-end: 0;
-  border-inline-start: 0;
 }
 .rule {
-  height: 1.5px;
-  background: currentColor;
+  height: 0;
 }
 .dash-ring {
-  border: 1.5px dashed currentColor;
   border-radius: 50%;
 }
 
@@ -402,9 +378,8 @@ html:lang(zh-Hans) .btn {
 }
 .js [data-reveal]:not(.is-in) {
   opacity: 0;
-  transform: translate3d(0, 28px, 0);
+  transform: translate3d(0, 24px, 0);
 }
-/* Wipe: the box stays (so the observer can see it) and its content is uncovered from the top. */
 .js [data-reveal="wipe"]:not(.is-in) {
   opacity: 1;
   transform: none;
@@ -426,8 +401,8 @@ html:lang(zh-Hans) .btn {
 }
 .js [data-reveal] {
   transition:
-    opacity 0.9s var(--ease),
-    transform 0.9s var(--ease),
+    opacity 0.8s var(--ease),
+    transform 0.8s var(--ease),
     clip-path 1.1s var(--ease);
   transition-delay: var(--reveal-delay, 0ms);
 }
@@ -435,7 +410,7 @@ html:lang(zh-Hans) .btn {
 @keyframes rise-in {
   from {
     opacity: 0;
-    transform: translate3d(0, 40px, 0);
+    transform: translate3d(0, 32px, 0);
   }
   to {
     opacity: 1;
@@ -452,10 +427,10 @@ html:lang(zh-Hans) .btn {
 }
 .hero-rise {
   animation: rise-in 1s var(--ease) both;
-  animation-delay: var(--rise-delay, 0.4s);
+  animation-delay: var(--rise-delay, 0.3s);
 }
 .hero-wipe {
-  animation: wipe-up 1.2s var(--ease) both;
+  animation: wipe-up 1.1s var(--ease) both;
   animation-delay: var(--rise-delay, 0.1s);
 }
 
@@ -473,10 +448,10 @@ html:lang(zh-Hans) .btn {
 }
 .frame-zoom:hover img,
 .frame-zoom:focus-visible img {
-  transform: scale(1.045);
+  transform: scale(1.04);
 }
 
-/* Small frames strip (budget section) */
+/* Horizontal strips */
 .strip {
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
@@ -490,7 +465,7 @@ html:lang(zh-Hans) .btn {
   scroll-snap-align: start;
 }
 
-/* Range input: grey track, black fill, square thumb */
+/* Range input: grey track, ink fill, square sage thumb */
 .range {
   -webkit-appearance: none;
   appearance: none;
@@ -500,68 +475,64 @@ html:lang(zh-Hans) .btn {
   cursor: pointer;
 }
 .range::-webkit-slider-runnable-track {
-  height: 3px;
+  height: 4px;
   background: linear-gradient(90deg, var(--ink) var(--fill, 50%), var(--grey) var(--fill, 50%)); /* taste-skill-ignore: hard two-colour slider fill, no blend */
 }
 [dir="rtl"] .range::-webkit-slider-runnable-track {
   background: linear-gradient(270deg, var(--ink) var(--fill, 50%), var(--grey) var(--fill, 50%)); /* taste-skill-ignore: hard two-colour slider fill, no blend */
 }
 .range::-moz-range-track {
-  height: 3px;
+  height: 4px;
   background: var(--grey);
 }
 .range::-moz-range-progress {
-  height: 3px;
+  height: 4px;
   background: var(--ink);
 }
 .range::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 22px;
   height: 22px;
-  margin-top: -9.5px;
-  background: var(--ink);
-  border: 3px solid var(--paper-3);
-  box-shadow: 0 0 0 1.5px var(--ink);
+  margin-top: -9px;
+  background: var(--accent);
+  border: 0;
 }
 .range::-moz-range-thumb {
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
   border-radius: 0;
-  background: var(--ink);
-  border: 3px solid var(--paper-3);
-  box-shadow: 0 0 0 1.5px var(--ink);
+  background: var(--accent);
+  border: 0;
 }
 .range:focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--accent);
   outline-offset: 4px;
 }
 
-/* Form fields in the store's style: paper fill, ink underline, a black ring on focus. */
+/* Form fields: a tone step from the ground, an ink bar at the foot, a sage ring on focus. */
 .field {
   width: 100%;
   min-height: 48px;
   padding-inline: 0.9rem;
-  background: var(--paper-3);
+  background: var(--paper-2);
   color: var(--ink);
   border: 0;
   border-radius: 0;
-  box-shadow: inset 0 -1.5px 0 var(--ink);
+  box-shadow: inset 0 -2px 0 var(--grey); /* taste-skill-ignore: a form field's foot bar */
   font-size: var(--t-small);
   outline: none;
   transition: box-shadow 0.2s var(--ease);
 }
 .field::placeholder {
-  color: #6b6c73;
+  color: #8d8e88;
 }
 .field:focus-visible {
-  box-shadow:
-    inset 0 -2px 0 var(--ink),
-    0 0 0 2px var(--ink);
+  box-shadow: inset 0 -2px 0 var(--ink), 0 0 0 2px var(--accent); /* taste-skill-ignore: focus ring on a form field */
 }
 select.field {
   appearance: none;
   padding-inline-end: 2.4rem;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%230b0b0e' stroke-width='1.6'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%23f1f1ef' stroke-width='1.6'/></svg>");
   background-repeat: no-repeat;
   background-position: right 0.9rem center;
 }
@@ -577,10 +548,10 @@ select.field {
 .prose-drape h2 {
   margin-block: 2.2em 0.5em;
   font-family: var(--font-head);
-  font-stretch: 62.5%;
-  font-size: clamp(30px, 3vw, 42px);
-  line-height: 1.05;
-  font-weight: 500;
+  font-weight: var(--head-weight);
+  text-transform: var(--head-case);
+  font-size: clamp(30px, 3vw, 44px);
+  line-height: 1.02;
 }
 .prose-drape p {
   margin-block: 0.8em;
@@ -594,17 +565,18 @@ select.field {
   margin-block: 0.45em;
 }
 .prose-drape li::marker {
-  color: var(--ink);
+  color: var(--accent);
 }
 .prose-drape a {
   color: var(--ink);
   font-weight: 600;
   text-decoration: underline;
+  text-decoration-color: var(--accent);
   text-underline-offset: 3px;
 }
 .prose-drape code {
-  font-family: var(--font-data);
-  font-size: 0.86em;
+  font-family: var(--font-text);
+  font-size: 0.92em;
   padding: 0.1em 0.35em;
   background: var(--paper-2);
 }

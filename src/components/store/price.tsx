@@ -3,7 +3,7 @@ import { fmt } from "@/i18n/format";
 import { discountPercent, formatPrice } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
-/** Price with an optional was-price, in the data face. Numbers stay left-to-right inside right-to-left text. */
+/** Price with an optional was-price, tabular figures. Numbers stay left-to-right inside right-to-left text. */
 export function Price({
   price,
   original,
@@ -25,15 +25,15 @@ export function Price({
   const off = discountPercent(price, original);
   return (
     <span className={cn("inline-flex flex-wrap items-baseline gap-x-2.5 gap-y-1", className)}>
-      <bdi dir="ltr" className={cn("font-mono tabular text-ink", large ? "text-[clamp(30px,3vw,40px)] font-medium tracking-tight" : "text-[15px] font-semibold")}>
+      <bdi dir="ltr" className={cn("tabular text-ink", large ? "font-display text-[length:var(--t-head)] leading-none" : "text-[16px] font-semibold")}>
         {formatPrice(price, currency, locale)}
       </bdi>
       {off && original && (
         <>
-          <s className={cn("font-mono tabular text-ink-2", large ? "text-[length:var(--t-small)]" : "text-[13px]")}>
+          <s className={cn("tabular text-ink-2", large ? "text-[length:var(--t-small)]" : "text-[14px]")}>
             <bdi dir="ltr">{formatPrice(original, currency, locale)}</bdi>
           </s>
-          <span className={cn("tag tag-accent", large ? "text-[13px]" : "text-[11px]")}>{fmt(labels.off, { n: off })}</span>
+          <span className={cn("tag tag-accent", large ? "text-[14px]" : "text-[13px]")}>{fmt(labels.off, { n: off })}</span>
         </>
       )}
     </span>

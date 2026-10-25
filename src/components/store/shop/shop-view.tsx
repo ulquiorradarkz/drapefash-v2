@@ -75,9 +75,9 @@ export async function ShopView({
 
   const action = localePath(locale, path);
   const filtered = Boolean(q || store || maxPrice !== undefined || (!fixed.categorySlug && category) || (!fixed.gender && gender) || sort !== "featured");
-  const fieldLabel = "t-data t-data-up text-ink-2";
+  const fieldLabel = "t-small font-semibold text-ink-2";
   const option = "flex min-h-10 cursor-pointer items-center gap-3 text-[length:var(--t-small)] has-[:checked]:font-semibold";
-  const radio = "size-4 accent-[var(--ink)]";
+  const radio = "size-4 accent-[var(--accent)]";
 
   return (
     <div className="page-x page-max pt-10 sm:pt-14">
@@ -98,12 +98,12 @@ export async function ShopView({
           </ol>
         </nav>
       )}
-      <header className="flex flex-wrap items-end justify-between gap-x-8 gap-y-3 border-b-[1.5px] border-ink pb-4">
+      <header className="flex flex-wrap items-end justify-between gap-x-8 gap-y-3 pb-2">
         <h1 className="hero-wipe t-monument text-ink" style={{ ["--rise-delay" as string]: "0s" }}>
           {title}
         </h1>
-        <p className="t-data tabular text-ink" aria-live="polite">
-          [ {pluralize(locale, t.shop.results, products.length)} ]
+        <p className="t-small font-semibold tabular text-ink" aria-live="polite">
+          {pluralize(locale, t.shop.results, products.length)}
         </p>
       </header>
 
@@ -120,8 +120,8 @@ export async function ShopView({
           {products.length ? (
             <ProductGrid products={products} locale={locale} t={t} priorityCount={4} />
           ) : (
-            <div className="bg-paper-3 px-6 py-16 sm:px-10" data-testid="empty-grid">
-              <p className="font-display text-[clamp(34px,4vw,52px)] leading-none text-ink">{stats.total ? t.shop.emptyTitle : t.shop.emptyCatalog}</p>
+            <div className="bg-paper-2 px-6 py-16 sm:px-10" data-testid="empty-grid">
+              <p className="t-head text-ink">{stats.total ? t.shop.emptyTitle : t.shop.emptyCatalog}</p>
               {stats.total > 0 && <p className="mt-2 max-w-[48ch] text-ink">{t.shop.emptyText}</p>}
               {filtered && (
                 <Link href={action} className="btn btn-ink mt-8">

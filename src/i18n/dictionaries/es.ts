@@ -68,6 +68,17 @@ const es: Dictionary = {
     piece: "Prenda",
     seeAll: "Abrir todo el archivo",
   },
+  finder: {
+    label: "Busca una prenda",
+    placeholder: "DRP-014 o una palabra",
+    noMatch: "Nada coincide con «{q}». Prueba solo el número.",
+  },
+  verbs: [
+    { verb: "Ver", text: "¿Viste una prenda en Instagram? Escribe su ID, como DRP-014, y se abre aquí." },
+    { verb: "Guarda", text: "Marca con la estrella lo que te guste. Se queda en este dispositivo; no nos llega nada." },
+    { verb: "Prueba", text: "Viste el maniquí 3D con tus favoritos y dale la vuelta." },
+    { verb: "Compra", text: "Comprar abre la página de la tienda. Pagas allí, a su precio; puede que ganemos una pequeña comisión." },
+  ],
   fittingTeaser: {
     heading: "El probador",
     text: "Marca con la estrella las prendas que te gusten y se quedan en este dispositivo. Luego viste con ellas el maniquí 3D: arriba, abajo, zapatos y extras, y hazlo girar.",
@@ -177,6 +188,7 @@ const es: Dictionary = {
     contact: "Contacto",
     picks: "Probador",
     credits: "Fotos de estatuas y marcos: The Metropolitan Museum of Art, dominio público (CC0).",
+    streetCredits: "Fotografías de calles: Unsplash, vía Lorem Picsum. Vídeo: “Traffic on Slovenska street 2”, Sounds of Changes, CC BY 3.0, Wikimedia Commons.",
   },
   shop: {
     title: "Todo",

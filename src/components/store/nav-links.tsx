@@ -13,7 +13,7 @@ export function NavLinks({ items, className }: { items: { href: string; label: s
           <Link
             href={item.href}
             aria-current={pathname === item.href || pathname.startsWith(`${item.href}/`) ? "page" : undefined}
-            className="link-u focus-ring text-[15px] text-ink transition-colors hover:text-ink-2"
+            className="link-u focus-ring text-[length:var(--t-small)] text-ink transition-colors hover:text-ink-2"
           >
             {item.label}
           </Link>

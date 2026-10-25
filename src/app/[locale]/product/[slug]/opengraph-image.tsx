@@ -34,8 +34,8 @@ export default async function ProductOg({ params }: { params: Promise<{ slug: st
   const img = await imageData(p?.images[0]);
   return new ImageResponse(
     (
-      <div style={{ width: "100%", height: "100%", display: "flex", background: "#e9e9e6", color: "#0b0b0e", fontFamily: "sans-serif" }}>
-        <div style={{ width: 504, height: 630, display: "flex", background: "#dcdcd8" }}>
+      <div style={{ width: "100%", height: "100%", display: "flex", background: "#1c1c1c", color: "#f1f1ef", fontFamily: "sans-serif" }}>
+        <div style={{ width: 504, height: 630, display: "flex", background: "#c8c5ba" }}>
           {img && (
             // eslint-disable-next-line @next/next/no-img-element
             <img src={img} alt="" width={504} height={630} style={{ objectFit: "cover", width: 504, height: 630 }} />
@@ -44,13 +44,13 @@ export default async function ProductOg({ params }: { params: Promise<{ slug: st
         <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: 56 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
             <OgWordmark width={240} />
-            {p?.code && <span style={{ fontFamily: "monospace", fontSize: 30, color: "#7a2e31" }}>{p.code}</span>}
+            {p?.code && <span style={{ fontFamily: "sans-serif", fontSize: 30, color: "#8fa68e" }}>{p.code}</span>}
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div style={{ fontSize: 46, fontWeight: 700, lineHeight: 1.15 }}>{(p?.title ?? "Drape").slice(0, 80)}</div>
             <div style={{ marginTop: 24, display: "flex", gap: 20, alignItems: "center", fontSize: 34 }}>
               {p?.price !== null && p?.price !== undefined && <span style={{ fontWeight: 800 }}>{formatPrice(p.price, p.currency)}</span>}
-              {p && <span style={{ color: "#3c3d44" }}>{storeName(p.store)}</span>}
+              {p && <span style={{ color: "#b9bab4" }}>{storeName(p.store)}</span>}
             </div>
           </div>
         </div>

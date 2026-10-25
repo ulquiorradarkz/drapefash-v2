@@ -61,7 +61,7 @@ export function MobileMenu({
       <div
         id="mobile-menu"
         hidden={!open}
-        className="fixed inset-x-0 bottom-0 top-[var(--header-h)] z-40 overflow-y-auto bg-paper px-4 pb-12 pt-6 [background-image:linear-gradient(var(--grid)_1px,transparent_1px),linear-gradient(90deg,var(--grid)_1px,transparent_1px)] [background-size:40px_40px]"
+        className="fixed inset-x-0 bottom-0 top-[var(--header-h)] z-40 overflow-y-auto bg-paper px-4 pb-12 pt-6"
       >
         <nav aria-label={labels.menu}>
           <ul className="flex flex-col">

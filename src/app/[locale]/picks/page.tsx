@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { FittingRoom } from "@/components/store/fitting/fitting-room";
 import { IdSearch } from "@/components/store/id-search";
-import { Star } from "@/components/store/collage";
 import { isLocale, localePath } from "@/i18n/config";
 import { getDictionary } from "@/i18n";
 import { alternatesFor } from "@/i18n/seo";
@@ -25,14 +24,10 @@ export default async function PicksPage({ params, searchParams }: Props) {
   const { wear } = await searchParams;
   return (
     <div className="page-x page-max pt-10 sm:pt-14">
-      <header className="grid gap-6 border-b-[1.5px] border-ink pb-6 lg:grid-cols-12 lg:items-end">
+      <header className="grid gap-6 pb-2 lg:grid-cols-12 lg:items-end">
         <div className="lg:col-span-7">
-          <p className="t-data text-ink-2" lang="ja" aria-hidden>
-            試着室
-          </p>
-          <h1 className="hero-wipe mt-2 flex items-start gap-4 t-monument text-ink" style={{ ["--rise-delay" as string]: "0s" }}>
+          <h1 className="hero-wipe t-monument text-ink" style={{ ["--rise-delay" as string]: "0s" }}>
             {t.fitting.title}
-            <Star className="mt-[0.12em] w-[0.42em] shrink-0 text-ink" motion="turn" />
           </h1>
         </div>
         <p className="max-w-[44ch] t-statement lg:col-span-5">{t.fitting.intro}</p>

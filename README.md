@@ -1,6 +1,6 @@
 # Drape
 
-Affiliate fashion storefront (black-and-white editorial collage style) in seven languages, with item IDs, a 3D fitting room and an owner dashboard. Next.js 15 (App Router) · TypeScript · Tailwind 4 · Supabase · React Three Fiber.
+Affiliate fashion storefront (pinned-poster style: charcoal, off-white, sage) in seven languages, with item IDs, a 3D fitting room and an owner dashboard. Next.js 15 (App Router) · TypeScript · Tailwind 4 · Supabase · React Three Fiber.
 
 The original static site is kept unchanged in `_old_v2/`. The first single-language Next.js storefront is archived in `_old_next_store/` (not built).
 
@@ -113,21 +113,21 @@ Every piece has a short ID such as `DRP-014` (column `products.code`, added by `
 
 ## Contact
 
-The owner answers on Instagram (`src/lib/contact.ts`). `/[lang]/contact` is just the Instagram logo, which opens the profile; the same logo closes the home page, and the footer has the handle.
+The owner answers on Instagram (`src/lib/contact.ts`). `/[lang]/contact` is the Instagram handle set as display type, which opens the profile; the same block closes the home page, and the footer has the handle.
 
 ## Design
 
-An editorial collage in black, white and greys, taken from the owner's black-and-white poster reference, with one oxblood accent used sparingly.
+The pinned poster: the name holds the screen while the pieces of the edit change under it. Charcoal, off-white and one grey-sage accent, with street photographs as the world around the clothes.
 
-- **Colours:** near-white grid ground (`--paper`), black ink, greys; oxblood `#7a2e31` only for the logo star, saved pieces, discount tags and small markers. Buttons are black. Tokens in `src/app/drape.css`.
-- **Type:** Noto Serif Display set condensed (`font-stretch: 62.5%`) for headings, Geist for text, Geist Mono for IDs, prices and labels. Serif and sans Noto faces for Chinese, Devanagari, Bengali, and Noto Naskh + Cairo for Arabic (`src/app/fonts.ts`).
-- **Logo:** the DRAPE wordmark as an SVG, a condensed Didone in black with an oxblood 4-point star (`src/components/wordmark.tsx`).
-- **Hero:** two pieces from the catalogue (the first featured piece and one from another category) hung in ornate silver frames, each opening its product.
-- **Collage material:** classical draped statues and ornate silver frames from The Metropolitan Museum of Art Open Access (CC0), cut out and toned silver (`public/collage`, credits in `src/lib/credits.ts` and on the About page); birds, stars, grainy black discs, barcodes, side rails (`src/components/store/collage.tsx`).
-- **Motion:** collage layers follow the pointer in depth, birds flap and drift, stars turn, the harlequin band scrolls the newest item IDs, product pictures turn to fluted glass on hover, sections rise in as they enter (`effects.css`, `pointer-parallax.tsx`, `reveal-observer.tsx`, `scroll-fx.tsx`). Under reduced motion nothing moves by itself.
+- **Colours:** charcoal ground (`--paper` #1c1c1c), off-white ink, one sage accent `#8fa68e` for the action, the star, saved pieces and discounts, and one pale concrete field (`.night`) a section may flip to. No gradients, rules or shadows at rest. Tokens in `src/app/drape.css` (the token names are kept from the first storefront, so every page follows them).
+- **Type:** Anton (compressed heavy capitals) for headings, Work Sans for everything else, item IDs and prices included, with tabular figures. Chinese, Devanagari, Bengali and Arabic set their headings in the heaviest cut of Noto Sans SC / Devanagari / Bengali and Cairo (`src/app/fonts.ts`).
+- **Logo:** the DRAPE wordmark as an SVG drawn from Anton, with the sage 4-point star (`src/components/wordmark.tsx`). It fills with `currentColor`.
+- **Home** (`src/components/store/home/`): the pinned poster hero (five pieces, one per category, each bringing a ground colour sampled from its picture, the swing tag counting through their IDs); a rail of the newest IDs; two pieces in close-up with a column card; the archive as a line-up you can type an ID or a word into (the picture follows the pointer); the departments in one frame on the concrete field; how buying works one verb at a time over street photographs; the Instagram handle as display type.
+- **Pictures:** product pictures from the catalogue; street photographs from Unsplash via Lorem Picsum and one street clip from Wikimedia Commons (CC BY 3.0) in `public/street`, credited in the footer, `src/lib/credits.ts` and on the About page; the draped Met statue (CC0) on the legal pages.
+- **Motion:** Motion (`motion/react`) for the pinned hero, the close-up drift, the line-up's pointer picture and filtering, the category frame and the verb photographs; anime.js for the swing tag's spring, the verbs' letters and the handle's ripple; three 21st.dev components by ibelick (motion-primitives, MIT) in `src/components/motion-primitives`: Sliding Number, Magnetic and Infinite Slider. Under reduced motion nothing moves by itself.
 - **Placeholder product pictures:** `node scripts/gen-seed-art.mjs` redraws `public/legacy/products/p01–p24.svg` in this style.
 
-The previous chrome style's components are archived in `_old_next_store/chrome-style/` (not built).
+The previous chrome style's components are archived in `_old_next_store/chrome-style/` (not built); the monochrome collage is in git history (branch `drape-upgrade`).
 
 ## Tests
 

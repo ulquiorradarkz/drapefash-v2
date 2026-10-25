@@ -17,16 +17,14 @@ export default function OgImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 64,
-          backgroundColor: "#e9e9e6",
-          backgroundImage: "linear-gradient(rgba(11,11,14,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(11,11,14,0.07) 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-          color: "#0b0b0e",
-          fontFamily: "monospace",
+          backgroundColor: "#1c1c1c",
+          color: "#f1f1ef",
+          fontFamily: "sans-serif",
         }}
       >
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 26 }}>
-          <span>[ AliExpress · SHEIN · Bulchic ]</span>
-          <span style={{ color: "#7a2e31" }}>DRP / SS26</span>
+          <span>AliExpress · SHEIN · Bulchic</span>
+          <span style={{ color: "#8fa68e" }}>DRP / SS26</span>
         </div>
         <OgWordmark width={1072} />
       </div>

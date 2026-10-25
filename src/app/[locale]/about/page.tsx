@@ -21,9 +21,9 @@ export default async function AboutPage({ params }: Props) {
   const t = getDictionary(locale);
   return (
     <LegalPage doc={t.legal.about} locale={locale}>
-      <section className="mt-14 border-t-[1.5px] border-ink pt-6" aria-labelledby="credits-title">
+      <section className="mt-14 bg-paper-2 p-6" aria-labelledby="credits-title">
         <p id="credits-title" className="text-[length:var(--t-small)] leading-relaxed">
-          {t.footer.credits}
+          {t.footer.credits} {t.footer.streetCredits}
         </p>
         <ul className="mt-4 space-y-2 t-data" lang="en" dir="ltr">
           {IMAGE_CREDITS.map((c) => (
@@ -31,7 +31,7 @@ export default async function AboutPage({ params }: Props) {
               <a href={c.url} target="_blank" rel="noopener" className="link-u focus-ring font-semibold text-ink">
                 {c.title}
               </a>
-              <span className="text-ink-2"> — {c.maker}</span>
+              <span className="text-ink-2">, {c.maker}</span>
             </li>
           ))}
         </ul>

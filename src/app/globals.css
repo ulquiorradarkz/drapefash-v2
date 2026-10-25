@@ -2,6 +2,9 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* Scan the app explicitly, so classes are found whatever folder the dev server starts from. */
+@source "../";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

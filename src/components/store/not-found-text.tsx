@@ -19,10 +19,7 @@ export function NotFoundText({ strings }: { strings: Record<Locale, NotFoundStri
   const t = strings[locale];
   return (
     <div className="relative z-10 lg:col-span-7">
-      <p className="t-data text-ink-2" dir="ltr" aria-hidden>
-        [ 404 ]
-      </p>
-      <h1 className="hero-rise mt-4 max-w-[18ch] t-head text-ink" style={{ ["--rise-delay" as string]: "0.05s" }}>
+      <h1 className="hero-rise max-w-[18ch] t-head text-ink" style={{ ["--rise-delay" as string]: "0.05s" }}>
         {t.notFound.title}
       </h1>
       <p className="hero-rise mt-6 max-w-[44ch] t-statement" style={{ ["--rise-delay" as string]: "0.15s" }}>

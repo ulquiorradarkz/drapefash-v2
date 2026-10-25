@@ -68,6 +68,17 @@ const zh: Dictionary = {
     piece: "单品",
     seeAll: "打开全部档案",
   },
+  finder: {
+    label: "查找单品",
+    placeholder: "DRP-014 或关键词",
+    noMatch: "没有与“{q}”匹配的单品。试试只输入数字。",
+  },
+  verbs: [
+    { verb: "看见", text: "在 Instagram 上看到一件单品？输入它的编号，比如 DRP-014，就会在这里打开。" },
+    { verb: "收藏", text: "给喜欢的单品点星。它们只保存在这台设备上，不会发送给我们。" },
+    { verb: "试穿", text: "用你收藏的单品给 3D 人台穿搭，并转动查看。" },
+    { verb: "购买", text: "点击购买会打开商店自己的页面。你在那里按商店价格付款；我们可能获得少量佣金。" },
+  ],
   fittingTeaser: {
     heading: "试衣间",
     text: "给喜欢的单品点上星标，它们会保存在这台设备上。然后把它们穿到 3D 人台上：上衣、下装、鞋子和配饰，还能转动查看。",
@@ -177,6 +188,7 @@ const zh: Dictionary = {
     contact: "联系",
     picks: "试衣间",
     credits: "雕像和画框照片：大都会艺术博物馆，公有领域（CC0）。",
+    streetCredits: "街景照片：Unsplash，经由 Lorem Picsum。 视频: “Traffic on Slovenska street 2”, Sounds of Changes, CC BY 3.0, Wikimedia Commons.",
   },
   shop: {
     title: "全部单品",

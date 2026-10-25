@@ -31,7 +31,7 @@ export function PicksLink({
     >
       <StarIcon filled={n > 0} className={cn("size-5 transition-transform duration-500 group-hover:rotate-90", n > 0 && "text-accent")} />
       {n > 0 && (
-        <span aria-hidden className="absolute -end-0.5 -top-0.5 grid h-5 min-w-5 place-items-center bg-ink px-1 font-mono text-[11px] leading-none text-paper-3 tabular">
+        <span aria-hidden className="absolute -end-0.5 -top-0.5 grid h-5 min-w-5 place-items-center bg-accent px-1 text-[12px] font-semibold leading-none text-on-accent tabular">
           {formatNumber(locale, n)}
         </span>
       )}
@@ -60,7 +60,7 @@ export function PicksNotice({ href, labels }: { href: string; labels: { added: s
     <div role="status" aria-live="polite" className="pointer-events-none fixed inset-x-3 bottom-3 z-50 flex justify-end sm:inset-x-auto sm:end-4 sm:bottom-4">
       {notice && (
         <div key={notice.key} className="hero-rise pointer-events-auto flex max-w-md items-center gap-3 bg-ink py-2.5 ps-3 pe-2 text-paper-3" style={{ ["--rise-delay" as string]: "0s" }}>
-          <StarIcon filled={notice.saved} className="size-4 shrink-0 text-accent-soft" />
+          <StarIcon filled={notice.saved} className="size-4 shrink-0 text-accent-deep" />
           <bdi className="min-w-0 flex-1 text-[15px] leading-snug">{notice.text}</bdi>
           {notice.saved && (
             <Link href={href} className="btn btn-paper btn-sm shrink-0">

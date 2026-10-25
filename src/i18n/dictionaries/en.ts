@@ -67,6 +67,17 @@ const en = {
     piece: "Piece",
     seeAll: "Open the whole archive",
   },
+  finder: {
+    label: "Find a piece",
+    placeholder: "DRP-014 or a word",
+    noMatch: "Nothing matches “{q}”. Try just the number.",
+  },
+  verbs: [
+    { verb: "Spot", text: "Saw a piece on Instagram? Type its ID, like DRP-014, and it opens here." },
+    { verb: "Save", text: "Star the pieces you like. They stay on this device; nothing is sent to us." },
+    { verb: "Try", text: "Dress the 3D mannequin with your picks and turn it round." },
+    { verb: "Shop", text: "Shop opens the store's own page. You pay them, at their price; we may earn a small commission." },
+  ],
   fittingTeaser: {
     heading: "The fitting room",
     text: "Star the pieces you like and they stay on this device. Then dress the 3D mannequin with them: top, bottom, shoes and extras, and turn it round.",
@@ -176,6 +187,7 @@ const en = {
     contact: "Contact",
     picks: "Fitting room",
     credits: "Statue and frame photographs: The Metropolitan Museum of Art, public domain (CC0).",
+    streetCredits: "Street photographs: Unsplash, via Lorem Picsum. Video: “Traffic on Slovenska street 2”, Sounds of Changes, CC BY 3.0, Wikimedia Commons.",
   },
   shop: {
     title: "Shop all",

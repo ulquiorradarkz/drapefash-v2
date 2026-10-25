@@ -261,7 +261,7 @@ export function FittingRoom({
           className={cn(
             "focus-ring relative aspect-[4/5] w-full touch-pan-y select-none overflow-hidden bg-paper-2 outline-offset-4 lg:aspect-auto lg:h-[min(82svh,860px)]",
             gl === "yes" && "cursor-grab active:cursor-grabbing",
-            dropping && "ring-4 ring-ink ring-inset",
+            dropping && "ring-4 ring-accent ring-inset",
           )}
         >
           {gl === "yes" && (
@@ -324,7 +324,7 @@ export function FittingRoom({
       {/* ---------------------------------------------------------------- the panel */}
       <div className="flex min-w-0 flex-col gap-12 lg:col-span-5">
         <section aria-labelledby="wearing-title">
-          <div className="flex items-baseline justify-between gap-4 border-b-[1.5px] border-ink pb-2">
+          <div className="flex items-baseline justify-between gap-4 pb-2">
             <h2 id="wearing-title" className="font-display text-[clamp(34px,3.4vw,48px)] leading-none">
               {labels.fitting.wearing}
             </h2>
@@ -338,7 +338,7 @@ export function FittingRoom({
             )}
           </div>
           {wornEntries.length ? (
-            <ul className="divide-y-[1.5px] divide-ink/15">
+            <ul className="space-y-1">
               {wornEntries.map((w) => (
                 <li key={w.slot} className="flex flex-wrap items-center gap-x-3 gap-y-2 py-3">
                   <span className="w-20 shrink-0 t-data t-data-up text-ink-2">{labels.fitting.slots[w.slot]}</span>
@@ -392,7 +392,7 @@ export function FittingRoom({
         </section>
 
         <section aria-labelledby="picks-title">
-          <div className="flex items-baseline justify-between gap-4 border-b-[1.5px] border-ink pb-2">
+          <div className="flex items-baseline justify-between gap-4 pb-2">
             <h2 id="picks-title" className="font-display text-[clamp(34px,3.4vw,48px)] leading-none">
               {labels.picks.title}
             </h2>
@@ -454,7 +454,7 @@ function PickRow({
         e.dataTransfer.setData("text/drape-slug", pick.slug);
         e.dataTransfer.effectAllowed = "copy";
       }}
-      className={cn("grid grid-cols-[72px_1fr] gap-3 border-b-[1.5px] border-ink/15 py-4", wornAs && "bg-paper-2")}
+      className={cn("grid grid-cols-[72px_1fr] gap-3 px-2 py-4", wornAs && "bg-paper-2")}
     >
       <div className="relative aspect-[4/5] cursor-grab overflow-hidden bg-paper-3 active:cursor-grabbing">
         {pick.image && <SmartImage src={pick.image} alt="" fill sizes="72px" className="pointer-events-none object-cover" />}
@@ -475,7 +475,7 @@ function PickRow({
               <bdi>{pick.title}</bdi>
             </p>
             {pick.price !== null && (
-              <bdi dir="ltr" className="mt-1 block font-mono text-[14px] tabular">
+              <bdi dir="ltr" className="mt-1 block text-[14px] font-semibold tabular">
                 {formatPrice(pick.price, pick.currency, locale)}
               </bdi>
             )}

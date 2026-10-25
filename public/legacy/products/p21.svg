@@ -1,13 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
 <defs>
-<pattern id="c" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#121212"/><circle cx="3" cy="3" r="1.15" fill="#2a2a2a"/></pattern>
-<pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M25 0H0V25" fill="none" stroke="#0b0b0e" stroke-opacity=".06"/></pattern>
-<pattern id="mesh" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0 5L5 0L10 5L5 10Z" fill="none" stroke="#121212" stroke-opacity=".85" stroke-width="1.3"/></pattern>
+<pattern id="c" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#1c1c1c"/><circle cx="3" cy="3" r="1.15" fill="#2e2e2e"/></pattern>
+<pattern id="mesh" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0 5L5 0L10 5L5 10Z" fill="none" stroke="#1c1c1c" stroke-opacity=".85" stroke-width="1.3"/></pattern>
 </defs>
-<rect width="400" height="500" fill="#ececea"/>
-<rect width="400" height="500" fill="url(#grid)"/>
-<circle cx="200" cy="250" r="168" fill="none" stroke="#0b0b0e" stroke-opacity=".08" stroke-width="1.5" stroke-dasharray="4 6"/>
-<path d="M80 230Q200 186 320 230Q326 284 276 296Q232 302 212 270L188 270Q168 302 124 296Q74 284 80 230Z" fill="url(#c)" stroke="#f0f0ee" stroke-opacity=".35" stroke-width="1.5"/><path d="M80 232L46 218M320 232L354 218" stroke="#7a2e31" stroke-width="7" stroke-linecap="round"/><path d="M110 240Q150 222 190 232" stroke="#d9d9d6" stroke-width="4" fill="none" stroke-linecap="round" opacity=".9"/>
-<path d="M352 44Q353.68 56.32 366 58Q353.68 59.68 352 72Q350.32 59.68 338 58Q350.32 56.32 352 44Z" fill="#0a0a0a"/>
-<path d="M28 462h16M36 454v16" stroke="#0b0b0e" stroke-width="1.5"/>
+<rect width="400" height="500" fill="#c8c5ba"/>
+<path d="M80 230Q200 186 320 230Q326 284 276 296Q232 302 212 270L188 270Q168 302 124 296Q74 284 80 230Z" fill="url(#c)" stroke="#f1f1ef" stroke-opacity=".35" stroke-width="1.5"/><path d="M80 232L46 218M320 232L354 218" stroke="#8fa68e" stroke-width="7" stroke-linecap="round"/><path d="M110 240Q150 222 190 232" stroke="#d9d9d6" stroke-width="4" fill="none" stroke-linecap="round" opacity=".9"/>
 </svg>

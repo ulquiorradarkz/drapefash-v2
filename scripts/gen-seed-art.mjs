@@ -1,5 +1,5 @@
-// Redraws the 24 placeholder product pictures (public/legacy/products/pNN.svg) in the store's monochrome style:
-// pale ground with a faint grid, the garment as a flat print in black, silver, white or grey (a few in oxblood),
+// Redraws the 24 placeholder product pictures (public/legacy/products/pNN.svg) in the store's style:
+// a flat pale concrete ground, the garment as a flat print in charcoal, off-white, white or grey (a few in sage),
 // with halftone dots.
 // Same silhouettes as the first version of the site; only the treatment changes.
 // Decorations stay faint so the fitting room's cut-out keeps only the garment.
@@ -16,11 +16,11 @@ const sparkle = (cx, cy, r) => {
 };
 
 const INKS = {
-  ink: { fill: "#121212", dot: "#2a2a2a", seam: "rgba(251,251,250,.55)", glint: "#d9d9d6", accent: "#7a2e31", trim: "#f0f0ee" },
-  silver: { fill: "#c9ccd3", dot: "#a9adb7", seam: "rgba(10,10,10,.5)", glint: "#ffffff", accent: "#0a0a0a", trim: "#0a0a0a" },
+  ink: { fill: "#1c1c1c", dot: "#2e2e2e", seam: "rgba(241,241,239,.55)", glint: "#d9d9d6", accent: "#8fa68e", trim: "#f1f1ef" },
+  silver: { fill: "#e4e3de", dot: "#cfcdc6", seam: "rgba(10,10,10,.5)", glint: "#ffffff", accent: "#0a0a0a", trim: "#0a0a0a" },
   white: { fill: "#f7f7f5", dot: "#dcdcd8", seam: "rgba(10,10,10,.42)", glint: "#0a0a0a", accent: "#0a0a0a", trim: "#0a0a0a" },
   grey: { fill: "#6b6b6b", dot: "#575757", seam: "rgba(251,251,250,.55)", glint: "#f0f0ee", accent: "#0a0a0a", trim: "#0a0a0a" },
-  oxblood: { fill: "#7a2e31", dot: "#64242a", seam: "rgba(251,251,250,.55)", glint: "#f0f0ee", accent: "#0a0a0a", trim: "#0a0a0a" },
+  oxblood: { fill: "#8fa68e", dot: "#7f967e", seam: "rgba(28,28,28,.45)", glint: "#f1f1ef", accent: "#1c1c1c", trim: "#1c1c1c" },
 };
 
 function shapes(c) {
@@ -143,15 +143,10 @@ function art(i) {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
 <defs>
 <pattern id="c" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="${c.fill}"/><circle cx="3" cy="3" r="1.15" fill="${c.dot}"/></pattern>
-<pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M25 0H0V25" fill="none" stroke="#0b0b0e" stroke-opacity=".06"/></pattern>
-<pattern id="mesh" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0 5L5 0L10 5L5 10Z" fill="none" stroke="${c.fill === "#c9ccd3" || c.fill === "#f7f7f5" ? "#0a0a0a" : c.fill}" stroke-opacity=".85" stroke-width="1.3"/></pattern>
+<pattern id="mesh" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0 5L5 0L10 5L5 10Z" fill="none" stroke="${c.fill === "#e4e3de" || c.fill === "#f7f7f5" ? "#0a0a0a" : c.fill}" stroke-opacity=".85" stroke-width="1.3"/></pattern>
 </defs>
-<rect width="400" height="500" fill="#ececea"/>
-<rect width="400" height="500" fill="url(#grid)"/>
-<circle cx="200" cy="250" r="168" fill="none" stroke="#0b0b0e" stroke-opacity=".08" stroke-width="1.5" stroke-dasharray="4 6"/>
+<rect width="400" height="500" fill="#c8c5ba"/>
 ${shape()}
-<path d="${sparkle(352, 58, 14)}" fill="#0a0a0a"/>
-<path d="M28 462h16M36 454v16" stroke="#0b0b0e" stroke-width="1.5"/>
 </svg>
 `;
 }

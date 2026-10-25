@@ -11,8 +11,8 @@ import { toPickSnapshot } from "@/lib/pick-item";
 import type { ProductWithCategory } from "@/lib/types";
 
 /**
- * A piece filed like an archive specimen: its item ID on a black tag, the star to save it,
- * and the store and category as data labels. The picture turns to fluted glass under the pointer.
+ * A piece with its swing tag: the item ID on an off-white tag, the star to save it, the store and
+ * category under the picture. The picture leans in under the pointer.
  */
 export function ProductCard({
   product: raw,
@@ -34,7 +34,7 @@ export function ProductCard({
       <div className="relative">
         <Link
           href={href}
-          className="frame-zoom ribbed-hover focus-ring relative block aspect-[4/5] overflow-hidden bg-paper-3"
+          className="frame-zoom focus-ring relative block aspect-[4/5] overflow-hidden bg-paper-2"
           tabIndex={-1}
           aria-hidden
         >
@@ -50,7 +50,6 @@ export function ProductCard({
           ) : (
             <span className="grid h-full place-items-center t-small text-ink-2">{t.product.noImage}</span>
           )}
-          <span className="ribbed" />
         </Link>
         {product.code && (
           <span className="tag pointer-events-none absolute start-0 top-0" dir="ltr">
@@ -66,9 +65,9 @@ export function ProductCard({
       <div className="mt-3 flex flex-1 flex-col gap-1.5">
         <p className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
           <StoreBadge store={product.store} otherLabel={t.product.store} />
-          {product.category && <span className="t-data text-ink-2">{categoryName(product.category, locale, t)}</span>}
+          {product.category && <span className="text-[15px] text-ink-2">{categoryName(product.category, locale, t)}</span>}
         </p>
-        <h3 className="text-[length:var(--t-small)] leading-snug">
+        <h3 className="text-[length:var(--t-body)] leading-snug">
           <Link href={href} className="link-u focus-ring line-clamp-2">
             <bdi>{product.title}</bdi>
           </Link>

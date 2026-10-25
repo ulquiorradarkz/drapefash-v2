@@ -52,7 +52,7 @@ export function LanguageSwitcher({ locale, label, className }: { locale: Locale;
         id={listId}
         hidden={!open}
         aria-label={label}
-        className="absolute end-0 top-full z-50 mt-2 min-w-52 bg-paper-3 p-1.5 shadow-[6px_6px_0_var(--ink)] ring-[1.5px] ring-ink" // taste-skill-ignore: a floating menu, hard print shadow
+        className="absolute end-0 top-full z-50 mt-2 min-w-52 bg-paper-2 p-1.5 shadow-[0_18px_48px_rgb(0_0_0/0.55)]" // taste-skill-ignore: a floating menu casts a real shadow
       >
         {LOCALES.map((l) => {
           const meta = LOCALE_META[l];
@@ -73,7 +73,7 @@ export function LanguageSwitcher({ locale, label, className }: { locale: Locale;
                   }
                 }}
                 aria-current={l === locale ? "true" : undefined}
-                className="focus-ring flex min-h-11 items-center justify-between gap-6 px-3 text-start text-[length:var(--t-small)] text-ink transition-colors hover:bg-ink hover:text-paper-3 aria-[current=true]:font-semibold"
+                className="focus-ring flex min-h-11 items-center justify-between gap-6 px-3 text-start text-[length:var(--t-small)] text-ink transition-colors hover:bg-ink hover:text-paper aria-[current=true]:font-semibold aria-[current=true]:text-accent"
               >
                 {meta.name}
                 {l === locale && <Check className="size-4" strokeWidth={2} aria-hidden />}

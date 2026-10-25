@@ -2,7 +2,8 @@
  * Museum pictures used in the collage (public/collage), all public domain (CC0) from
  * The Metropolitan Museum of Art Open Access. Titles are the museum's own, cited as published.
  * The fitting-room mannequins (public/models) come from Blender's Human Base Meshes bundle, also CC0,
- * with the faces smoothed into mannequin heads.
+ * with the faces smoothed into mannequin heads. The street photographs (public/street) are from Unsplash
+ * via Lorem Picsum (Unsplash licence); the street clip is from Wikimedia Commons (CC BY 3.0).
  */
 export const IMAGE_CREDITS = [
   {
@@ -36,5 +37,15 @@ export const IMAGE_CREDITS = [
     title: "Human Base Meshes (fitting-room mannequins)",
     maker: "Blender Studio, CC0",
     url: "https://download.blender.org/demo/asset-bundles/human-base-meshes/",
+  },
+  { file: "street-tower", title: "City street with a glass tower", maker: "Matthew Wiebe, Unsplash", url: "https://unsplash.com/photos/nOhUx3tiaQQ" },
+  { file: "street-alley", title: "Cobbled alley", maker: "Afroz Nawaf, Unsplash", url: "https://unsplash.com/photos/dSyWD7oRns8" },
+  { file: "street-bicycle", title: "Bicycle on a wet street", maker: "Sylwia Bartyzel, Unsplash", url: "https://unsplash.com/photos/eDDQRAYKo7k" },
+  { file: "street-brick", title: "Brick street in shadow", maker: "Nicholas Swanson, Unsplash", url: "https://unsplash.com/photos/SyBYM8R6VU4" },
+  {
+    file: "street-shop",
+    title: "Traffic on Slovenska street 2 (video)",
+    maker: "Sounds of Changes, CC BY 3.0, via Wikimedia Commons",
+    url: "https://commons.wikimedia.org/wiki/File:Traffic_on_Slovenska_street_2.webm",
   },
 ] as const;

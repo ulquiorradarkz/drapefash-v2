@@ -1,13 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
 <defs>
 <pattern id="c" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#f7f7f5"/><circle cx="3" cy="3" r="1.15" fill="#dcdcd8"/></pattern>
-<pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M25 0H0V25" fill="none" stroke="#0b0b0e" stroke-opacity=".06"/></pattern>
 <pattern id="mesh" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0 5L5 0L10 5L5 10Z" fill="none" stroke="#0a0a0a" stroke-opacity=".85" stroke-width="1.3"/></pattern>
 </defs>
-<rect width="400" height="500" fill="#ececea"/>
-<rect width="400" height="500" fill="url(#grid)"/>
-<circle cx="200" cy="250" r="168" fill="none" stroke="#0b0b0e" stroke-opacity=".08" stroke-width="1.5" stroke-dasharray="4 6"/>
+<rect width="400" height="500" fill="#c8c5ba"/>
 <path d="M140 120L260 120L270 400L214 400L200 210L186 400L130 400Z" fill="url(#c)" stroke="#0a0a0a" stroke-opacity=".35" stroke-width="1.5"/><path d="M146 132L136 396M254 132L264 396" stroke="#0a0a0a" stroke-width="7" fill="none"/><path d="M140 140L260 140" stroke="rgba(10,10,10,.42)" stroke-width="3" fill="none" stroke-linecap="round"/>
-<path d="M352 44Q353.68 56.32 366 58Q353.68 59.68 352 72Q350.32 59.68 338 58Q350.32 56.32 352 44Z" fill="#0a0a0a"/>
-<path d="M28 462h16M36 454v16" stroke="#0b0b0e" stroke-width="1.5"/>
 </svg>

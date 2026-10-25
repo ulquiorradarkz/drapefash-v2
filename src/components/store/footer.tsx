@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Wordmark } from "@/components/wordmark";
 import { CookieSettingsButton } from "@/components/store/consent-banner";
@@ -10,144 +11,132 @@ import { InstagramGlyph } from "@/components/store/contact-panel";
 const STORES = ["aliexpress", "shein", "bulchic"] as const;
 
 /**
- * The close of every page: the disclosure (always visible), the links, and the name again at full width.
- * Paper one tone darker, opened by the harlequin band.
+ * The close of every page, split in two: a street photograph cropped hard by the edges on one half,
+ * the site's menu set large on the other, then the disclosure (always visible), the small links and
+ * the legal line.
  */
 export function Footer({ locale, t }: { locale: Locale; t: Dictionary }) {
   const year = new Date().getFullYear();
-  const linkCls = "link-u focus-ring text-[length:var(--t-small)] text-ink hover:text-ink-2";
-  const heading = "t-data t-data-up text-ink-2";
+  const small = "link-u focus-ring text-[length:var(--t-small)] text-ink";
+  const menu = [
+    { href: localePath(locale, "/women"), label: t.nav.women },
+    { href: localePath(locale, "/men"), label: t.nav.men },
+    { href: localePath(locale, "/shop"), label: t.footer.allPieces },
+    { href: localePath(locale, "/picks"), label: t.footer.picks },
+    { href: localePath(locale, "/contact"), label: t.footer.contact },
+  ];
   return (
-    <footer className="mt-[var(--section)] bg-paper-2 text-ink">
-      <div className="harlequin" aria-hidden />
-      <div className="page-x page-max pt-[clamp(48px,6vw,96px)]">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-6">
-          <div className="lg:col-span-4">
-            <div className="max-w-md bg-ink p-5 text-paper-3" role="note" aria-labelledby="ft-disclosure">
-              <p id="ft-disclosure" className="font-display text-[30px] leading-none">
-                {t.footer.disclosureTitle}
-              </p>
-              <p className="mt-3 text-[length:var(--t-small)] leading-relaxed">
-                {t.footer.disclosure}{" "}
-                <Link href={localePath(locale, "/affiliate-disclosure")} className="underline underline-offset-2 hover:opacity-80">
-                  {t.footer.disclosureLink}
+    <footer className="site-footer mt-[var(--section)] grid bg-paper-2 text-ink lg:min-h-[100svh] lg:grid-cols-2">
+      <div className="street relative h-[50svh] overflow-hidden lg:h-auto">
+        <Image src="/street/street-brick.jpg" alt="" fill sizes="(max-width: 1024px) 100vw, 50vw" className="scale-[1.15] object-cover object-[50%_70%]" />
+      </div>
+
+      <div className="flex flex-col px-[var(--gutter)] pb-8 pt-12 lg:ps-[clamp(32px,6vw,112px)] lg:pt-20">
+        <Link href={localePath(locale)} aria-label={t.nav.logo} className="focus-ring block w-[112px]">
+          <Wordmark className="w-full" />
+        </Link>
+
+        <nav aria-label={t.footer.shop} className="mt-10">
+          <ul className="footer-menu space-y-1">
+            {menu.map((m) => (
+              <li key={m.href}>
+                <Link href={m.href} className="focus-ring inline-block font-display text-[length:var(--t-head)] leading-[1] transition-[transform,color] duration-300 ease-drape hover:translate-x-3 hover:text-accent rtl:hover:-translate-x-3">
+                  {m.label}
                 </Link>
-              </p>
-            </div>
-            <p className={`${heading} mt-10`}>{t.footer.stores}</p>
-            <ul className="mt-2 flex flex-wrap gap-x-6 gap-y-1">
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="mt-14 max-w-xl bg-paper p-5" role="note" aria-labelledby="ft-disclosure">
+          <p id="ft-disclosure" className="t-small font-semibold">
+            {t.footer.disclosureTitle}
+          </p>
+          <p className="mt-2 text-[length:var(--t-small)] leading-relaxed">
+            {t.footer.disclosure}{" "}
+            <Link href={localePath(locale, "/affiliate-disclosure")} className="font-semibold underline decoration-accent underline-offset-4 hover:text-accent">
+              {t.footer.disclosureLink}
+            </Link>
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-10 sm:grid-cols-3">
+          <nav aria-label={t.footer.legal}>
+            <p className="t-small font-semibold text-ink-2">{t.footer.legal}</p>
+            <ul className="mt-3 space-y-2">
+              <li>
+                <Link href={localePath(locale, "/about")} className={small}>
+                  {t.legal.about.title}
+                </Link>
+              </li>
+              <li>
+                <Link href={localePath(locale, "/affiliate-disclosure")} className={small}>
+                  {t.legal.disclosure.title}
+                </Link>
+              </li>
+              <li>
+                <Link href={localePath(locale, "/privacy")} className={small}>
+                  {t.legal.privacy.title}
+                </Link>
+              </li>
+              <li>
+                <Link href={localePath(locale, "/cookies")} className={small}>
+                  {t.legal.cookies.title}
+                </Link>
+              </li>
+              <li>
+                <CookieSettingsButton label={t.footer.cookieSettings} className={`${small} text-start`} />
+              </li>
+            </ul>
+          </nav>
+          <nav aria-label={t.footer.language}>
+            <p className="t-small font-semibold text-ink-2">{t.footer.language}</p>
+            <ul className="mt-3 space-y-2">
+              {LOCALES.map((l) => (
+                <li key={l}>
+                  <Link
+                    href={localePath(l)}
+                    hrefLang={LOCALE_META[l].htmlLang}
+                    lang={LOCALE_META[l].htmlLang}
+                    aria-current={l === locale ? "page" : undefined}
+                    className={small}
+                  >
+                    {LOCALE_META[l].name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div>
+            <p className="t-small font-semibold text-ink-2">{t.footer.stores}</p>
+            <ul className="mt-3 space-y-2">
               {STORES.map((s) => (
                 <li key={s}>
-                  <Link href={`${localePath(locale, "/shop")}?store=${s}`} dir="ltr" className="focus-ring t-head text-ink transition-colors hover:text-ink-2">
+                  <Link href={`${localePath(locale, "/shop")}?store=${s}`} dir="ltr" className={small}>
                     {STORE_META[s].name}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
-
-          <nav aria-label={t.footer.shop} className="lg:col-span-2 lg:col-start-6">
-            <p className={heading}>{t.footer.shop}</p>
-            <ul className="mt-3 space-y-2.5">
-              <li>
-                <Link href={localePath(locale, "/women")} className={linkCls}>
-                  {t.nav.women}
-                </Link>
-              </li>
-              <li>
-                <Link href={localePath(locale, "/men")} className={linkCls}>
-                  {t.nav.men}
-                </Link>
-              </li>
-              <li>
-                <Link href={localePath(locale, "/shop")} className={linkCls}>
-                  {t.footer.allPieces}
-                </Link>
-              </li>
-              <li>
-                <Link href={localePath(locale, "/picks")} className={linkCls}>
-                  {t.footer.picks}
-                </Link>
-              </li>
-              <li>
-                <Link href={localePath(locale, "/contact")} className={linkCls}>
-                  {t.footer.contact}
-                </Link>
-              </li>
-            </ul>
-          </nav>
-
-          <nav aria-label={t.footer.legal} className="lg:col-span-3">
-            <p className={heading}>{t.footer.legal}</p>
-            <ul className="mt-3 space-y-2.5">
-              <li>
-                <Link href={localePath(locale, "/about")} className={linkCls}>
-                  {t.legal.about.title}
-                </Link>
-              </li>
-              <li>
-                <Link href={localePath(locale, "/affiliate-disclosure")} className={linkCls}>
-                  {t.legal.disclosure.title}
-                </Link>
-              </li>
-              <li>
-                <Link href={localePath(locale, "/privacy")} className={linkCls}>
-                  {t.legal.privacy.title}
-                </Link>
-              </li>
-              <li>
-                <Link href={localePath(locale, "/cookies")} className={linkCls}>
-                  {t.legal.cookies.title}
-                </Link>
-              </li>
-              <li>
-                <CookieSettingsButton label={t.footer.cookieSettings} className={`${linkCls} text-start`} />
-              </li>
-            </ul>
-          </nav>
-
-          <div className="grid gap-10 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-1">
-            <nav aria-label={t.footer.language}>
-              <p className={heading}>{t.footer.language}</p>
-              <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2.5 lg:grid-cols-1">
-                {LOCALES.map((l) => (
-                  <li key={l}>
-                    <Link
-                      href={localePath(l)}
-                      hrefLang={LOCALE_META[l].htmlLang}
-                      lang={LOCALE_META[l].htmlLang}
-                      aria-current={l === locale ? "page" : undefined}
-                      className={linkCls}
-                    >
-                      {LOCALE_META[l].name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-            <div>
-              <p className={heading}>{t.contact.handleLabel}</p>
-              <a href={INSTAGRAM_URL} target="_blank" rel="noopener" dir="ltr" className="link-u focus-ring mt-3 inline-flex items-center gap-2 font-mono text-[15px] text-ink">
-                <InstagramGlyph className="size-5" />
-                {INSTAGRAM_HANDLE}
-                <span className="sr-only"> ({t.contact.newTab})</span>
-              </a>
-            </div>
+            <p className="mt-8 t-small font-semibold text-ink-2">{t.contact.handleLabel}</p>
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener" dir="ltr" className={`${small} mt-3 inline-flex items-center gap-2`}>
+              <InstagramGlyph className="size-5" />
+              {INSTAGRAM_HANDLE}
+              <span className="sr-only"> ({t.contact.newTab})</span>
+            </a>
           </div>
         </div>
 
-        <Link href={localePath(locale)} aria-label={t.nav.logo} className="focus-ring mt-[clamp(56px,8vw,128px)] block" data-reveal="wipe">
-          <Wordmark className="w-full" />
-        </Link>
-
-        <div className="mt-8 flex flex-col gap-4 border-t-[1.5px] border-ink pb-10 pt-4 text-[13px] text-ink-2 sm:flex-row sm:items-start sm:justify-between">
-          <div className="max-w-3xl space-y-1">
+        <div className="mt-auto flex flex-col gap-4 pt-14 text-[14px] leading-relaxed text-ink-2 sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-[60ch] space-y-1">
             <p>{fmt(t.footer.copyright, { year })}</p>
             <p>{t.footer.notAffiliated}</p>
-            <p>{t.footer.credits}</p>
+            <p>
+              {t.footer.streetCredits} {t.footer.credits}
+            </p>
           </div>
-          <a href="#top" className="link-u focus-ring shrink-0 font-mono text-ink">
-            ↑ {t.footer.backToTop}
+          <a href="#top" className="link-u focus-ring shrink-0 font-semibold text-ink">
+            {t.footer.backToTop}
           </a>
         </div>
       </div>

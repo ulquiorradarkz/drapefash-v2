@@ -11,8 +11,6 @@ import { Footer } from "@/components/store/footer";
 import { ConsentBanner } from "@/components/store/consent-banner";
 import { PageViewTracker } from "@/components/store/page-view-tracker";
 import { RevealObserver } from "@/components/store/reveal-observer";
-import { ScrollFx } from "@/components/store/scroll-fx";
-import { PointerParallax } from "@/components/store/pointer-parallax";
 import { PicksNotice } from "@/components/store/picks-link";
 import { fontVariables } from "../fonts";
 import "../globals.css";
@@ -48,8 +46,8 @@ export async function generateMetadata({ params }: Omit<Props, "children">): Pro
 }
 
 export const viewport: Viewport = {
-  themeColor: "#e9e9e6",
-  colorScheme: "light",
+  themeColor: "#1c1c1c",
+  colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
 };
@@ -75,7 +73,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <body className="store-body" id="top">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:start-3 focus:top-3 focus:z-[60] focus:bg-ink focus:px-4 focus:py-2 focus:text-paper-3"
+          className="sr-only focus:not-sr-only focus:fixed focus:start-3 focus:top-3 focus:z-[60] focus:bg-accent focus:px-4 focus:py-2 focus:text-on-accent"
         >
           {t.nav.skip}
         </a>
@@ -87,8 +85,6 @@ export default async function LocaleLayout({ children, params }: Props) {
         <ConsentBanner locale={locale} labels={t.consent} />
         <PageViewTracker />
         <RevealObserver />
-        <ScrollFx />
-        <PointerParallax />
         <PicksNotice
           href={localePath(locale, "/picks")}
           labels={{ added: t.picks.added, removed: t.picks.removed, open: t.nav.fitting }}

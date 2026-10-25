@@ -1,7 +1,6 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { RichText } from "@/components/store/rich-text";
-import { Star } from "@/components/store/collage";
 import type { Locale } from "@/i18n/config";
 import type { LegalDoc } from "@/i18n/types";
 
@@ -10,13 +9,13 @@ export const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || process.en
 export const LEGAL_UPDATED = "2026-10-13";
 
 /**
- * About and legal pages: the title in black across the page, the text in a readable column,
- * and a draped marble attendant keeping watch beside it on wide screens.
+ * About and legal pages: the title across the page in Anton, the text in a readable column,
+ * and a draped marble attendant (the name, made literal) beside it on wide screens.
  */
 export function LegalPage({ doc, locale, updated, children }: { doc: LegalDoc; locale: Locale; updated?: string; children?: ReactNode }) {
   return (
     <article className="page-x page-max pt-12 sm:pt-20">
-      <header className="border-b-[1.5px] border-ink pb-6">
+      <header className="pb-2">
         <h1 className="hero-wipe max-w-[18ch] t-monument text-ink" style={{ ["--rise-delay" as string]: "0s" }}>
           {doc.title}
         </h1>
@@ -55,8 +54,7 @@ export function LegalPage({ doc, locale, updated, children }: { doc: LegalDoc; l
         </div>
         <aside aria-hidden className="relative hidden lg:col-span-2 lg:col-start-11 lg:block">
           <div className="sticky top-28">
-            <Image src="/collage/statue-attendant.webp" alt="" width={400} height={1290} sizes="12vw" className="h-auto w-full" />
-            <Star className="absolute -start-6 top-[12%] w-10 text-ink" motion="turn" />
+            <Image src="/collage/statue-attendant.webp" alt="" width={400} height={1290} sizes="12vw" className="h-auto w-full grayscale" />
           </div>
         </aside>
       </div>

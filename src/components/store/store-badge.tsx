@@ -3,7 +3,7 @@ import type { Store } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 /**
- * Store mark: the store's name in its own colour, set in the data face like a filing label.
+ * Store mark: the store's name in the text face, in the ink, with a small sage square before it.
  * A stand-in for the official logo files from each affiliate program. Always left-to-right.
  */
 export function StoreBadge({
@@ -23,13 +23,12 @@ export function StoreBadge({
     <span
       dir={store === "other" ? undefined : "ltr"}
       className={cn(
-        "inline-flex items-center gap-1.5 font-mono font-semibold uppercase leading-none tracking-[0.06em]",
-        size === "sm" ? "text-[12px]" : "text-[14px]",
+        "inline-flex items-center gap-1.5 font-semibold leading-none text-ink",
+        size === "sm" ? "text-[15px]" : "text-[16px]",
         className,
       )}
-      style={{ color: meta.ink }}
     >
-      <span aria-hidden className="size-1.5 shrink-0" style={{ background: meta.ink }} />
+      <span aria-hidden className="size-1.5 shrink-0 bg-accent" />
       {store === "other" && otherLabel ? otherLabel : meta.name}
     </span>
   );

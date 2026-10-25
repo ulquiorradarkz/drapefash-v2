@@ -8,7 +8,7 @@ import { MobileMenu } from "./mobile-menu";
 import { NavLinks } from "./nav-links";
 import { PicksLink } from "./picks-link";
 
-/** A plain bar on the paper: wordmark, a few links, the ID/search box, saved pieces, language. */
+/** A plain bar on the charcoal: wordmark, a few links, the ID/search box, saved pieces, language. */
 export function Header({ locale, t, categories }: { locale: Locale; t: Dictionary; categories: { href: string; label: string }[] }) {
   const shop = localePath(locale, "/shop");
   const picks = localePath(locale, "/picks");
@@ -20,7 +20,7 @@ export function Header({ locale, t, categories }: { locale: Locale; t: Dictionar
     { href: localePath(locale, "/contact"), label: t.nav.contact },
   ];
   return (
-    <header className="sticky top-0 z-40 h-[var(--header-h)] bg-paper/95 shadow-[inset_0_-1.5px_0_var(--ink)] supports-[backdrop-filter]:bg-paper/85 supports-[backdrop-filter]:backdrop-blur-md">
+    <header className="sticky top-0 z-40 h-[var(--header-h)] bg-paper text-ink">
       <div className="page-x page-max flex h-full items-center gap-3">
         <MobileMenu
           primary={primary}
@@ -36,7 +36,7 @@ export function Header({ locale, t, categories }: { locale: Locale; t: Dictionar
           }}
         />
         <Link href={localePath(locale)} aria-label={t.nav.logo} className="focus-ring shrink-0">
-          <Wordmark className="w-[104px] sm:w-[124px]" />
+          <Wordmark className="w-[92px] sm:w-[108px]" />
         </Link>
         <nav aria-label={t.nav.main} className="ms-8 hidden lg:block xl:ms-12">
           <NavLinks items={primary} className="flex" />
