@@ -33,12 +33,12 @@ export function ProductGallery({
   }
 
   if (!images.length) {
-    return <div className="grid aspect-[4/5] place-items-center bg-paper-3 text-ink-2">{labels.noImage}</div>;
+    return <div className="grid aspect-[4/5] place-items-center rounded-[var(--radius-frame)] bg-paper-3 text-ink-2">{labels.noImage}</div>;
   }
 
   return (
     <div className="space-y-3">
-      <div className="relative overflow-hidden bg-paper-3">
+      <div className="relative overflow-hidden rounded-[var(--radius-frame)] bg-paper-3">
         <div
           ref={scroller}
           onScroll={onScroll}
@@ -92,7 +92,7 @@ export function ProductGallery({
               aria-label={fmt(labels.showPhoto, { n: i + 1 })}
               aria-current={i === active}
               className={cn(
-                "focus-ring relative aspect-square w-20 shrink-0 overflow-hidden bg-paper-3 transition-opacity",
+                "focus-ring relative aspect-square w-20 shrink-0 overflow-hidden rounded-xl bg-paper-3 transition-opacity",
                 i === active ? "opacity-100 ring-2 ring-ink ring-offset-2 ring-offset-paper" : "opacity-55 hover:opacity-100",
               )}
             >

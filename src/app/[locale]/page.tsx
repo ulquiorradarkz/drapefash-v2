@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
-import { PosterHero } from "@/components/store/home/poster-hero";
-import { IdBand } from "@/components/store/home/id-band";
-import { CloseUp } from "@/components/store/home/close-up";
-import { RailList, type RailGroup } from "@/components/store/home/rail-list";
-import { CategoryFrame, type FrameCategory } from "@/components/store/home/category-frame";
+import { MonumentHero } from "@/components/store/home/monument-hero";
+import { SquarePlate } from "@/components/store/home/square-plate";
+import { PosterLines, type PosterLine } from "@/components/store/home/poster-lines";
+import { StaggeredGallery } from "@/components/store/home/staggered-gallery";
 import { Verbs, type VerbPanel } from "@/components/store/home/verbs";
+import { IdSearch } from "@/components/store/id-search";
 import type { HomePiece } from "@/components/store/home/types";
 import { ContactPanel } from "@/components/store/contact-panel";
 import { LOCALE_META, isLocale, localePath, type Locale } from "@/i18n/config";
@@ -25,9 +25,10 @@ const STREET = ["/street/street-tower.jpg", "/street/street-alley.jpg", "/street
 const STREET_VIDEO: (string | undefined)[] = [undefined, undefined, undefined, "/street/street-shop.webm"];
 
 /**
- * Home: the pinned poster (the name holds, the pieces change under it), the ID rail, two pieces in
- * close-up, the archive as a line-up you can type into, the departments in one frame, how buying
- * works one verb at a time, and the Instagram handle as the way to reach the owner.
+ * Home: the name as a monument in liquid chrome over a moving shader field, with the item-ID box
+ * people arrive with from Instagram; the featured pieces on one square plate; the departments as a
+ * poster on the cobalt field; the newest pieces in staggered pairs; how buying works one verb at a
+ * time; and the Instagram handle as display rows.
  */
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
@@ -66,40 +67,31 @@ export default async function HomePage({ params }: Props) {
   for (const p of withImage) if (heroRaw.length < 5 && !heroRaw.includes(p)) heroRaw.push(p);
   const hero = heroRaw.map(piece);
 
-  // Close-ups: the featured pieces that are not already in the hero.
-  const closeRaw = withImage
+  // The square plate: the featured pieces that are not already in the hero.
+  const plateRaw = withImage
     .filter((p) => !heroRaw.includes(p))
     .sort((a, b) => Number(b.is_featured) - Number(a.is_featured))
-    .slice(0, 2);
+    .slice(0, 3);
 
-  // The line-up: the newest pieces, grouped under their category in the shop's category order.
-  const groups: RailGroup[] = categories
-    .map((c) => ({
-      name: categoryName(c, locale, t),
-      slug: c.slug,
-      href: localePath(locale, `/category/${c.slug}`),
-      pieces: newest.filter((p) => p.category_id === c.id).map(piece),
-    }))
-    .filter((g) => g.pieces.length);
+  // The gallery: the newest pieces with a picture, not already on the plate.
+  const gallery = newest.filter((p) => p.images[0] && !plateRaw.includes(p)).map(piece);
 
-  // The departments in one frame.
-  const frame: FrameCategory[] = categories
+  // The departments as poster lines, each with its count and lowest price.
+  const lines: PosterLine[] = categories
     .filter((c) => (stats.byCategory[c.id]?.count ?? 0) > 0)
     .map((c) => {
       const s = stats.byCategory[c.id];
-      const cover = withImage.find((p) => p.category_id === c.id)?.images[0] ?? null;
       const count = pluralize(locale, t.poster.pieces, s.count);
       return {
         slug: c.slug,
         name: categoryName(c, locale, t),
         href: localePath(locale, `/category/${c.slug}`),
-        image: cover,
-        caption: s.minPrice !== null ? `${count} · ${fmt(t.poster.from, { price: "⁦" + formatPrice(s.minPrice, "USD", locale) + "⁩" })}` : count,
+        detail: s.minPrice !== null ? `${count} · ${fmt(t.poster.from, { price: "⁦" + formatPrice(s.minPrice, "USD", locale) + "⁩" })}` : count,
       };
     });
 
   const verbLinks: (VerbPanel["link"] | undefined)[] = [
-    { href: "#rail-q", label: t.nav.findId },
+    { href: "#hero-id", label: t.nav.findId },
     undefined,
     { href: localePath(locale, "/picks"), label: t.fittingTeaser.cta },
     { href: localePath(locale, "/affiliate-disclosure"), label: t.footer.disclosureLink },
@@ -110,7 +102,12 @@ export default async function HomePage({ params }: Props) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
       {hero.length > 0 ? (
-        <PosterHero pieces={hero} line={t.hero.title} cta={t.hero.cta} shopHref={shop} openLabel={t.archive.piece} />
+        <MonumentHero
+          pieces={hero}
+          shopHref={shop}
+          labels={{ line: t.hero.title, cta: t.hero.cta, open: t.archive.piece }}
+          idForm={<IdSearch locale={locale} t={t} id="hero-id" />}
+        />
       ) : (
         <section aria-labelledby="hero-title" className="page-x page-max pb-10 pt-[clamp(48px,10vh,120px)]">
           <h1 id="hero-title" className="t-giant text-ink">
@@ -120,12 +117,12 @@ export default async function HomePage({ params }: Props) {
           <p className="mt-4 max-w-[46ch] t-small text-ink-2">{t.shop.emptyCatalog}</p>
         </section>
       )}
-      <IdBand pieces={newest.map(piece)} label={t.archive.heading} />
       {products.length > 0 && (
         <>
-          <CloseUp
-            pieces={closeRaw.map(piece)}
+          <SquarePlate
+            pieces={plateRaw.map(piece)}
             labels={{
+              heading: t.archive.heading,
               shop: t.product.shop,
               shopOn: t.product.shopOn,
               newTab: t.product.newTab,
@@ -135,20 +132,8 @@ export default async function HomePage({ params }: Props) {
               open: t.archive.piece,
             }}
           />
-          <RailList
-            groups={groups}
-            idAction={localePath(locale, "/id")}
-            shopHref={shop}
-            labels={{
-              heading: t.archive.heading,
-              intro: t.archive.intro,
-              finder: t.finder.label,
-              placeholder: t.finder.placeholder,
-              noMatch: t.finder.noMatch,
-              seeAll: t.archive.seeAll,
-            }}
-          />
-          <CategoryFrame heading={t.poster.heading} categories={frame} />
+          <PosterLines heading={t.poster.heading} lines={lines} />
+          <StaggeredGallery pieces={gallery} heading={t.archive.heading} seeAll={t.archive.seeAll} shopHref={shop} openLabel={t.archive.piece} />
         </>
       )}
       <Verbs panels={verbs} label={t.how.heading} />

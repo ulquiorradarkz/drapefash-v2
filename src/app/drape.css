@@ -1,39 +1,50 @@
-/* ===================================================================== Drape: the pinned poster
-   Charcoal ground, off-white ink, one grey-sage accent (the action, the star, saved pieces, discounts),
-   and one pale concrete field (.night) that a section may flip to.
-   Anton (compressed heavy capitals) for the poster lines, Work Sans for everything else, item IDs and
-   prices included, with tabular figures. No monospace, no rules, no gradients, no shadows at rest.
+/* ===================================================================== Drape: liquid chrome
+   The clothes are chrome, mesh and patent; the site is poured from the same material. A blue-black
+   ground, chrome-ice ink and one cobalt accent (the action, saved pieces, the star). Two fields a
+   section may flip to: .night is the flat cobalt field (white ink), .ice the inverse (black ink).
+   The name is a monument in liquid metal (Paper shaders), the hero field is a moving shader
+   gradient (ShaderGradient on react-three-fiber), and floating controls are liquid-glass lenses.
+   Big Shoulders (tall condensed gothic) for the name and poster lines, Public Sans for everything
+   else, item IDs and prices included, with tabular figures. No monospace, no rules, no shadows at rest.
    Layout uses logical properties only, so every page mirrors itself under dir="rtl".
 
    Token names are kept from the first storefront so every page follows the new values:
    --paper is the ground, --ink the text, and "bg-ink text-paper-3" is still the inverted chip. */
 
 :root {
-  --paper: #1c1c1c;
-  --paper-2: #262626;
-  --paper-3: #141414;
-  --ink: #f1f1ef;
-  --ink-2: #b9bab4;
-  --grey: #6f706b;
-  --accent: #8fa68e;
-  --accent-deep: #748c73;
-  --accent-soft: #c4d2c3;
-  --on-accent: #1c1c1c;
-  /* The pale concrete field. Text on it is --paper-3 (near black). */
-  --night: #c8c5ba;
-  --night-2: #b8b5a9;
+  --paper: #07080c;
+  --paper-2: #11141c;
+  --paper-3: #04050a;
+  --ink: #eef0f3;
+  --ink-2: #aab1bd;
+  --grey: #5d6470;
+  /* Cobalt: a fill, never small text on the dark ground. Text in cobalt on dark uses --accent-soft. */
+  --accent: #2f3cf0;
+  --accent-deep: #1f2de6;
+  --accent-soft: #9aa3ff;
+  --on-accent: #ffffff;
+  /* The cobalt field. Text on it is white. */
+  --night: #1f2de6;
+  --night-2: #2a37ee;
+  /* The ice field (the footer's inverse). Text on it is near black. */
+  --ice: #e7eaef;
+  --ice-2: #d9dde4;
   --lilac: var(--accent-soft);
-  --silver: #c8c5ba;
+  --silver: #c9ced8;
 
-  --gutter: clamp(16px, 2.2vw, 32px);
+  --gutter: clamp(16px, 2vw, 28px);
   --section: clamp(120px, 13vw, 220px);
-  --header-h: 64px;
+  --header-h: 68px;
+  /* One radius for pictures and panels; buttons and lenses are fully round. */
+  --radius-frame: 20px;
+  /* The monument: as wide as the blueprint allows, never taller than 42% of the screen. */
+  --monument-w: min(calc(68vw - var(--gutter)), calc(100svh * 0.4 * 3.18));
 
-  /* The type sizes: the pinned poster line, the head, the lead, the body, the small. */
-  --t-giant: clamp(88px, 16vw, 300px);
-  --t-monument: clamp(64px, 10vw, 180px);
-  --t-head: clamp(40px, 5vw, 88px);
-  --t-statement: clamp(20px, 1.9vw, 28px);
+  /* The type sizes: the monument, the poster line, the head, the lead, the body, the small. */
+  --t-giant: clamp(96px, 19vw, 360px);
+  --t-monument: clamp(64px, 11vw, 200px);
+  --t-head: clamp(36px, 4.4vw, 72px);
+  --t-statement: clamp(20px, 1.8vw, 26px);
   --t-body: 18px;
   --t-small: 16px;
   --t-label: 14px;
@@ -42,11 +53,11 @@
   --dir: 1;
 
   --script-text: var(--font-sc), var(--font-deva), var(--font-beng), var(--font-cairo);
-  --font-text: var(--font-work), var(--script-text), system-ui, sans-serif;
-  --font-head: var(--font-anton), var(--script-text), Impact, sans-serif;
+  --font-text: var(--font-public), var(--script-text), system-ui, sans-serif;
+  --font-head: var(--font-shoulders), var(--script-text), Impact, sans-serif;
   /* IDs and prices: the text face with tabular figures (no monospace on this site). */
   --font-data: var(--font-text);
-  --head-weight: 400;
+  --head-weight: 800;
   --head-case: uppercase;
 }
 
@@ -58,23 +69,23 @@
    Anton has no Chinese, Devanagari, Bengali or Arabic letters: those pages set their poster lines in the
    heaviest cut of their own sans, and never synthesise a bold Anton for the Latin words in between. */
 html:lang(zh-Hans) {
-  --font-text: var(--font-work), var(--font-sc), system-ui, sans-serif;
-  --font-head: var(--font-anton), var(--font-sc), sans-serif;
+  --font-text: var(--font-public), var(--font-sc), system-ui, sans-serif;
+  --font-head: var(--font-shoulders), var(--font-sc), sans-serif;
   --head-weight: 900;
 }
 html:lang(hi) {
-  --font-text: var(--font-work), var(--font-deva), system-ui, sans-serif;
-  --font-head: var(--font-anton), var(--font-deva), sans-serif;
+  --font-text: var(--font-public), var(--font-deva), system-ui, sans-serif;
+  --font-head: var(--font-shoulders), var(--font-deva), sans-serif;
   --head-weight: 800;
 }
 html:lang(bn) {
-  --font-text: var(--font-work), var(--font-beng), system-ui, sans-serif;
-  --font-head: var(--font-anton), var(--font-beng), sans-serif;
+  --font-text: var(--font-public), var(--font-beng), system-ui, sans-serif;
+  --font-head: var(--font-shoulders), var(--font-beng), sans-serif;
   --head-weight: 800;
 }
 html:lang(ar) {
-  --font-text: var(--font-cairo), var(--font-work), system-ui, sans-serif;
-  --font-head: var(--font-cairo), var(--font-anton), sans-serif;
+  --font-text: var(--font-cairo), var(--font-public), system-ui, sans-serif;
+  --font-head: var(--font-cairo), var(--font-shoulders), sans-serif;
   --head-weight: 900;
 }
 /* Devanagari and Bengali marks sit above and below the line: give them room. */
@@ -139,8 +150,8 @@ body {
 }
 .t-giant {
   font-size: var(--t-giant);
-  line-height: 0.86;
-  letter-spacing: -0.01em;
+  line-height: 0.82;
+  letter-spacing: -0.02em;
 }
 .t-monument {
   font-size: var(--t-monument);
@@ -189,14 +200,30 @@ body {
   margin-inline: auto;
 }
 
-/* The pale concrete field: a section flips to it whole. Dark text, the same accent. */
+/* The cobalt field: a section flips to it whole. White ink; the action turns blue-black. */
 .night {
   background-color: var(--night);
-  color: var(--paper-3);
-  --ink: #141414;
-  --ink-2: #3d3e3a;
-  --grey: #6f706b;
-  --paper-3: #f1f1ef;
+  color: #ffffff;
+  --ink: #ffffff;
+  --ink-2: #e3e6ff;
+  --grey: #c3c8ff;
+  --paper: #1f2de6;
+  --paper-2: #2a37ee;
+  --paper-3: #07080c;
+  --accent: #07080c;
+  --on-accent: #ffffff;
+}
+/* The ice field: the inverse of the ground (the footer). Black ink, the cobalt action. */
+.ice {
+  background-color: var(--ice);
+  color: #0b0c0e;
+  --ink: #0b0c0e;
+  --ink-2: #3f4550;
+  --grey: #5d6470;
+  --paper: #e7eaef;
+  --paper-2: #d9dde4;
+  --paper-3: #eef0f3;
+  --accent-soft: #1f2de6;
 }
 
 /* ------------------------------------------------------------- buttons: square, flat, one fill */
@@ -207,8 +234,8 @@ body {
   justify-content: center;
   gap: 0.7em;
   min-height: 48px;
-  padding-inline: 1.4rem;
-  border-radius: 0;
+  padding-inline: 1.5rem;
+  border-radius: 999px;
   font-family: var(--font-text);
   font-size: 16px;
   font-weight: 600;
@@ -251,8 +278,8 @@ body {
   color: var(--paper);
 }
 .night .btn-primary:hover {
-  background: #141414;
-  color: #f1f1ef;
+  background: #ffffff;
+  color: #1f2de6;
 }
 .btn-ink {
   color: var(--paper);
@@ -326,7 +353,7 @@ body {
 }
 .night .link-u:focus-visible,
 .night .focus-ring:focus-visible {
-  outline-color: #141414;
+  outline-color: #ffffff;
 }
 
 /* Directional icons (arrows, chevrons) flip in right-to-left languages. */
@@ -524,7 +551,7 @@ body {
   transition: box-shadow 0.2s var(--ease);
 }
 .field::placeholder {
-  color: #8d8e88;
+  color: #7d8593;
 }
 .field:focus-visible {
   box-shadow: inset 0 -2px 0 var(--ink), 0 0 0 2px var(--accent); /* taste-skill-ignore: focus ring on a form field */
@@ -532,7 +559,7 @@ body {
 select.field {
   appearance: none;
   padding-inline-end: 2.4rem;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%23f1f1ef' stroke-width='1.6'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%23eef0f3' stroke-width='1.6'/></svg>");
   background-repeat: no-repeat;
   background-position: right 0.9rem center;
 }

@@ -19,5 +19,5 @@ export default async function ContactPage({ params }: Props) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const t = getDictionary(locale);
-  return <ContactPanel t={t} as="h1" className="min-h-[calc(100svh-var(--header-h)-8rem)]" />;
+  return <ContactPanel t={t} as="h1" className="mt-8" />;
 }

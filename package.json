@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",
+    "@paper-design/shaders-react": "0.0.81",
     "@react-three/drei": "^10.7.9",
     "@react-three/fiber": "^9.8.1",
     "@react-three/postprocessing": "^3.2.0",
+    "@shadergradient/react": "2.4.20",
     "@supabase/ssr": "^0.12.7",
     "@supabase/supabase-js": "^2.117.3",
     "animejs": "^4.5.0",

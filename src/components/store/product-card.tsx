@@ -34,7 +34,7 @@ export function ProductCard({
       <div className="relative">
         <Link
           href={href}
-          className="frame-zoom focus-ring relative block aspect-[4/5] overflow-hidden bg-paper-2"
+          className="frame-zoom focus-ring relative block aspect-[4/5] overflow-hidden rounded-[var(--radius-frame)] bg-paper-2"
           tabIndex={-1}
           aria-hidden
         >

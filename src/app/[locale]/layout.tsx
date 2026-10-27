@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: Omit<Props, "children">): Pro
 }
 
 export const viewport: Viewport = {
-  themeColor: "#1c1c1c",
+  themeColor: "#07080c",
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
@@ -89,7 +89,6 @@ export default async function LocaleLayout({ children, params }: Props) {
           href={localePath(locale, "/picks")}
           labels={{ added: t.picks.added, removed: t.picks.removed, open: t.nav.fitting }}
         />
-        <div className="grain" aria-hidden />
       </body>
     </html>
   );

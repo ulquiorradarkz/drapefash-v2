@@ -33,7 +33,7 @@ export function ConsentBanner({
       role="dialog"
       aria-modal="false"
       aria-labelledby="consent-title"
-      className="fixed inset-x-2 bottom-2 z-50 bg-paper-3 p-4 text-ink shadow-[6px_6px_0_var(--grey)] ring-[1.5px] ring-ink sm:inset-x-auto sm:bottom-4 sm:start-4 sm:max-w-md sm:p-5" // taste-skill-ignore: a floating dialog, hard print shadow
+      className="lg lg-dialog fixed inset-x-2 bottom-2 z-50 rounded-[22px] p-4 text-ink sm:inset-x-auto sm:bottom-4 sm:start-4 sm:max-w-md sm:p-5"
     >
       <p id="consent-title" className="font-display text-[28px] leading-none">
         {labels.title}

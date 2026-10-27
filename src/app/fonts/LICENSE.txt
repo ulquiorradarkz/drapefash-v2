@@ -1,0 +1,4 @@
+Big Shoulders (Copyright 2019 The Big Shoulders Project Authors) and Public Sans (Copyright 2015 The Public
+Sans Project Authors) are licensed under the SIL Open Font License, Version 1.1:
+https://openfontlicense.org/open-font-license-official-text/
+Latin variable subsets as packaged by Fontsource (https://fontsource.org), served from cdn.jsdelivr.net.

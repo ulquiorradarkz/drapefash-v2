@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import type { Dictionary } from "@/i18n";
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/contact";
 import { cn } from "@/lib/utils";
@@ -15,37 +16,46 @@ export function InstagramGlyph({ className }: { className?: string }) {
 }
 
 /**
- * Contact: the owner answers on Instagram, so the handle itself is the section, set as display type
- * from margin to margin in the inverse colours. What to write about sits in the top corner.
+ * Contact as display rows: full-width bands in two tones of the ground, every row the same size,
+ * the text in each band's lower third. The heading, the handle (the link), where the owner answers,
+ * and a last row that is the action itself with a round arrow at its end.
  */
 export function ContactPanel({ t, as: Heading = "h2", className }: { t: Dictionary; as?: "h1" | "h2"; className?: string }) {
+  const row = "contact-row page-x flex min-h-[84px] items-end pb-4 sm:min-h-[150px] sm:pb-6";
+  const type = "font-display text-[length:clamp(30px,7vw,112px)] leading-[0.95]";
   return (
-    <section aria-labelledby="contact-title" className={cn("contact-block flex min-h-[88svh] flex-col bg-ink text-paper", className)}>
-      <div className="page-x page-max flex w-full flex-1 flex-col pb-[clamp(32px,6vh,72px)] pt-[clamp(40px,8vh,96px)]">
-        <Heading id="contact-title" className="max-w-[30ch] text-[length:var(--t-statement)] font-semibold leading-snug" data-reveal="">
-          {t.contact.lead}
+    <section aria-labelledby="contact-title" className={cn("contact-block mt-[var(--section)]", className)}>
+      <div className={cn(row, "bg-paper-2")} data-reveal="">
+        <Heading id="contact-title" className={type}>
+          {t.contact.heading}
         </Heading>
-        <a
-          href={INSTAGRAM_URL}
-          target="_blank"
-          rel="noopener"
-          dir="ltr"
-          className="focus-ring group mt-auto block pt-16 font-display normal-case text-[length:var(--t-giant)] leading-[0.9] transition-colors duration-300 hover:text-accent-deep"
-        >
-          <HandleWave text={INSTAGRAM_HANDLE} />
-          <span className="sr-only"> ({t.contact.cta}, {t.contact.newTab})</span>
-        </a>
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-4 t-small">
-          <span className="inline-flex items-center gap-2 font-semibold">
-            <InstagramGlyph className="size-5" />
-            {t.contact.handleLabel}
-          </span>
-          <a href={INSTAGRAM_URL} target="_blank" rel="noopener" className="link-u focus-ring font-semibold">
-            {t.contact.cta}
-            <span className="sr-only"> ({t.contact.newTab})</span>
-          </a>
-        </div>
       </div>
+      <div className={cn(row, "bg-paper")} data-reveal="">
+        <a href={INSTAGRAM_URL} target="_blank" rel="noopener" dir="ltr" className={cn(type, "focus-ring normal-case text-ink transition-colors duration-300 hover:text-accent-soft")}>
+          <HandleWave text={INSTAGRAM_HANDLE} />
+          <span className="sr-only"> ({t.contact.newTab})</span>
+        </a>
+      </div>
+      <div className={cn(row, "bg-paper-2")} data-reveal="">
+        <p className="flex max-w-[44ch] items-start gap-3 text-[length:var(--t-statement)] leading-snug text-ink">
+          <InstagramGlyph className="mt-1 size-6 shrink-0" />
+          {t.contact.lead}
+        </p>
+      </div>
+      <a
+        href={INSTAGRAM_URL}
+        target="_blank"
+        rel="noopener"
+        className={cn(row, "group bg-accent text-on-accent focus-ring transition-colors duration-300 hover:bg-accent-deep")}
+      >
+        <span className={cn(type, "flex items-center gap-[0.3em]")}>
+          {t.contact.cta}
+          <span aria-hidden className="grid size-[0.9em] shrink-0 place-items-center rounded-full bg-on-accent text-accent transition-transform duration-500 ease-drape group-hover:rotate-45">
+            <ArrowUpRight className="size-[0.5em]" strokeWidth={2} />
+          </span>
+        </span>
+        <span className="sr-only"> ({t.contact.newTab})</span>
+      </a>
     </section>
   );
 }
